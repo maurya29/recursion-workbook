@@ -1,0 +1,608 @@
+{
+  "id": "backtracking",
+  "name": "Backtracking",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/backtracking.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Subsets",
+      "question": "Given an integer array nums with unique elements, return all possible subsets. The solution set must not contain duplicate subsets.",
+      "constraints": "1 <= nums.length <= 10; -10 <= nums[i] <= 10; all elements are unique.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3]",
+          "output": "[[],[1],[1,2],[1,2,3],[1,3],[2],[2,3],[3]]",
+          "explanation": "Each number is either chosen or skipped."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "[[],[0]]",
+          "explanation": "There are two subsets for one element."
+        },
+        {
+          "input": "nums = [1,2]",
+          "output": "[[],[1],[1,2],[2]]",
+          "explanation": "There are four subsets."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * 2^n); Space O(n * 2^n). Iterative expansion doubles the result set for each number.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> subsets(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    answer.add(new ArrayList<>());\n    for (int num : nums) {\n      int size = answer.size();\n      for (int i = 0; i < size; i++) {\n        List<Integer> next = new ArrayList<>(answer.get(i));\n        next.add(num);\n        answer.add(next);\n      }\n    }\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(n * 2^n); Space O(n) recursion stack excluding output.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> subsets(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(nums, 0, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int[] nums, int start, List<Integer> path, List<List<Integer>> answer) {\n    answer.add(new ArrayList<>(path));\n    for (int i = start; i < nums.length; i++) {\n      path.add(nums[i]);\n      backtrack(nums, i + 1, path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Subsets - LeetCode 78",
+        "url": "https://leetcode.com/problems/subsets/"
+      }
+    },
+    {
+      "name": "Subsets II",
+      "question": "Given an integer array nums that may contain duplicates, return all possible subsets without duplicate subsets.",
+      "constraints": "1 <= nums.length <= 10; -10 <= nums[i] <= 10.",
+      "examples": [
+        {
+          "input": "nums = [1,2,2]",
+          "output": "[[],[1],[1,2],[1,2,2],[2],[2,2]]",
+          "explanation": "The duplicate subset [2] appears only once."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "[[],[0]]",
+          "explanation": "One element still has two subsets."
+        },
+        {
+          "input": "nums = [2,2,2]",
+          "output": "[[],[2],[2,2],[2,2,2]]",
+          "explanation": "Only different counts of value 2 matter."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * 2^n); Space O(n * 2^n). Iterative expansion only extends subsets created in the previous round for duplicates.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> subsetsWithDup(int[] nums) {\n    Arrays.sort(nums);\n    List<List<Integer>> answer = new ArrayList<>();\n    answer.add(new ArrayList<>());\n    int previousStart = 0;\n    int previousEnd = 0;\n\n    for (int i = 0; i < nums.length; i++) {\n      int start = i > 0 && nums[i] == nums[i - 1] ? previousStart : 0;\n      previousStart = answer.size();\n      previousEnd = answer.size();\n      for (int j = start; j < previousEnd; j++) {\n        List<Integer> next = new ArrayList<>(answer.get(j));\n        next.add(nums[i]);\n        answer.add(next);\n      }\n    }\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(n * 2^n); Space O(n) stack excluding output. Sorted backtracking skips same-depth duplicates.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> subsetsWithDup(int[] nums) {\n    Arrays.sort(nums);\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(nums, 0, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int[] nums, int start, List<Integer> path, List<List<Integer>> answer) {\n    answer.add(new ArrayList<>(path));\n    for (int i = start; i < nums.length; i++) {\n      if (i > start && nums[i] == nums[i - 1]) continue;\n      path.add(nums[i]);\n      backtrack(nums, i + 1, path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Subsets II - LeetCode 90",
+        "url": "https://leetcode.com/problems/subsets-ii/"
+      }
+    },
+    {
+      "name": "Permutations",
+      "question": "Given an array nums of distinct integers, return all possible permutations.",
+      "constraints": "1 <= nums.length <= 6; -10 <= nums[i] <= 10; all values are unique.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3]",
+          "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]",
+          "explanation": "All 3! orderings are returned."
+        },
+        {
+          "input": "nums = [0,1]",
+          "output": "[[0,1],[1,0]]",
+          "explanation": "Two values have two orders."
+        },
+        {
+          "input": "nums = [1]",
+          "output": "[[1]]",
+          "explanation": "One value has one permutation."
+        }
+      ],
+      "optimizedComplexity": "Time O(n! * n); Space O(n! * n). Iterative insertion builds permutations level by level.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> permute(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    answer.add(new ArrayList<>());\n    for (int num : nums) {\n      List<List<Integer>> nextLevel = new ArrayList<>();\n      for (List<Integer> perm : answer) {\n        for (int pos = 0; pos <= perm.size(); pos++) {\n          List<Integer> next = new ArrayList<>(perm);\n          next.add(pos, num);\n          nextLevel.add(next);\n        }\n      }\n      answer = nextLevel;\n    }\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(n! * n); Space O(n) stack excluding output.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> permute(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(nums, new boolean[nums.length], new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> answer) {\n    if (path.size() == nums.length) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n    for (int i = 0; i < nums.length; i++) {\n      if (used[i]) continue;\n      used[i] = true;\n      path.add(nums[i]);\n      backtrack(nums, used, path, answer);\n      path.remove(path.size() - 1);\n      used[i] = false;\n    }\n  }\n}",
+      "source": {
+        "label": "Permutations - LeetCode 46",
+        "url": "https://leetcode.com/problems/permutations/"
+      }
+    },
+    {
+      "name": "Permutations II",
+      "question": "Given a collection of numbers nums that may contain duplicates, return all unique permutations.",
+      "constraints": "1 <= nums.length <= 8; -10 <= nums[i] <= 10.",
+      "examples": [
+        {
+          "input": "nums = [1,1,2]",
+          "output": "[[1,1,2],[1,2,1],[2,1,1]]",
+          "explanation": "Duplicate 1 values do not create duplicate permutations."
+        },
+        {
+          "input": "nums = [1,2,3]",
+          "output": "six permutations",
+          "explanation": "With all unique values, all 3! permutations appear."
+        },
+        {
+          "input": "nums = [2,2]",
+          "output": "[[2,2]]",
+          "explanation": "Only one unique ordering exists."
+        }
+      ],
+      "optimizedComplexity": "Time O(uniquePermutations * n); Space O(uniquePermutations * n). Iterative insertion skips same insertion positions for duplicates.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> permuteUnique(int[] nums) {\n    Arrays.sort(nums);\n    List<List<Integer>> answer = new ArrayList<>();\n    answer.add(new ArrayList<>());\n    for (int num : nums) {\n      List<List<Integer>> nextLevel = new ArrayList<>();\n      for (List<Integer> perm : answer) {\n        for (int pos = 0; pos <= perm.size(); pos++) {\n          if (pos > 0 && perm.get(pos - 1) == num) break;\n          List<Integer> next = new ArrayList<>(perm);\n          next.add(pos, num);\n          nextLevel.add(next);\n        }\n      }\n      answer = nextLevel;\n    }\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(uniquePermutations * n); Space O(n) stack excluding output.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> permuteUnique(int[] nums) {\n    Arrays.sort(nums);\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(nums, new boolean[nums.length], new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> answer) {\n    if (path.size() == nums.length) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n    for (int i = 0; i < nums.length; i++) {\n      if (used[i]) continue;\n      if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;\n      used[i] = true;\n      path.add(nums[i]);\n      backtrack(nums, used, path, answer);\n      path.remove(path.size() - 1);\n      used[i] = false;\n    }\n  }\n}",
+      "source": {
+        "label": "Permutations II - LeetCode 47",
+        "url": "https://leetcode.com/problems/permutations-ii/"
+      }
+    },
+    {
+      "name": "Combinations",
+      "question": "Given n and k, return all possible combinations of k numbers chosen from 1 to n.",
+      "constraints": "1 <= n <= 20; 1 <= k <= n.",
+      "examples": [
+        {
+          "input": "n = 4, k = 2",
+          "output": "[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]",
+          "explanation": "Every size-2 choice is listed."
+        },
+        {
+          "input": "n = 1, k = 1",
+          "output": "[[1]]",
+          "explanation": "Only one number exists."
+        },
+        {
+          "input": "n = 3, k = 3",
+          "output": "[[1,2,3]]",
+          "explanation": "Choosing all numbers gives one combination."
+        }
+      ],
+      "optimizedComplexity": "Time O(C(n,k) * k); Space O(k) stack state excluding output.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combine(int n, int k) {\n    List<List<Integer>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(1, new ArrayList<>()));\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.path.size() == k) {\n        answer.add(state.path);\n        continue;\n      }\n      for (int num = n; num >= state.start; num--) {\n        List<Integer> next = new ArrayList<>(state.path);\n        next.add(num);\n        stack.push(new State(num + 1, next));\n      }\n    }\n    return answer;\n  }\n\n  private static class State {\n    int start; List<Integer> path;\n    State(int start, List<Integer> path) { this.start = start; this.path = path; }\n  }\n}",
+      "recursiveComplexity": "Time O(C(n,k) * k); Space O(k) recursion stack excluding output.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combine(int n, int k) {\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(1, n, k, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int start, int n, int k, List<Integer> path, List<List<Integer>> answer) {\n    if (path.size() == k) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n    int need = k - path.size();\n    for (int num = start; num <= n - need + 1; num++) {\n      path.add(num);\n      backtrack(num + 1, n, k, path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Combinations - LeetCode 77",
+        "url": "https://leetcode.com/problems/combinations/"
+      }
+    },
+    {
+      "name": "Combination Sum",
+      "question": "Given distinct candidates and a target, return all unique combinations where chosen numbers sum to target. The same number may be chosen unlimited times.",
+      "constraints": "1 <= candidates.length <= 30; 2 <= candidates[i] <= 40; candidates are distinct; 1 <= target <= 40.",
+      "examples": [
+        {
+          "input": "candidates = [2,3,6,7], target = 7",
+          "output": "[[2,2,3],[7]]",
+          "explanation": "2 can be reused and 7 is exact."
+        },
+        {
+          "input": "candidates = [2,3,5], target = 8",
+          "output": "[[2,2,2,2],[2,3,3],[3,5]]",
+          "explanation": "All combinations sum to 8."
+        },
+        {
+          "input": "candidates = [2], target = 1",
+          "output": "[]",
+          "explanation": "No combination can reach 1."
+        }
+      ],
+      "optimizedComplexity": "Time exponential in output size; Space O(target/minCandidate). Iterative stack applies sorted pruning.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum(int[] candidates, int target) {\n    Arrays.sort(candidates);\n    List<List<Integer>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(0, target, new ArrayList<>()));\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.remaining == 0) { answer.add(state.path); continue; }\n      for (int i = candidates.length - 1; i >= state.start; i--) {\n        if (candidates[i] > state.remaining) continue;\n        List<Integer> next = new ArrayList<>(state.path);\n        next.add(candidates[i]);\n        stack.push(new State(i, state.remaining - candidates[i], next));\n      }\n    }\n    return answer;\n  }\n\n  private static class State {\n    int start, remaining; List<Integer> path;\n    State(int start, int remaining, List<Integer> path) { this.start = start; this.remaining = remaining; this.path = path; }\n  }\n}",
+      "recursiveComplexity": "Time exponential in output size; Space O(target/minCandidate). Backtracking prunes candidates above remaining target.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum(int[] candidates, int target) {\n    Arrays.sort(candidates);\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(candidates, 0, target, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int[] candidates, int start, int remaining, List<Integer> path, List<List<Integer>> answer) {\n    if (remaining == 0) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n    for (int i = start; i < candidates.length && candidates[i] <= remaining; i++) {\n      path.add(candidates[i]);\n      backtrack(candidates, i, remaining - candidates[i], path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Combination Sum - LeetCode 39",
+        "url": "https://leetcode.com/problems/combination-sum/"
+      }
+    },
+    {
+      "name": "Combination Sum II",
+      "question": "Given candidates that may contain duplicates and a target, return all unique combinations where each candidate may be used at most once.",
+      "constraints": "1 <= candidates.length <= 100; 1 <= candidates[i] <= 50; 1 <= target <= 30.",
+      "examples": [
+        {
+          "input": "candidates = [10,1,2,7,6,1,5], target = 8",
+          "output": "[[1,1,6],[1,2,5],[1,7],[2,6]]",
+          "explanation": "Each index is used at most once."
+        },
+        {
+          "input": "candidates = [2,5,2,1,2], target = 5",
+          "output": "[[1,2,2],[5]]",
+          "explanation": "Duplicate 2 values are handled without duplicate combinations."
+        },
+        {
+          "input": "candidates = [3], target = 2",
+          "output": "[]",
+          "explanation": "The only candidate is too large."
+        }
+      ],
+      "optimizedComplexity": "Time O(2^n); Space O(n). Iterative stack with sorted duplicate pruning.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum2(int[] candidates, int target) {\n    Arrays.sort(candidates);\n    List<List<Integer>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(0, target, new ArrayList<>()));\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.remaining == 0) { answer.add(state.path); continue; }\n      for (int i = candidates.length - 1; i >= state.start; i--) {\n        if (i > state.start && candidates[i] == candidates[i - 1]) continue;\n        if (candidates[i] > state.remaining) continue;\n        List<Integer> next = new ArrayList<>(state.path);\n        next.add(candidates[i]);\n        stack.push(new State(i + 1, state.remaining - candidates[i], next));\n      }\n    }\n    return answer;\n  }\n\n  private static class State {\n    int start, remaining; List<Integer> path;\n    State(int start, int remaining, List<Integer> path) { this.start = start; this.remaining = remaining; this.path = path; }\n  }\n}",
+      "recursiveComplexity": "Time O(2^n); Space O(n). Backtracking skips same-depth duplicates and prunes large values.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum2(int[] candidates, int target) {\n    Arrays.sort(candidates);\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(candidates, 0, target, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int[] candidates, int start, int remaining, List<Integer> path, List<List<Integer>> answer) {\n    if (remaining == 0) { answer.add(new ArrayList<>(path)); return; }\n    for (int i = start; i < candidates.length && candidates[i] <= remaining; i++) {\n      if (i > start && candidates[i] == candidates[i - 1]) continue;\n      path.add(candidates[i]);\n      backtrack(candidates, i + 1, remaining - candidates[i], path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Combination Sum II - LeetCode 40",
+        "url": "https://leetcode.com/problems/combination-sum-ii/"
+      }
+    },
+    {
+      "name": "Combination Sum III",
+      "question": "Find all valid combinations of k numbers that sum to n using only numbers 1 through 9, where each number is used at most once.",
+      "constraints": "2 <= k <= 9; 1 <= n <= 60.",
+      "examples": [
+        {
+          "input": "k = 3, n = 7",
+          "output": "[[1,2,4]]",
+          "explanation": "Only 1 + 2 + 4 equals 7."
+        },
+        {
+          "input": "k = 3, n = 9",
+          "output": "[[1,2,6],[1,3,5],[2,3,4]]",
+          "explanation": "Three valid size-3 combinations exist."
+        },
+        {
+          "input": "k = 4, n = 1",
+          "output": "[]",
+          "explanation": "The target is too small for four positive numbers."
+        }
+      ],
+      "optimizedComplexity": "Time O(C(9,k)); Space O(k). Iterative stack prunes by remaining count and sum.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum3(int k, int n) {\n    List<List<Integer>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(1, n, new ArrayList<>()));\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.path.size() == k) {\n        if (state.remaining == 0) answer.add(state.path);\n        continue;\n      }\n      for (int num = 9; num >= state.start; num--) {\n        if (num > state.remaining) continue;\n        List<Integer> next = new ArrayList<>(state.path);\n        next.add(num);\n        stack.push(new State(num + 1, state.remaining - num, next));\n      }\n    }\n    return answer;\n  }\n\n  private static class State {\n    int start, remaining; List<Integer> path;\n    State(int start, int remaining, List<Integer> path) { this.start = start; this.remaining = remaining; this.path = path; }\n  }\n}",
+      "recursiveComplexity": "Time O(C(9,k)); Space O(k). Backtracking prunes candidates greater than remaining sum.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum3(int k, int n) {\n    List<List<Integer>> answer = new ArrayList<>();\n    backtrack(1, k, n, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(int start, int k, int remaining, List<Integer> path, List<List<Integer>> answer) {\n    if (path.size() == k) {\n      if (remaining == 0) answer.add(new ArrayList<>(path));\n      return;\n    }\n    for (int num = start; num <= 9 && num <= remaining; num++) {\n      path.add(num);\n      backtrack(num + 1, k, remaining - num, path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Combination Sum III - LeetCode 216",
+        "url": "https://leetcode.com/problems/combination-sum-iii/"
+      }
+    },
+    {
+      "name": "Generate Parentheses",
+      "question": "Given n pairs of parentheses, generate all combinations of well-formed parentheses.",
+      "constraints": "1 <= n <= 8.",
+      "examples": [
+        {
+          "input": "n = 3",
+          "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+          "explanation": "All valid strings with three pairs are generated."
+        },
+        {
+          "input": "n = 1",
+          "output": "[\"()\"]",
+          "explanation": "Only one valid string exists."
+        },
+        {
+          "input": "n = 2",
+          "output": "[\"(())\",\"()()\"]",
+          "explanation": "Two valid strings exist."
+        }
+      ],
+      "optimizedComplexity": "Time O(Cn * n); Space O(Cn * n). Iterative stack explores only valid prefixes.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<String> generateParenthesis(int n) {\n    List<String> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(\"\", 0, 0));\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.value.length() == 2 * n) { answer.add(state.value); continue; }\n      if (state.close < state.open) stack.push(new State(state.value + \")\", state.open, state.close + 1));\n      if (state.open < n) stack.push(new State(state.value + \"(\", state.open + 1, state.close));\n    }\n    return answer;\n  }\n\n  private static class State {\n    String value; int open, close;\n    State(String value, int open, int close) { this.value = value; this.open = open; this.close = close; }\n  }\n}",
+      "recursiveComplexity": "Time O(Cn * n); Space O(n) stack excluding output.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<String> generateParenthesis(int n) {\n    List<String> answer = new ArrayList<>();\n    backtrack(n, 0, 0, new StringBuilder(), answer);\n    return answer;\n  }\n\n  private void backtrack(int n, int open, int close, StringBuilder path, List<String> answer) {\n    if (path.length() == 2 * n) { answer.add(path.toString()); return; }\n    if (open < n) {\n      path.append('(');\n      backtrack(n, open + 1, close, path, answer);\n      path.deleteCharAt(path.length() - 1);\n    }\n    if (close < open) {\n      path.append(')');\n      backtrack(n, open, close + 1, path, answer);\n      path.deleteCharAt(path.length() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Generate Parentheses - LeetCode 22",
+        "url": "https://leetcode.com/problems/generate-parentheses/"
+      }
+    },
+    {
+      "name": "Letter Combinations of a Phone Number",
+      "question": "Given a string digits containing digits 2 through 9, return all possible letter combinations the number could represent.",
+      "constraints": "0 <= digits.length <= 4; digits[i] is between 2 and 9.",
+      "examples": [
+        {
+          "input": "digits = \"23\"",
+          "output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+          "explanation": "Every 2-letter choice combines with every 3-letter choice."
+        },
+        {
+          "input": "digits = \"\"",
+          "output": "[]",
+          "explanation": "No digits means no combinations."
+        },
+        {
+          "input": "digits = \"2\"",
+          "output": "[\"a\",\"b\",\"c\"]",
+          "explanation": "Digit 2 maps to three letters."
+        }
+      ],
+      "optimizedComplexity": "Time O(4^n * n); Space O(4^n * n). Queue expansion processes one digit level at a time.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  private static final String[] MAP = {\"\", \"\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\"};\n\n  public List<String> letterCombinations(String digits) {\n    List<String> answer = new ArrayList<>();\n    if (digits.length() == 0) return answer;\n    Queue<String> queue = new ArrayDeque<>();\n    queue.offer(\"\");\n    for (char digit : digits.toCharArray()) {\n      int size = queue.size();\n      for (int i = 0; i < size; i++) {\n        String prefix = queue.poll();\n        for (char ch : MAP[digit - '0'].toCharArray()) queue.offer(prefix + ch);\n      }\n    }\n    answer.addAll(queue);\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(4^n * n); Space O(n) stack excluding output.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  private static final String[] MAP = {\"\", \"\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\"};\n\n  public List<String> letterCombinations(String digits) {\n    List<String> answer = new ArrayList<>();\n    if (digits.length() == 0) return answer;\n    backtrack(digits, 0, new StringBuilder(), answer);\n    return answer;\n  }\n\n  private void backtrack(String digits, int index, StringBuilder path, List<String> answer) {\n    if (index == digits.length()) { answer.add(path.toString()); return; }\n    for (char ch : MAP[digits.charAt(index) - '0'].toCharArray()) {\n      path.append(ch);\n      backtrack(digits, index + 1, path, answer);\n      path.deleteCharAt(path.length() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Letter Combinations of a Phone Number - LeetCode 17",
+        "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+      }
+    },
+    {
+      "name": "Palindrome Partitioning",
+      "question": "Given a string s, partition it so that every substring in the partition is a palindrome. Return all possible palindrome partitionings.",
+      "constraints": "1 <= s.length <= 16; s contains lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"aab\"",
+          "output": "[[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]",
+          "explanation": "Both partitions contain only palindromes."
+        },
+        {
+          "input": "s = \"a\"",
+          "output": "[[\"a\"]]",
+          "explanation": "A single character is a palindrome."
+        },
+        {
+          "input": "s = \"efe\"",
+          "output": "[[\"e\",\"f\",\"e\"],[\"efe\"]]",
+          "explanation": "The whole string is also a palindrome."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * 2^n); Space O(n^2). Iterative stack uses precomputed palindrome table.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> partition(String s) {\n    boolean[][] pal = buildTable(s);\n    List<List<String>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(0, new ArrayList<>()));\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.index == s.length()) { answer.add(state.path); continue; }\n      for (int end = s.length() - 1; end >= state.index; end--) {\n        if (!pal[state.index][end]) continue;\n        List<String> next = new ArrayList<>(state.path);\n        next.add(s.substring(state.index, end + 1));\n        stack.push(new State(end + 1, next));\n      }\n    }\n    return answer;\n  }\n\n  private boolean[][] buildTable(String s) {\n    int n = s.length(); boolean[][] pal = new boolean[n][n];\n    for (int len = 1; len <= n; len++) for (int l = 0; l + len - 1 < n; l++) {\n      int r = l + len - 1;\n      pal[l][r] = s.charAt(l) == s.charAt(r) && (len <= 2 || pal[l + 1][r - 1]);\n    }\n    return pal;\n  }\n\n  private static class State { int index; List<String> path; State(int index, List<String> path){this.index=index;this.path=path;} }\n}",
+      "recursiveComplexity": "Time O(n * 2^n); Space O(n^2 + n). Backtracking uses a palindrome DP table.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> partition(String s) {\n    List<List<String>> answer = new ArrayList<>();\n    boolean[][] pal = buildTable(s);\n    backtrack(s, 0, pal, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(String s, int index, boolean[][] pal, List<String> path, List<List<String>> answer) {\n    if (index == s.length()) { answer.add(new ArrayList<>(path)); return; }\n    for (int end = index; end < s.length(); end++) {\n      if (!pal[index][end]) continue;\n      path.add(s.substring(index, end + 1));\n      backtrack(s, end + 1, pal, path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n\n  private boolean[][] buildTable(String s) {\n    int n = s.length(); boolean[][] pal = new boolean[n][n];\n    for (int len = 1; len <= n; len++) for (int l = 0; l + len - 1 < n; l++) {\n      int r = l + len - 1;\n      pal[l][r] = s.charAt(l) == s.charAt(r) && (len <= 2 || pal[l + 1][r - 1]);\n    }\n    return pal;\n  }\n}",
+      "source": {
+        "label": "Palindrome Partitioning - LeetCode 131",
+        "url": "https://leetcode.com/problems/palindrome-partitioning/"
+      }
+    },
+    {
+      "name": "Restore IP Addresses",
+      "question": "Given a string containing only digits, return all possible valid IP addresses that can be formed by inserting three dots.",
+      "constraints": "1 <= s.length <= 20; s contains only digits.",
+      "examples": [
+        {
+          "input": "s = \"25525511135\"",
+          "output": "[\"255.255.11.135\",\"255.255.111.35\"]",
+          "explanation": "Both addresses have four valid segments."
+        },
+        {
+          "input": "s = \"0000\"",
+          "output": "[\"0.0.0.0\"]",
+          "explanation": "Each segment is a single zero."
+        },
+        {
+          "input": "s = \"101023\"",
+          "output": "[\"1.0.10.23\",\"1.0.102.3\",\"10.1.0.23\",\"10.10.2.3\",\"101.0.2.3\"]",
+          "explanation": "Multiple segment lengths are valid."
+        }
+      ],
+      "optimizedComplexity": "Time O(1); Space O(1). Iterative loops choose three cut positions with pruning.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<String> restoreIpAddresses(String s) {\n    List<String> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(0, new ArrayList<>()));\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.parts.size() == 4) {\n        if (state.index == s.length()) answer.add(String.join(\".\", state.parts));\n        continue;\n      }\n      for (int len = 3; len >= 1; len--) {\n        if (state.index + len > s.length()) continue;\n        String part = s.substring(state.index, state.index + len);\n        if (!valid(part)) continue;\n        List<String> next = new ArrayList<>(state.parts);\n        next.add(part);\n        stack.push(new State(state.index + len, next));\n      }\n    }\n    return answer;\n  }\n\n  private boolean valid(String part) {\n    return !(part.length() > 1 && part.charAt(0) == '0') && Integer.parseInt(part) <= 255;\n  }\n\n  private static class State { int index; List<String> parts; State(int index, List<String> parts){this.index=index;this.parts=parts;} }\n}",
+      "recursiveComplexity": "Time O(1); Space O(1). Backtracking depth is fixed at four segments.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<String> restoreIpAddresses(String s) {\n    List<String> answer = new ArrayList<>();\n    backtrack(s, 0, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void backtrack(String s, int index, List<String> parts, List<String> answer) {\n    if (parts.size() == 4) {\n      if (index == s.length()) answer.add(String.join(\".\", parts));\n      return;\n    }\n    for (int len = 1; len <= 3 && index + len <= s.length(); len++) {\n      String part = s.substring(index, index + len);\n      if (!valid(part)) continue;\n      parts.add(part);\n      backtrack(s, index + len, parts, answer);\n      parts.remove(parts.size() - 1);\n    }\n  }\n\n  private boolean valid(String part) {\n    return !(part.length() > 1 && part.charAt(0) == '0') && Integer.parseInt(part) <= 255;\n  }\n}",
+      "source": {
+        "label": "Restore IP Addresses - LeetCode 93",
+        "url": "https://leetcode.com/problems/restore-ip-addresses/"
+      }
+    },
+    {
+      "name": "Word Search",
+      "question": "Given an m x n character board and a word, return true if the word exists in the grid by adjacent horizontal or vertical moves without reusing cells.",
+      "constraints": "1 <= m, n <= 6; 1 <= word.length <= 15.",
+      "examples": [
+        {
+          "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"",
+          "output": "true",
+          "explanation": "A valid adjacent path spells the word."
+        },
+        {
+          "input": "board = same, word = \"SEE\"",
+          "output": "true",
+          "explanation": "SEE exists on the board."
+        },
+        {
+          "input": "board = same, word = \"ABCB\"",
+          "output": "false",
+          "explanation": "The path would need to reuse B."
+        }
+      ],
+      "optimizedComplexity": "Time O(m*n*3^L); Space O(L). Iterative DFS avoids revisiting cells already in the path.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  private static final int[][] DIRS = {{1,0},{-1,0},{0,1},{0,-1}};\n\n  public boolean exist(char[][] board, String word) {\n    int rows = board.length, cols = board[0].length;\n    for (int r = 0; r < rows; r++) for (int c = 0; c < cols; c++) {\n      if (board[r][c] != word.charAt(0)) continue;\n      Deque<State> stack = new ArrayDeque<>();\n      stack.push(new State(r, c, 0, new boolean[rows][cols]));\n      while (!stack.isEmpty()) {\n        State cur = stack.pop();\n        if (cur.row < 0 || cur.col < 0 || cur.row == rows || cur.col == cols) continue;\n        if (cur.used[cur.row][cur.col] || board[cur.row][cur.col] != word.charAt(cur.index)) continue;\n        if (cur.index == word.length() - 1) return true;\n        cur.used[cur.row][cur.col] = true;\n        for (int[] d : DIRS) stack.push(new State(cur.row + d[0], cur.col + d[1], cur.index + 1, copy(cur.used)));\n      }\n    }\n    return false;\n  }\n\n  private boolean[][] copy(boolean[][] used) {\n    boolean[][] next = new boolean[used.length][used[0].length];\n    for (int i = 0; i < used.length; i++) next[i] = used[i].clone();\n    return next;\n  }\n\n  private static class State { int row, col, index; boolean[][] used; State(int r,int c,int i,boolean[][] u){row=r;col=c;index=i;used=u;} }\n}",
+      "recursiveComplexity": "Time O(m*n*3^L); Space O(L). In-place marking keeps visited state compact.",
+      "recursiveCode": "class Solution {\n  public boolean exist(char[][] board, String word) {\n    for (int r = 0; r < board.length; r++) {\n      for (int c = 0; c < board[0].length; c++) {\n        if (backtrack(board, word, r, c, 0)) return true;\n      }\n    }\n    return false;\n  }\n\n  private boolean backtrack(char[][] board, String word, int r, int c, int index) {\n    if (index == word.length()) return true;\n    if (r < 0 || c < 0 || r == board.length || c == board[0].length) return false;\n    if (board[r][c] != word.charAt(index)) return false;\n    char saved = board[r][c];\n    board[r][c] = '#';\n    boolean found = backtrack(board, word, r + 1, c, index + 1) || backtrack(board, word, r - 1, c, index + 1)\n        || backtrack(board, word, r, c + 1, index + 1) || backtrack(board, word, r, c - 1, index + 1);\n    board[r][c] = saved;\n    return found;\n  }\n}",
+      "source": {
+        "label": "Word Search - LeetCode 79",
+        "url": "https://leetcode.com/problems/word-search/"
+      }
+    },
+    {
+      "name": "N-Queens",
+      "question": "Given n, return all distinct boards that place n queens on an n x n board so no two queens attack each other.",
+      "constraints": "1 <= n <= 9.",
+      "examples": [
+        {
+          "input": "n = 4",
+          "output": "two boards",
+          "explanation": "The classic 4-queens puzzle has two solutions."
+        },
+        {
+          "input": "n = 1",
+          "output": "[[\"Q\"]]",
+          "explanation": "One queen is valid."
+        },
+        {
+          "input": "n = 2",
+          "output": "[]",
+          "explanation": "No valid placement exists."
+        }
+      ],
+      "optimizedComplexity": "Time O(n!); Space O(n). Iterative row search maintains constraint arrays.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> solveNQueens(int n) {\n    List<List<String>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(0, new int[n], new boolean[n], new boolean[2*n], new boolean[2*n]));\n    while (!stack.isEmpty()) {\n      State s = stack.pop();\n      if (s.row == n) { answer.add(build(s.cols)); continue; }\n      for (int col = n - 1; col >= 0; col--) {\n        int d1 = s.row - col + n, d2 = s.row + col;\n        if (s.used[col] || s.d1[d1] || s.d2[d2]) continue;\n        State next = s.copy();\n        next.cols[s.row] = col;\n        next.used[col] = next.d1[d1] = next.d2[d2] = true;\n        next.row++;\n        stack.push(next);\n      }\n    }\n    return answer;\n  }\n\n  private List<String> build(int[] cols) {\n    List<String> board = new ArrayList<>();\n    for (int col : cols) { char[] row = new char[cols.length]; Arrays.fill(row, '.'); row[col] = 'Q'; board.add(new String(row)); }\n    return board;\n  }\n\n  private static class State {\n    int row; int[] cols; boolean[] used, d1, d2;\n    State(int row,int[] cols,boolean[] used,boolean[] d1,boolean[] d2){this.row=row;this.cols=cols;this.used=used;this.d1=d1;this.d2=d2;}\n    State copy(){return new State(row, cols.clone(), used.clone(), d1.clone(), d2.clone());}\n  }\n}",
+      "recursiveComplexity": "Time O(n!); Space O(n). Backtracking places one queen per row.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> solveNQueens(int n) {\n    List<List<String>> answer = new ArrayList<>();\n    backtrack(0, n, new int[n], new boolean[n], new boolean[2*n], new boolean[2*n], answer);\n    return answer;\n  }\n\n  private void backtrack(int row, int n, int[] cols, boolean[] used, boolean[] d1, boolean[] d2, List<List<String>> answer) {\n    if (row == n) { answer.add(build(cols)); return; }\n    for (int col = 0; col < n; col++) {\n      int a = row - col + n, b = row + col;\n      if (used[col] || d1[a] || d2[b]) continue;\n      cols[row] = col; used[col] = d1[a] = d2[b] = true;\n      backtrack(row + 1, n, cols, used, d1, d2, answer);\n      used[col] = d1[a] = d2[b] = false;\n    }\n  }\n\n  private List<String> build(int[] cols) {\n    List<String> board = new ArrayList<>();\n    for (int col : cols) { char[] row = new char[cols.length]; Arrays.fill(row, '.'); row[col] = 'Q'; board.add(new String(row)); }\n    return board;\n  }\n}",
+      "source": {
+        "label": "N-Queens - LeetCode 51",
+        "url": "https://leetcode.com/problems/n-queens/"
+      }
+    },
+    {
+      "name": "Sudoku Solver",
+      "question": "Solve a 9 x 9 Sudoku board by filling empty cells marked with dots. The given board has exactly one solution.",
+      "constraints": "board is 9 x 9; cells are digits 1..9 or dot; the puzzle has exactly one solution.",
+      "examples": [
+        {
+          "input": "standard partially-filled Sudoku board",
+          "output": "solved board",
+          "explanation": "All rows, columns, and boxes become valid."
+        },
+        {
+          "input": "board with one blank",
+          "output": "blank filled",
+          "explanation": "The only valid digit is inserted."
+        },
+        {
+          "input": "already solved board",
+          "output": "same board",
+          "explanation": "No search is needed."
+        }
+      ],
+      "optimizedComplexity": "Time O(9^e); Space O(e). Iterative stack uses precomputed constraints.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public void solveSudoku(char[][] board) {\n    List<int[]> blanks = new ArrayList<>();\n    boolean[][] rows = new boolean[9][10], cols = new boolean[9][10], boxes = new boolean[9][10];\n    for (int r = 0; r < 9; r++) for (int c = 0; c < 9; c++) {\n      if (board[r][c] == '.') blanks.add(new int[]{r,c});\n      else set(rows, cols, boxes, r, c, board[r][c] - '0', true);\n    }\n    int[] next = new int[blanks.size()];\n    Arrays.fill(next, 1);\n    int i = 0;\n    while (i >= 0 && i < blanks.size()) {\n      int r = blanks.get(i)[0], c = blanks.get(i)[1];\n      if (board[r][c] != '.') { set(rows, cols, boxes, r, c, board[r][c] - '0', false); board[r][c] = '.'; }\n      boolean placed = false;\n      for (int d = next[i]; d <= 9; d++) if (!rows[r][d] && !cols[c][d] && !boxes[box(r,c)][d]) {\n        board[r][c] = (char)('0' + d); set(rows, cols, boxes, r, c, d, true); next[i] = d + 1; i++; placed = true; break;\n      }\n      if (!placed) { next[i] = 1; i--; }\n    }\n  }\n\n  private void set(boolean[][] rows, boolean[][] cols, boolean[][] boxes, int r, int c, int d, boolean value) { rows[r][d] = cols[c][d] = boxes[box(r,c)][d] = value; }\n  private int box(int r, int c) { return (r / 3) * 3 + c / 3; }\n}",
+      "recursiveComplexity": "Time O(9^e); Space O(e). Backtracking with constraint tables tests digits in O(1).",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public void solveSudoku(char[][] board) {\n    boolean[][] rows = new boolean[9][10], cols = new boolean[9][10], boxes = new boolean[9][10];\n    List<int[]> blanks = new ArrayList<>();\n    for (int r = 0; r < 9; r++) for (int c = 0; c < 9; c++) {\n      if (board[r][c] == '.') blanks.add(new int[]{r,c});\n      else set(rows, cols, boxes, r, c, board[r][c] - '0', true);\n    }\n    backtrack(board, blanks, 0, rows, cols, boxes);\n  }\n\n  private boolean backtrack(char[][] board, List<int[]> blanks, int index, boolean[][] rows, boolean[][] cols, boolean[][] boxes) {\n    if (index == blanks.size()) return true;\n    int r = blanks.get(index)[0], c = blanks.get(index)[1];\n    for (int d = 1; d <= 9; d++) {\n      if (rows[r][d] || cols[c][d] || boxes[box(r,c)][d]) continue;\n      board[r][c] = (char)('0' + d); set(rows, cols, boxes, r, c, d, true);\n      if (backtrack(board, blanks, index + 1, rows, cols, boxes)) return true;\n      set(rows, cols, boxes, r, c, d, false); board[r][c] = '.';\n    }\n    return false;\n  }\n\n  private void set(boolean[][] rows, boolean[][] cols, boolean[][] boxes, int r, int c, int d, boolean value) { rows[r][d] = cols[c][d] = boxes[box(r,c)][d] = value; }\n  private int box(int r, int c) { return (r / 3) * 3 + c / 3; }\n}",
+      "source": {
+        "label": "Sudoku Solver - LeetCode 37",
+        "url": "https://leetcode.com/problems/sudoku-solver/"
+      }
+    },
+    {
+      "name": "Rat in a Maze",
+      "question": "Given an n x n maze matrix where 1 means open and 0 means blocked, return all paths from top-left to bottom-right using moves D, L, R, and U without revisiting cells.",
+      "constraints": "1 <= n <= 5 in common interview variants; mat[i][j] is 0 or 1.",
+      "examples": [
+        {
+          "input": "mat = [[1,0,0,0],[1,1,0,1],[1,1,0,0],[0,1,1,1]]",
+          "output": "[\"DDRDRR\",\"DRDDRR\"]",
+          "explanation": "Two valid paths reach the bottom-right cell."
+        },
+        {
+          "input": "mat = [[1,0],[0,1]]",
+          "output": "[]",
+          "explanation": "The destination is isolated."
+        },
+        {
+          "input": "mat = [[1]]",
+          "output": "[\"\"]",
+          "explanation": "The rat starts at the destination."
+        }
+      ],
+      "optimizedComplexity": "Time O(4^(n^2)); Space O(n^2). Iterative DFS stores path and visited mask.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public ArrayList<String> findPath(int[][] mat) {\n    ArrayList<String> answer = new ArrayList<>();\n    if (mat[0][0] == 0) return answer;\n    int n = mat.length;\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(0, 0, \"\", new boolean[n][n]));\n    char[] move = {'U','R','L','D'}; int[] dr = {-1,0,0,1}; int[] dc = {0,1,-1,0};\n    while (!stack.isEmpty()) {\n      State s = stack.pop();\n      if (s.r < 0 || s.c < 0 || s.r == n || s.c == n || mat[s.r][s.c] == 0 || s.used[s.r][s.c]) continue;\n      if (s.r == n - 1 && s.c == n - 1) { answer.add(s.path); continue; }\n      s.used[s.r][s.c] = true;\n      for (int i = 0; i < 4; i++) stack.push(new State(s.r + dr[i], s.c + dc[i], s.path + move[i], copy(s.used)));\n    }\n    Collections.sort(answer);\n    return answer;\n  }\n\n  private boolean[][] copy(boolean[][] used) { boolean[][] next = new boolean[used.length][used.length]; for (int i = 0; i < used.length; i++) next[i] = used[i].clone(); return next; }\n  private static class State { int r,c; String path; boolean[][] used; State(int r,int c,String p,boolean[][] u){this.r=r;this.c=c;path=p;used=u;} }\n}",
+      "recursiveComplexity": "Time O(4^(n^2)); Space O(n^2). Recursive DFS marks and unmarks visited cells.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public ArrayList<String> findPath(int[][] mat) {\n    ArrayList<String> answer = new ArrayList<>();\n    if (mat[0][0] == 0) return answer;\n    backtrack(mat, 0, 0, new boolean[mat.length][mat.length], new StringBuilder(), answer);\n    return answer;\n  }\n\n  private void backtrack(int[][] mat, int r, int c, boolean[][] used, StringBuilder path, ArrayList<String> answer) {\n    int n = mat.length;\n    if (r < 0 || c < 0 || r == n || c == n || mat[r][c] == 0 || used[r][c]) return;\n    if (r == n - 1 && c == n - 1) { answer.add(path.toString()); return; }\n    used[r][c] = true;\n    char[] move = {'D','L','R','U'}; int[] dr = {1,0,0,-1}; int[] dc = {0,-1,1,0};\n    for (int i = 0; i < 4; i++) {\n      path.append(move[i]);\n      backtrack(mat, r + dr[i], c + dc[i], used, path, answer);\n      path.deleteCharAt(path.length() - 1);\n    }\n    used[r][c] = false;\n  }\n}",
+      "source": {
+        "label": "Rat in a Maze Problem - GeeksforGeeks",
+        "url": "https://www.geeksforgeeks.org/problems/rat-in-a-maze-problem/1"
+      }
+    },
+    {
+      "name": "Unique Paths III",
+      "question": "Given a grid with start, end, empty cells, and obstacles, return the number of 4-directional paths from start to end that visit every non-obstacle cell exactly once.",
+      "constraints": "1 <= m, n <= 20; total cells <= 20 in the original problem.",
+      "examples": [
+        {
+          "input": "grid = [[1,0,0,0],[0,0,0,0],[0,0,2,-1]]",
+          "output": "2",
+          "explanation": "Two paths visit all non-obstacle cells."
+        },
+        {
+          "input": "grid = [[1,0,0,0],[0,0,0,0],[0,0,0,2]]",
+          "output": "4",
+          "explanation": "Four Hamiltonian paths exist."
+        },
+        {
+          "input": "grid = [[0,1],[2,0]]",
+          "output": "0",
+          "explanation": "No path can visit every open cell exactly once."
+        }
+      ],
+      "optimizedComplexity": "Time O(4^E); Space O(E). Iterative stack carries position, remaining count, and visited mask.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int uniquePathsIII(int[][] grid) {\n    int rows = grid.length, cols = grid[0].length, sr = 0, sc = 0, walk = 0;\n    for (int r = 0; r < rows; r++) for (int c = 0; c < cols; c++) {\n      if (grid[r][c] != -1) walk++;\n      if (grid[r][c] == 1) { sr = r; sc = c; }\n    }\n    int answer = 0;\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(sr, sc, walk, 0));\n    int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};\n    while (!stack.isEmpty()) {\n      State s = stack.pop();\n      if (s.r < 0 || s.c < 0 || s.r == rows || s.c == cols || grid[s.r][s.c] == -1) continue;\n      int bit = 1 << (s.r * cols + s.c);\n      if ((s.mask & bit) != 0) continue;\n      if (grid[s.r][s.c] == 2) { if (s.remaining == 1) answer++; continue; }\n      for (int[] d : dirs) stack.push(new State(s.r+d[0], s.c+d[1], s.remaining-1, s.mask | bit));\n    }\n    return answer;\n  }\n\n  private static class State { int r,c,remaining,mask; State(int r,int c,int rem,int mask){this.r=r;this.c=c;remaining=rem;this.mask=mask;} }\n}",
+      "recursiveComplexity": "Time O(4^E); Space O(E). Backtracking marks cells in-place and decrements remaining count.",
+      "recursiveCode": "class Solution {\n  public int uniquePathsIII(int[][] grid) {\n    int sr = 0, sc = 0, walk = 0;\n    for (int r = 0; r < grid.length; r++) for (int c = 0; c < grid[0].length; c++) {\n      if (grid[r][c] != -1) walk++;\n      if (grid[r][c] == 1) { sr = r; sc = c; }\n    }\n    return backtrack(grid, sr, sc, walk);\n  }\n\n  private int backtrack(int[][] grid, int r, int c, int remaining) {\n    if (r < 0 || c < 0 || r == grid.length || c == grid[0].length || grid[r][c] == -1) return 0;\n    if (grid[r][c] == 2) return remaining == 1 ? 1 : 0;\n    int saved = grid[r][c];\n    grid[r][c] = -1;\n    int total = backtrack(grid, r+1, c, remaining-1) + backtrack(grid, r-1, c, remaining-1)\n        + backtrack(grid, r, c+1, remaining-1) + backtrack(grid, r, c-1, remaining-1);\n    grid[r][c] = saved;\n    return total;\n  }\n}",
+      "source": {
+        "label": "Unique Paths III - LeetCode 980",
+        "url": "https://leetcode.com/problems/unique-paths-iii/"
+      }
+    },
+    {
+      "name": "Matchsticks to Square",
+      "question": "Given matchsticks, return true if they can form a square using every matchstick exactly once.",
+      "constraints": "1 <= matchsticks.length <= 15; 1 <= matchsticks[i] <= 100000000.",
+      "examples": [
+        {
+          "input": "matchsticks = [1,1,2,2,2]",
+          "output": "true",
+          "explanation": "Each side can sum to 2."
+        },
+        {
+          "input": "matchsticks = [3,3,3,3,4]",
+          "output": "false",
+          "explanation": "The total cannot form four equal sides."
+        },
+        {
+          "input": "matchsticks = [5,5,5,5]",
+          "output": "true",
+          "explanation": "Each side gets one stick."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * 2^n); Space O(2^n). Bitmask DP tracks current side sum modulo target.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public boolean makesquare(int[] matchsticks) {\n    int sum = 0;\n    for (int stick : matchsticks) sum += stick;\n    if (sum % 4 != 0) return false;\n    int target = sum / 4;\n    int totalMasks = 1 << matchsticks.length;\n    int[] dp = new int[totalMasks];\n    Arrays.fill(dp, -1);\n    dp[0] = 0;\n    for (int mask = 0; mask < totalMasks; mask++) {\n      if (dp[mask] == -1) continue;\n      for (int i = 0; i < matchsticks.length; i++) {\n        if ((mask & (1 << i)) != 0) continue;\n        int next = dp[mask] + matchsticks[i];\n        if (next <= target) dp[mask | (1 << i)] = next % target;\n      }\n    }\n    return dp[totalMasks - 1] == 0;\n  }\n}",
+      "recursiveComplexity": "Time O(4^n) worst case with strong pruning; Space O(n). Descending backtracking reduces branches.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public boolean makesquare(int[] matchsticks) {\n    int sum = 0;\n    for (int stick : matchsticks) sum += stick;\n    if (sum % 4 != 0) return false;\n    Arrays.sort(matchsticks);\n    reverse(matchsticks);\n    return backtrack(matchsticks, 0, new int[4], sum / 4);\n  }\n\n  private boolean backtrack(int[] sticks, int index, int[] sides, int target) {\n    if (index == sticks.length) return true;\n    for (int side = 0; side < 4; side++) {\n      if (sides[side] + sticks[index] > target) continue;\n      sides[side] += sticks[index];\n      if (backtrack(sticks, index + 1, sides, target)) return true;\n      sides[side] -= sticks[index];\n      if (sides[side] == 0) break;\n    }\n    return false;\n  }\n\n  private void reverse(int[] nums) { for (int l = 0, r = nums.length - 1; l < r; l++, r--) { int t = nums[l]; nums[l] = nums[r]; nums[r] = t; } }\n}",
+      "source": {
+        "label": "Matchsticks to Square - LeetCode 473",
+        "url": "https://leetcode.com/problems/matchsticks-to-square/"
+      }
+    },
+    {
+      "name": "Partition to K Equal Sum Subsets",
+      "question": "Given nums and k, return true if nums can be partitioned into k non-empty subsets with equal sum.",
+      "constraints": "1 <= k <= nums.length <= 16; 1 <= nums[i] <= 10000.",
+      "examples": [
+        {
+          "input": "nums = [4,3,2,3,5,2,1], k = 4",
+          "output": "true",
+          "explanation": "Each subset can sum to 5."
+        },
+        {
+          "input": "nums = [1,2,3,4], k = 3",
+          "output": "false",
+          "explanation": "Total cannot split into equal integer sums."
+        },
+        {
+          "input": "nums = [2,2,2,2], k = 2",
+          "output": "true",
+          "explanation": "Two subsets can each sum to 4."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * 2^n); Space O(2^n). Bitmask DP tracks partial bucket sum modulo target.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public boolean canPartitionKSubsets(int[] nums, int k) {\n    int sum = 0;\n    for (int num : nums) sum += num;\n    if (sum % k != 0) return false;\n    int target = sum / k;\n    int totalMasks = 1 << nums.length;\n    int[] dp = new int[totalMasks];\n    Arrays.fill(dp, -1);\n    dp[0] = 0;\n    for (int mask = 0; mask < totalMasks; mask++) {\n      if (dp[mask] == -1) continue;\n      for (int i = 0; i < nums.length; i++) {\n        if ((mask & (1 << i)) != 0) continue;\n        int next = dp[mask] + nums[i];\n        if (next <= target) dp[mask | (1 << i)] = next % target;\n      }\n    }\n    return dp[totalMasks - 1] == 0;\n  }\n}",
+      "recursiveComplexity": "Time O(k^n) worst case with pruning; Space O(n + k). Sorted bucket backtracking skips symmetric states.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public boolean canPartitionKSubsets(int[] nums, int k) {\n    int sum = 0;\n    for (int num : nums) sum += num;\n    if (sum % k != 0) return false;\n    Arrays.sort(nums);\n    reverse(nums);\n    return backtrack(nums, 0, new int[k], sum / k);\n  }\n\n  private boolean backtrack(int[] nums, int index, int[] buckets, int target) {\n    if (index == nums.length) return true;\n    for (int i = 0; i < buckets.length; i++) {\n      if (buckets[i] + nums[index] > target) continue;\n      buckets[i] += nums[index];\n      if (backtrack(nums, index + 1, buckets, target)) return true;\n      buckets[i] -= nums[index];\n      if (buckets[i] == 0) break;\n    }\n    return false;\n  }\n\n  private void reverse(int[] nums) { for (int l = 0, r = nums.length - 1; l < r; l++, r--) { int t = nums[l]; nums[l] = nums[r]; nums[r] = t; } }\n}",
+      "source": {
+        "label": "Partition to K Equal Sum Subsets - LeetCode 698",
+        "url": "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+      }
+    },
+    {
+      "name": "Beautiful Arrangement",
+      "question": "Given n, count the number of arrangements of 1..n where at position i, either perm[i] is divisible by i or i is divisible by perm[i].",
+      "constraints": "1 <= n <= 15.",
+      "examples": [
+        {
+          "input": "n = 2",
+          "output": "2",
+          "explanation": "[1,2] and [2,1] are valid."
+        },
+        {
+          "input": "n = 1",
+          "output": "1",
+          "explanation": "Only one arrangement exists."
+        },
+        {
+          "input": "n = 3",
+          "output": "3",
+          "explanation": "Three arrangements satisfy the rule."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * 2^n); Space O(2^n). Iterative DP over used-number masks.",
+      "optimizedCode": "class Solution {\n  public int countArrangement(int n) {\n    int[] dp = new int[1 << n];\n    dp[0] = 1;\n    for (int mask = 0; mask < dp.length; mask++) {\n      int position = Integer.bitCount(mask) + 1;\n      for (int num = 1; num <= n; num++) {\n        int bit = 1 << (num - 1);\n        if ((mask & bit) != 0) continue;\n        if (num % position == 0 || position % num == 0) dp[mask | bit] += dp[mask];\n      }\n    }\n    return dp[dp.length - 1];\n  }\n}",
+      "recursiveComplexity": "Time O(n * 2^n); Space O(2^n + n). Memoized backtracking counts each mask once.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int countArrangement(int n) {\n    int[] memo = new int[1 << n];\n    Arrays.fill(memo, -1);\n    return backtrack(n, 1, 0, memo);\n  }\n\n  private int backtrack(int n, int position, int mask, int[] memo) {\n    if (position > n) return 1;\n    if (memo[mask] != -1) return memo[mask];\n    int count = 0;\n    for (int num = 1; num <= n; num++) {\n      int bit = 1 << (num - 1);\n      if ((mask & bit) != 0) continue;\n      if (num % position == 0 || position % num == 0) count += backtrack(n, position + 1, mask | bit, memo);\n    }\n    memo[mask] = count;\n    return count;\n  }\n}",
+      "source": {
+        "label": "Beautiful Arrangement - LeetCode 526",
+        "url": "https://leetcode.com/problems/beautiful-arrangement/"
+      }
+    }
+  ]
+}

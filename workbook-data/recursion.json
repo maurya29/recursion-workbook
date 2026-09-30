@@ -1,0 +1,608 @@
+{
+  "id": "recursion",
+  "name": "Recursion",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/recursion.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Fibonacci Number",
+      "question": "Given n, return the nth Fibonacci number where F(0) = 0, F(1) = 1, and F(n) = F(n - 1) + F(n - 2).",
+      "constraints": "0 <= n <= 30 in the original problem; use int for the original range.",
+      "examples": [
+        {
+          "input": "n = 2",
+          "output": "1",
+          "explanation": "F(2) = F(1) + F(0) = 1."
+        },
+        {
+          "input": "n = 3",
+          "output": "2",
+          "explanation": "F(3) = F(2) + F(1) = 2."
+        },
+        {
+          "input": "n = 4",
+          "output": "3",
+          "explanation": "F(4) = 3."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Iterative DP keeps only the previous two values.",
+      "optimizedCode": "class Solution {\n  public int fib(int n) {\n    if (n <= 1) return n;\n\n    int prev = 0;\n    int curr = 1;\n    for (int i = 2; i <= n; i++) {\n      int next = prev + curr;\n      prev = curr;\n      curr = next;\n    }\n\n    return curr;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Memoized recursion computes each n once and uses call stack plus memo.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int fib(int n) {\n    int[] memo = new int[n + 1];\n    Arrays.fill(memo, -1);\n    return dfs(n, memo);\n  }\n\n  private int dfs(int n, int[] memo) {\n    if (n <= 1) return n;\n    if (memo[n] != -1) return memo[n];\n    memo[n] = dfs(n - 1, memo) + dfs(n - 2, memo);\n    return memo[n];\n  }\n}",
+      "source": {
+        "label": "Fibonacci Number - LeetCode 509",
+        "url": "https://leetcode.com/problems/fibonacci-number/"
+      }
+    },
+    {
+      "name": "Climbing Stairs",
+      "question": "You are climbing a staircase with n steps. Each move can climb 1 or 2 steps. Return the number of distinct ways to reach the top.",
+      "constraints": "1 <= n <= 45.",
+      "examples": [
+        {
+          "input": "n = 2",
+          "output": "2",
+          "explanation": "The ways are 1+1 and 2."
+        },
+        {
+          "input": "n = 3",
+          "output": "3",
+          "explanation": "The ways are 1+1+1, 1+2, and 2+1."
+        },
+        {
+          "input": "n = 1",
+          "output": "1",
+          "explanation": "Only one move is possible."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Iterative DP keeps the last two counts.",
+      "optimizedCode": "class Solution {\n  public int climbStairs(int n) {\n    if (n <= 2) return n;\n\n    int oneStepBefore = 2;\n    int twoStepsBefore = 1;\n    for (int step = 3; step <= n; step++) {\n      int current = oneStepBefore + twoStepsBefore;\n      twoStepsBefore = oneStepBefore;\n      oneStepBefore = current;\n    }\n\n    return oneStepBefore;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Memoized recursion stores each step count once.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int climbStairs(int n) {\n    int[] memo = new int[n + 1];\n    Arrays.fill(memo, -1);\n    return ways(0, n, memo);\n  }\n\n  private int ways(int step, int n, int[] memo) {\n    if (step == n) return 1;\n    if (step > n) return 0;\n    if (memo[step] != -1) return memo[step];\n    memo[step] = ways(step + 1, n, memo) + ways(step + 2, n, memo);\n    return memo[step];\n  }\n}",
+      "source": {
+        "label": "Climbing Stairs - LeetCode 70",
+        "url": "https://leetcode.com/problems/climbing-stairs/"
+      }
+    },
+    {
+      "name": "Pow(x, n)",
+      "question": "Implement pow(x, n), which calculates x raised to the power n.",
+      "constraints": "-100.0 < x < 100.0; -2147483648 <= n <= 2147483647; result fits standard double constraints.",
+      "examples": [
+        {
+          "input": "x = 2.00000, n = 10",
+          "output": "1024.00000",
+          "explanation": "2 raised to 10 is 1024."
+        },
+        {
+          "input": "x = 2.10000, n = 3",
+          "output": "9.26100",
+          "explanation": "2.1 * 2.1 * 2.1 = 9.261."
+        },
+        {
+          "input": "x = 2.00000, n = -2",
+          "output": "0.25000",
+          "explanation": "Negative exponent returns reciprocal power."
+        }
+      ],
+      "optimizedComplexity": "Time O(log |n|); Space O(1). Iterative binary exponentiation halves the exponent.",
+      "optimizedCode": "class Solution {\n  public double myPow(double x, int n) {\n    long power = n;\n    if (power < 0) {\n      x = 1.0 / x;\n      power = -power;\n    }\n\n    double answer = 1.0;\n    while (power > 0) {\n      if ((power & 1L) == 1L) answer *= x;\n      x *= x;\n      power >>= 1;\n    }\n\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(log |n|); Space O(log |n|). Recursive fast power halves the exponent at each call.",
+      "recursiveCode": "class Solution {\n  public double myPow(double x, int n) {\n    long power = n;\n    if (power < 0) return 1.0 / fastPow(x, -power);\n    return fastPow(x, power);\n  }\n\n  private double fastPow(double x, long power) {\n    if (power == 0) return 1.0;\n    double half = fastPow(x, power / 2);\n    double squared = half * half;\n    return power % 2 == 0 ? squared : squared * x;\n  }\n}",
+      "source": {
+        "label": "Pow(x, n) - LeetCode 50",
+        "url": "https://leetcode.com/problems/powx-n/"
+      }
+    },
+    {
+      "name": "Reverse String",
+      "question": "Given a character array s, reverse it in-place.",
+      "constraints": "1 <= s.length <= 100000; s[i] is a printable ASCII character in the original problem.",
+      "examples": [
+        {
+          "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+          "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]",
+          "explanation": "The array is reversed in-place."
+        },
+        {
+          "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]",
+          "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]",
+          "explanation": "Case is preserved while positions change."
+        },
+        {
+          "input": "s = [\"a\"]",
+          "output": "[\"a\"]",
+          "explanation": "A single character is already reversed."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Iterative two pointers swap in-place.",
+      "optimizedCode": "class Solution {\n  public void reverseString(char[] s) {\n    int left = 0;\n    int right = s.length - 1;\n\n    while (left < right) {\n      char temp = s[left];\n      s[left++] = s[right];\n      s[right--] = temp;\n    }\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n) call stack. Recursive two pointers swap one pair per call.",
+      "recursiveCode": "class Solution {\n  public void reverseString(char[] s) {\n    reverse(s, 0, s.length - 1);\n  }\n\n  private void reverse(char[] s, int left, int right) {\n    if (left >= right) return;\n\n    char temp = s[left];\n    s[left] = s[right];\n    s[right] = temp;\n    reverse(s, left + 1, right - 1);\n  }\n}",
+      "source": {
+        "label": "Reverse String - LeetCode 344",
+        "url": "https://leetcode.com/problems/reverse-string/"
+      }
+    },
+    {
+      "name": "Swap Nodes in Pairs",
+      "question": "Given a linked list, swap every two adjacent nodes and return its head. Node values must not be modified.",
+      "constraints": "0 <= number of nodes <= 100; -100 <= Node.val <= 100.",
+      "examples": [
+        {
+          "input": "head = [1,2,3,4]",
+          "output": "[2,1,4,3]",
+          "explanation": "Each adjacent pair is swapped."
+        },
+        {
+          "input": "head = []",
+          "output": "[]",
+          "explanation": "There are no nodes to swap."
+        },
+        {
+          "input": "head = [1,2,3]",
+          "output": "[2,1,3]",
+          "explanation": "The final unpaired node remains in place."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Iterative pointer rewiring uses a dummy node.",
+      "optimizedCode": "class ListNode {\n  int val;\n  ListNode next;\n\n  ListNode() {}\n  ListNode(int val) { this.val = val; }\n  ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\nclass Solution {\n  public ListNode swapPairs(ListNode head) {\n    ListNode dummy = new ListNode(0, head);\n    ListNode prev = dummy;\n\n    while (prev.next != null && prev.next.next != null) {\n      ListNode first = prev.next;\n      ListNode second = first.next;\n      first.next = second.next;\n      second.next = first;\n      prev.next = second;\n      prev = first;\n    }\n\n    return dummy.next;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n) call stack. Each call swaps one pair.",
+      "recursiveCode": "class ListNode {\n  int val;\n  ListNode next;\n\n  ListNode() {}\n  ListNode(int val) { this.val = val; }\n  ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\nclass Solution {\n  public ListNode swapPairs(ListNode head) {\n    if (head == null || head.next == null) return head;\n\n    ListNode second = head.next;\n    head.next = swapPairs(second.next);\n    second.next = head;\n    return second;\n  }\n}",
+      "source": {
+        "label": "Swap Nodes in Pairs - LeetCode 24",
+        "url": "https://leetcode.com/problems/swap-nodes-in-pairs/"
+      }
+    },
+    {
+      "name": "Merge Two Sorted Lists",
+      "question": "Given the heads of two sorted linked lists, merge them into one sorted linked list and return its head.",
+      "constraints": "0 <= number of nodes in each list <= 50; -100 <= Node.val <= 100; both lists are sorted nondecreasing.",
+      "examples": [
+        {
+          "input": "list1 = [1,2,4], list2 = [1,3,4]",
+          "output": "[1,1,2,3,4,4]",
+          "explanation": "Nodes are merged in sorted order."
+        },
+        {
+          "input": "list1 = [], list2 = []",
+          "output": "[]",
+          "explanation": "Both lists are empty."
+        },
+        {
+          "input": "list1 = [], list2 = [0]",
+          "output": "[0]",
+          "explanation": "The non-empty list is already the answer."
+        }
+      ],
+      "optimizedComplexity": "Time O(m+n); Space O(1). Iteratively relink existing nodes.",
+      "optimizedCode": "class ListNode {\n  int val;\n  ListNode next;\n\n  ListNode() {}\n  ListNode(int val) { this.val = val; }\n  ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\nclass Solution {\n  public ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n    ListNode dummy = new ListNode(0);\n    ListNode tail = dummy;\n\n    while (list1 != null && list2 != null) {\n      if (list1.val <= list2.val) {\n        tail.next = list1;\n        list1 = list1.next;\n      } else {\n        tail.next = list2;\n        list2 = list2.next;\n      }\n      tail = tail.next;\n    }\n\n    tail.next = list1 != null ? list1 : list2;\n    return dummy.next;\n  }\n}",
+      "recursiveComplexity": "Time O(m+n); Space O(m+n) call stack. Each call consumes one node.",
+      "recursiveCode": "class ListNode {\n  int val;\n  ListNode next;\n\n  ListNode() {}\n  ListNode(int val) { this.val = val; }\n  ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\nclass Solution {\n  public ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n    if (list1 == null) return list2;\n    if (list2 == null) return list1;\n\n    if (list1.val <= list2.val) {\n      list1.next = mergeTwoLists(list1.next, list2);\n      return list1;\n    }\n\n    list2.next = mergeTwoLists(list1, list2.next);\n    return list2;\n  }\n}",
+      "source": {
+        "label": "Merge Two Sorted Lists - LeetCode 21",
+        "url": "https://leetcode.com/problems/merge-two-sorted-lists/"
+      }
+    },
+    {
+      "name": "K-th Symbol in Grammar",
+      "question": "In row 1 the grammar is 0. Each 0 becomes 01 and each 1 becomes 10. Return the kth symbol in row n.",
+      "constraints": "1 <= n <= 30; 1 <= k <= 2^(n - 1).",
+      "examples": [
+        {
+          "input": "n = 1, k = 1",
+          "output": "0",
+          "explanation": "The first row is only 0."
+        },
+        {
+          "input": "n = 2, k = 1",
+          "output": "0",
+          "explanation": "Row 2 is 01."
+        },
+        {
+          "input": "n = 2, k = 2",
+          "output": "1",
+          "explanation": "The second symbol in 01 is 1."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Count flips while walking from k toward the root.",
+      "optimizedCode": "class Solution {\n  public int kthGrammar(int n, int k) {\n    int flips = 0;\n    while (k > 1) {\n      if (k % 2 == 0) flips++;\n      k = (k + 1) / 2;\n    }\n    return flips % 2;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Recursively ask for the parent symbol.",
+      "recursiveCode": "class Solution {\n  public int kthGrammar(int n, int k) {\n    if (n == 1) return 0;\n\n    int parent = kthGrammar(n - 1, (k + 1) / 2);\n    if (k % 2 == 1) return parent;\n    return 1 - parent;\n  }\n}",
+      "source": {
+        "label": "K-th Symbol in Grammar - LeetCode 779",
+        "url": "https://leetcode.com/problems/k-th-symbol-in-grammar/"
+      }
+    },
+    {
+      "name": "Generate Parentheses",
+      "question": "Given n pairs of parentheses, generate all combinations of well-formed parentheses.",
+      "constraints": "1 <= n <= 8.",
+      "examples": [
+        {
+          "input": "n = 3",
+          "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+          "explanation": "All valid strings with three pairs are generated."
+        },
+        {
+          "input": "n = 1",
+          "output": "[\"()\"]",
+          "explanation": "Only one valid pair exists."
+        },
+        {
+          "input": "n = 2",
+          "output": "[\"(())\",\"()()\"]",
+          "explanation": "Two valid combinations exist."
+        }
+      ],
+      "optimizedComplexity": "Time O(Cn * n); Space O(Cn * n). Iterative stack explores only valid prefixes, where Cn is the nth Catalan number.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<String> generateParenthesis(int n) {\n    List<String> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(\"\", 0, 0));\n\n    while (!stack.isEmpty()) {\n      State current = stack.pop();\n      if (current.value.length() == 2 * n) {\n        answer.add(current.value);\n        continue;\n      }\n      if (current.close < current.open) {\n        stack.push(new State(current.value + \")\", current.open, current.close + 1));\n      }\n      if (current.open < n) {\n        stack.push(new State(current.value + \"(\", current.open + 1, current.close));\n      }\n    }\n\n    return answer;\n  }\n\n  private static class State {\n    String value;\n    int open;\n    int close;\n    State(String value, int open, int close) {\n      this.value = value;\n      this.open = open;\n      this.close = close;\n    }\n  }\n}",
+      "recursiveComplexity": "Time O(Cn * n); Space O(n) call stack excluding output. Recursion prunes invalid prefixes early.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<String> generateParenthesis(int n) {\n    List<String> answer = new ArrayList<>();\n    backtrack(n, 0, 0, new StringBuilder(), answer);\n    return answer;\n  }\n\n  private void backtrack(int n, int open, int close, StringBuilder path, List<String> answer) {\n    if (path.length() == 2 * n) {\n      answer.add(path.toString());\n      return;\n    }\n\n    if (open < n) {\n      path.append('(');\n      backtrack(n, open + 1, close, path, answer);\n      path.deleteCharAt(path.length() - 1);\n    }\n    if (close < open) {\n      path.append(')');\n      backtrack(n, open, close + 1, path, answer);\n      path.deleteCharAt(path.length() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Generate Parentheses - LeetCode 22",
+        "url": "https://leetcode.com/problems/generate-parentheses/"
+      }
+    },
+    {
+      "name": "Subsets",
+      "question": "Given an integer array nums with unique elements, return all possible subsets of nums.",
+      "constraints": "1 <= nums.length <= 10; -10 <= nums[i] <= 10; all nums values are unique.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3]",
+          "output": "[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]",
+          "explanation": "All 2^3 subsets are returned."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "[[],[0]]",
+          "explanation": "A single element can be excluded or included."
+        },
+        {
+          "input": "nums = [1,2]",
+          "output": "[[],[1],[2],[1,2]]",
+          "explanation": "There are four subsets."
+        }
+      ],
+      "optimizedComplexity": "Time O(n * 2^n); Space O(n * 2^n). Iteratively extend previous subsets.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> subsets(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    answer.add(new ArrayList<>());\n\n    for (int num : nums) {\n      int size = answer.size();\n      for (int i = 0; i < size; i++) {\n        List<Integer> next = new ArrayList<>(answer.get(i));\n        next.add(num);\n        answer.add(next);\n      }\n    }\n\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(n * 2^n); Space O(n) recursion stack excluding output. Include-exclude recursion creates every subset.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> subsets(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    dfs(nums, 0, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void dfs(int[] nums, int index, List<Integer> path, List<List<Integer>> answer) {\n    if (index == nums.length) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n\n    dfs(nums, index + 1, path, answer);\n    path.add(nums[index]);\n    dfs(nums, index + 1, path, answer);\n    path.remove(path.size() - 1);\n  }\n}",
+      "source": {
+        "label": "Subsets - LeetCode 78",
+        "url": "https://leetcode.com/problems/subsets/"
+      }
+    },
+    {
+      "name": "Permutations",
+      "question": "Given an array nums of distinct integers, return all possible permutations.",
+      "constraints": "1 <= nums.length <= 6; -10 <= nums[i] <= 10; all nums values are unique.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3]",
+          "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]",
+          "explanation": "All 3! orderings are generated."
+        },
+        {
+          "input": "nums = [0,1]",
+          "output": "[[0,1],[1,0]]",
+          "explanation": "Two elements have two permutations."
+        },
+        {
+          "input": "nums = [1]",
+          "output": "[[1]]",
+          "explanation": "One element has one ordering."
+        }
+      ],
+      "optimizedComplexity": "Time O(n! * n); Space O(n! * n). Iterative insertion builds permutations level by level.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> permute(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    answer.add(new ArrayList<>());\n\n    for (int num : nums) {\n      List<List<Integer>> nextLevel = new ArrayList<>();\n      for (List<Integer> perm : answer) {\n        for (int pos = 0; pos <= perm.size(); pos++) {\n          List<Integer> next = new ArrayList<>(perm);\n          next.add(pos, num);\n          nextLevel.add(next);\n        }\n      }\n      answer = nextLevel;\n    }\n\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(n! * n); Space O(n) recursion stack excluding output. Backtracking chooses unused values.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> permute(int[] nums) {\n    List<List<Integer>> answer = new ArrayList<>();\n    dfs(nums, new boolean[nums.length], new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void dfs(int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> answer) {\n    if (path.size() == nums.length) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n\n    for (int i = 0; i < nums.length; i++) {\n      if (used[i]) continue;\n      used[i] = true;\n      path.add(nums[i]);\n      dfs(nums, used, path, answer);\n      path.remove(path.size() - 1);\n      used[i] = false;\n    }\n  }\n}",
+      "source": {
+        "label": "Permutations - LeetCode 46",
+        "url": "https://leetcode.com/problems/permutations/"
+      }
+    },
+    {
+      "name": "Letter Combinations of a Phone Number",
+      "question": "Given a string digits containing digits 2 through 9, return all possible letter combinations the number could represent.",
+      "constraints": "0 <= digits.length <= 4; digits[i] is in 2..9.",
+      "examples": [
+        {
+          "input": "digits = \"23\"",
+          "output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+          "explanation": "Every letter from 2 combines with every letter from 3."
+        },
+        {
+          "input": "digits = \"\"",
+          "output": "[]",
+          "explanation": "No digits means no combinations."
+        },
+        {
+          "input": "digits = \"2\"",
+          "output": "[\"a\",\"b\",\"c\"]",
+          "explanation": "Digit 2 maps to a, b, and c."
+        }
+      ],
+      "optimizedComplexity": "Time O(4^n * n); Space O(4^n * n). Queue expansion processes combinations level by level.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  private static final String[] MAP = {\"\", \"\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\"};\n\n  public List<String> letterCombinations(String digits) {\n    List<String> answer = new ArrayList<>();\n    if (digits.length() == 0) return answer;\n\n    Queue<String> queue = new ArrayDeque<>();\n    queue.offer(\"\");\n    for (char digit : digits.toCharArray()) {\n      int size = queue.size();\n      for (int i = 0; i < size; i++) {\n        String prefix = queue.poll();\n        for (char ch : MAP[digit - '0'].toCharArray()) {\n          queue.offer(prefix + ch);\n        }\n      }\n    }\n\n    answer.addAll(queue);\n    return answer;\n  }\n}",
+      "recursiveComplexity": "Time O(4^n * n); Space O(n) call stack excluding output. Backtracking builds one string at a time.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  private static final String[] MAP = {\"\", \"\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\"};\n\n  public List<String> letterCombinations(String digits) {\n    List<String> answer = new ArrayList<>();\n    if (digits.length() == 0) return answer;\n    dfs(digits, 0, new StringBuilder(), answer);\n    return answer;\n  }\n\n  private void dfs(String digits, int index, StringBuilder path, List<String> answer) {\n    if (index == digits.length()) {\n      answer.add(path.toString());\n      return;\n    }\n\n    for (char ch : MAP[digits.charAt(index) - '0'].toCharArray()) {\n      path.append(ch);\n      dfs(digits, index + 1, path, answer);\n      path.deleteCharAt(path.length() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Letter Combinations of a Phone Number - LeetCode 17",
+        "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+      }
+    },
+    {
+      "name": "Combinations",
+      "question": "Given integers n and k, return all possible combinations of k numbers chosen from the range 1 to n.",
+      "constraints": "1 <= n <= 20; 1 <= k <= n.",
+      "examples": [
+        {
+          "input": "n = 4, k = 2",
+          "output": "[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]",
+          "explanation": "All size-2 choices from 1..4 are returned."
+        },
+        {
+          "input": "n = 1, k = 1",
+          "output": "[[1]]",
+          "explanation": "Only one combination exists."
+        },
+        {
+          "input": "n = 3, k = 3",
+          "output": "[[1,2,3]]",
+          "explanation": "Choosing all numbers gives one combination."
+        }
+      ],
+      "optimizedComplexity": "Time O(C(n,k) * k); Space O(k) stack state excluding output. Iterative stack simulates increasing choices.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combine(int n, int k) {\n    List<List<Integer>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(1, new ArrayList<>()));\n\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.path.size() == k) {\n        answer.add(state.path);\n        continue;\n      }\n      for (int num = n; num >= state.start; num--) {\n        if (state.path.size() + (n - num + 1) < k) continue;\n        List<Integer> next = new ArrayList<>(state.path);\n        next.add(num);\n        stack.push(new State(num + 1, next));\n      }\n    }\n\n    return answer;\n  }\n\n  private static class State {\n    int start;\n    List<Integer> path;\n    State(int start, List<Integer> path) {\n      this.start = start;\n      this.path = path;\n    }\n  }\n}",
+      "recursiveComplexity": "Time O(C(n,k) * k); Space O(k) call stack excluding output. Pruned recursion builds only valid-size paths.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combine(int n, int k) {\n    List<List<Integer>> answer = new ArrayList<>();\n    dfs(1, n, k, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void dfs(int start, int n, int k, List<Integer> path, List<List<Integer>> answer) {\n    if (path.size() == k) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n\n    int need = k - path.size();\n    for (int num = start; num <= n - need + 1; num++) {\n      path.add(num);\n      dfs(num + 1, n, k, path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Combinations - LeetCode 77",
+        "url": "https://leetcode.com/problems/combinations/"
+      }
+    },
+    {
+      "name": "Combination Sum",
+      "question": "Given distinct candidate numbers and a target, return all unique combinations where chosen numbers sum to target. A candidate may be chosen unlimited times.",
+      "constraints": "1 <= candidates.length <= 30; 2 <= candidates[i] <= 40; all candidates are distinct; 1 <= target <= 40.",
+      "examples": [
+        {
+          "input": "candidates = [2,3,6,7], target = 7",
+          "output": "[[2,2,3],[7]]",
+          "explanation": "2 can be reused and 7 is an exact match."
+        },
+        {
+          "input": "candidates = [2,3,5], target = 8",
+          "output": "[[2,2,2,2],[2,3,3],[3,5]]",
+          "explanation": "All unique combinations summing to 8 are returned."
+        },
+        {
+          "input": "candidates = [2], target = 1",
+          "output": "[]",
+          "explanation": "No candidate can sum to the target."
+        }
+      ],
+      "optimizedComplexity": "Time exponential in output size; Space O(target/minCandidate). Iterative stack stores partial combinations and remaining sums.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum(int[] candidates, int target) {\n    Arrays.sort(candidates);\n    List<List<Integer>> answer = new ArrayList<>();\n    Deque<State> stack = new ArrayDeque<>();\n    stack.push(new State(0, target, new ArrayList<>()));\n\n    while (!stack.isEmpty()) {\n      State state = stack.pop();\n      if (state.remaining == 0) {\n        answer.add(state.path);\n        continue;\n      }\n      for (int i = candidates.length - 1; i >= state.start; i--) {\n        if (candidates[i] > state.remaining) continue;\n        List<Integer> next = new ArrayList<>(state.path);\n        next.add(candidates[i]);\n        stack.push(new State(i, state.remaining - candidates[i], next));\n      }\n    }\n\n    return answer;\n  }\n\n  private static class State {\n    int start;\n    int remaining;\n    List<Integer> path;\n    State(int start, int remaining, List<Integer> path) {\n      this.start = start;\n      this.remaining = remaining;\n      this.path = path;\n    }\n  }\n}",
+      "recursiveComplexity": "Time exponential in output size; Space O(target/minCandidate). Backtracking prunes when candidate exceeds remaining target.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<Integer>> combinationSum(int[] candidates, int target) {\n    Arrays.sort(candidates);\n    List<List<Integer>> answer = new ArrayList<>();\n    dfs(candidates, 0, target, new ArrayList<>(), answer);\n    return answer;\n  }\n\n  private void dfs(int[] candidates, int start, int remaining,\n      List<Integer> path, List<List<Integer>> answer) {\n    if (remaining == 0) {\n      answer.add(new ArrayList<>(path));\n      return;\n    }\n\n    for (int i = start; i < candidates.length && candidates[i] <= remaining; i++) {\n      path.add(candidates[i]);\n      dfs(candidates, i, remaining - candidates[i], path, answer);\n      path.remove(path.size() - 1);\n    }\n  }\n}",
+      "source": {
+        "label": "Combination Sum - LeetCode 39",
+        "url": "https://leetcode.com/problems/combination-sum/"
+      }
+    },
+    {
+      "name": "N-Queens",
+      "question": "Given n, return all distinct solutions to the n-queens puzzle, placing n queens on an n x n chessboard so no two queens attack each other.",
+      "constraints": "1 <= n <= 9.",
+      "examples": [
+        {
+          "input": "n = 4",
+          "output": "[[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],[\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]]",
+          "explanation": "There are two valid 4-queen boards."
+        },
+        {
+          "input": "n = 1",
+          "output": "[[\"Q\"]]",
+          "explanation": "A single queen is valid."
+        },
+        {
+          "input": "n = 2",
+          "output": "[]",
+          "explanation": "No arrangement avoids attacks."
+        }
+      ],
+      "optimizedComplexity": "Time O(n!); Space O(n). Iterative stack tracks row choices and constraint sets.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> solveNQueens(int n) {\n    List<List<String>> answer = new ArrayList<>();\n    int[] queenCol = new int[n];\n    Arrays.fill(queenCol, -1);\n    boolean[] cols = new boolean[n];\n    boolean[] diag1 = new boolean[2 * n];\n    boolean[] diag2 = new boolean[2 * n];\n    int row = 0;\n    int col = 0;\n\n    while (row >= 0) {\n      boolean placed = false;\n      for (; col < n; col++) {\n        int d1 = row - col + n;\n        int d2 = row + col;\n        if (cols[col] || diag1[d1] || diag2[d2]) continue;\n        queenCol[row] = col;\n        cols[col] = diag1[d1] = diag2[d2] = true;\n        row++;\n        col = 0;\n        placed = true;\n        break;\n      }\n\n      if (row == n) {\n        answer.add(build(queenCol));\n        row--;\n        col = queenCol[row] + 1;\n        remove(row, queenCol, cols, diag1, diag2, n);\n      } else if (!placed) {\n        row--;\n        if (row >= 0) {\n          col = queenCol[row] + 1;\n          remove(row, queenCol, cols, diag1, diag2, n);\n        }\n      }\n    }\n    return answer;\n  }\n\n  private void remove(int row, int[] queenCol, boolean[] cols, boolean[] diag1, boolean[] diag2, int n) {\n    int col = queenCol[row];\n    cols[col] = false;\n    diag1[row - col + n] = false;\n    diag2[row + col] = false;\n    queenCol[row] = -1;\n  }\n\n  private List<String> build(int[] queenCol) {\n    List<String> board = new ArrayList<>();\n    for (int col : queenCol) {\n      char[] row = new char[queenCol.length];\n      Arrays.fill(row, '.');\n      row[col] = 'Q';\n      board.add(new String(row));\n    }\n    return board;\n  }\n}",
+      "recursiveComplexity": "Time O(n!); Space O(n). Recursive backtracking places one queen per row with O(1) safety checks.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<List<String>> solveNQueens(int n) {\n    List<List<String>> answer = new ArrayList<>();\n    backtrack(0, n, new int[n], new boolean[n], new boolean[2 * n], new boolean[2 * n], answer);\n    return answer;\n  }\n\n  private void backtrack(int row, int n, int[] queenCol, boolean[] cols,\n      boolean[] diag1, boolean[] diag2, List<List<String>> answer) {\n    if (row == n) {\n      answer.add(build(queenCol));\n      return;\n    }\n\n    for (int col = 0; col < n; col++) {\n      int d1 = row - col + n;\n      int d2 = row + col;\n      if (cols[col] || diag1[d1] || diag2[d2]) continue;\n      queenCol[row] = col;\n      cols[col] = diag1[d1] = diag2[d2] = true;\n      backtrack(row + 1, n, queenCol, cols, diag1, diag2, answer);\n      cols[col] = diag1[d1] = diag2[d2] = false;\n    }\n  }\n\n  private List<String> build(int[] queenCol) {\n    List<String> board = new ArrayList<>();\n    for (int col : queenCol) {\n      char[] row = new char[queenCol.length];\n      Arrays.fill(row, '.');\n      row[col] = 'Q';\n      board.add(new String(row));\n    }\n    return board;\n  }\n}",
+      "source": {
+        "label": "N-Queens - LeetCode 51",
+        "url": "https://leetcode.com/problems/n-queens/"
+      }
+    },
+    {
+      "name": "Sudoku Solver",
+      "question": "Write a program to solve a 9 x 9 Sudoku board by filling empty cells marked with dot characters.",
+      "constraints": "board.length == 9; board[i].length == 9; board contains digits 1..9 or dot; the input has exactly one solution.",
+      "examples": [
+        {
+          "input": "board = [[\"5\",\"3\",\".\",\".\",\"7\",\".\",\".\",\".\",\".\"],...]",
+          "output": "solved board",
+          "explanation": "Every row, column, and 3x3 box is filled with digits 1 through 9."
+        },
+        {
+          "input": "board with one empty cell",
+          "output": "board with that cell filled",
+          "explanation": "Only the valid digit is placed."
+        },
+        {
+          "input": "already solved board",
+          "output": "same board",
+          "explanation": "No recursive placement is needed."
+        }
+      ],
+      "optimizedComplexity": "Time O(9^e) worst case with faster O(1) validity checks; Space O(e). Iterative stack uses bit masks.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public void solveSudoku(char[][] board) {\n    List<int[]> blanks = new ArrayList<>();\n    boolean[][] rows = new boolean[9][10];\n    boolean[][] cols = new boolean[9][10];\n    boolean[][] boxes = new boolean[9][10];\n\n    for (int r = 0; r < 9; r++) {\n      for (int c = 0; c < 9; c++) {\n        if (board[r][c] == '.') blanks.add(new int[] {r, c});\n        else place(rows, cols, boxes, r, c, board[r][c] - '0', true);\n      }\n    }\n\n    int[] nextDigit = new int[blanks.size()];\n    Arrays.fill(nextDigit, 1);\n    int index = 0;\n    while (index >= 0 && index < blanks.size()) {\n      int r = blanks.get(index)[0], c = blanks.get(index)[1];\n      if (board[r][c] != '.') {\n        place(rows, cols, boxes, r, c, board[r][c] - '0', false);\n        board[r][c] = '.';\n      }\n\n      boolean placed = false;\n      for (int d = nextDigit[index]; d <= 9; d++) {\n        if (!rows[r][d] && !cols[c][d] && !boxes[box(r, c)][d]) {\n          board[r][c] = (char) ('0' + d);\n          place(rows, cols, boxes, r, c, d, true);\n          nextDigit[index] = d + 1;\n          index++;\n          placed = true;\n          break;\n        }\n      }\n      if (!placed) {\n        nextDigit[index] = 1;\n        index--;\n      }\n    }\n  }\n\n  private void place(boolean[][] rows, boolean[][] cols, boolean[][] boxes,\n      int r, int c, int d, boolean used) {\n    rows[r][d] = used;\n    cols[c][d] = used;\n    boxes[box(r, c)][d] = used;\n  }\n\n  private int box(int r, int c) {\n    return (r / 3) * 3 + c / 3;\n  }\n}",
+      "recursiveComplexity": "Time O(9^e) worst case with O(1) validity checks; Space O(e). Recursive backtracking fills one blank per level.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public void solveSudoku(char[][] board) {\n    boolean[][] rows = new boolean[9][10];\n    boolean[][] cols = new boolean[9][10];\n    boolean[][] boxes = new boolean[9][10];\n    List<int[]> blanks = new ArrayList<>();\n\n    for (int r = 0; r < 9; r++) {\n      for (int c = 0; c < 9; c++) {\n        if (board[r][c] == '.') blanks.add(new int[] {r, c});\n        else place(rows, cols, boxes, r, c, board[r][c] - '0', true);\n      }\n    }\n    solve(board, blanks, 0, rows, cols, boxes);\n  }\n\n  private boolean solve(char[][] board, List<int[]> blanks, int index,\n      boolean[][] rows, boolean[][] cols, boolean[][] boxes) {\n    if (index == blanks.size()) return true;\n\n    int r = blanks.get(index)[0], c = blanks.get(index)[1];\n    for (int d = 1; d <= 9; d++) {\n      if (rows[r][d] || cols[c][d] || boxes[box(r, c)][d]) continue;\n      board[r][c] = (char) ('0' + d);\n      place(rows, cols, boxes, r, c, d, true);\n      if (solve(board, blanks, index + 1, rows, cols, boxes)) return true;\n      place(rows, cols, boxes, r, c, d, false);\n      board[r][c] = '.';\n    }\n    return false;\n  }\n\n  private void place(boolean[][] rows, boolean[][] cols, boolean[][] boxes,\n      int r, int c, int d, boolean used) {\n    rows[r][d] = used;\n    cols[c][d] = used;\n    boxes[box(r, c)][d] = used;\n  }\n\n  private int box(int r, int c) {\n    return (r / 3) * 3 + c / 3;\n  }\n}",
+      "source": {
+        "label": "Sudoku Solver - LeetCode 37",
+        "url": "https://leetcode.com/problems/sudoku-solver/"
+      }
+    },
+    {
+      "name": "Word Search",
+      "question": "Given an m x n board of characters and a word, return true if the word exists in the grid by moving horizontally or vertically without reusing a cell.",
+      "constraints": "1 <= m, n <= 6; 1 <= word.length <= 15; board and word contain uppercase/lowercase English letters in the original problem.",
+      "examples": [
+        {
+          "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"",
+          "output": "true",
+          "explanation": "A valid adjacent path spells the word."
+        },
+        {
+          "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"SEE\"",
+          "output": "true",
+          "explanation": "The word can be formed on the right side."
+        },
+        {
+          "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCB\"",
+          "output": "false",
+          "explanation": "The path would need to reuse B."
+        }
+      ],
+      "optimizedComplexity": "Time O(m*n*3^L); Space O(L). Iterative DFS avoids immediately revisiting the previous path cells.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  private static final int[][] DIRS = {{1,0},{-1,0},{0,1},{0,-1}};\n\n  public boolean exist(char[][] board, String word) {\n    int rows = board.length, cols = board[0].length;\n    for (int r = 0; r < rows; r++) {\n      for (int c = 0; c < cols; c++) {\n        if (board[r][c] != word.charAt(0)) continue;\n        Deque<State> stack = new ArrayDeque<>();\n        stack.push(new State(r, c, 0, 1L << (r * cols + c)));\n        while (!stack.isEmpty()) {\n          State cur = stack.pop();\n          if (cur.index == word.length() - 1) return true;\n          for (int[] dir : DIRS) {\n            int nr = cur.row + dir[0], nc = cur.col + dir[1];\n            int nextIndex = cur.index + 1;\n            if (nr < 0 || nc < 0 || nr == rows || nc == cols) continue;\n            long bit = 1L << (nr * cols + nc);\n            if ((cur.used & bit) != 0 || board[nr][nc] != word.charAt(nextIndex)) continue;\n            stack.push(new State(nr, nc, nextIndex, cur.used | bit));\n          }\n        }\n      }\n    }\n    return false;\n  }\n\n  private static class State {\n    int row, col, index;\n    long used;\n    State(int row, int col, int index, long used) {\n      this.row = row;\n      this.col = col;\n      this.index = index;\n      this.used = used;\n    }\n  }\n}",
+      "recursiveComplexity": "Time O(m*n*3^L); Space O(L). Recursive backtracking marks cells in-place during the path.",
+      "recursiveCode": "class Solution {\n  public boolean exist(char[][] board, String word) {\n    for (int r = 0; r < board.length; r++) {\n      for (int c = 0; c < board[0].length; c++) {\n        if (dfs(board, word, r, c, 0)) return true;\n      }\n    }\n    return false;\n  }\n\n  private boolean dfs(char[][] board, String word, int r, int c, int index) {\n    if (index == word.length()) return true;\n    if (r < 0 || c < 0 || r == board.length || c == board[0].length) return false;\n    if (board[r][c] != word.charAt(index)) return false;\n\n    char saved = board[r][c];\n    board[r][c] = '#';\n    boolean found = dfs(board, word, r + 1, c, index + 1)\n        || dfs(board, word, r - 1, c, index + 1)\n        || dfs(board, word, r, c + 1, index + 1)\n        || dfs(board, word, r, c - 1, index + 1);\n    board[r][c] = saved;\n    return found;\n  }\n}",
+      "source": {
+        "label": "Word Search - LeetCode 79",
+        "url": "https://leetcode.com/problems/word-search/"
+      }
+    },
+    {
+      "name": "Same Tree",
+      "question": "Given the roots of two binary trees p and q, return true if they are structurally identical and node values are equal.",
+      "constraints": "0 <= number of nodes <= 100; -10000 <= Node.val <= 10000.",
+      "examples": [
+        {
+          "input": "p = [1,2,3], q = [1,2,3]",
+          "output": "true",
+          "explanation": "Structure and values match."
+        },
+        {
+          "input": "p = [1,2], q = [1,null,2]",
+          "output": "false",
+          "explanation": "The shapes differ."
+        },
+        {
+          "input": "p = [1,2,1], q = [1,1,2]",
+          "output": "false",
+          "explanation": "The values differ by position."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(w). Iterative stack or queue compares node pairs.",
+      "optimizedCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nimport java.util.*;\n\nclass Solution {\n  public boolean isSameTree(TreeNode p, TreeNode q) {\n    Deque<TreeNode[]> stack = new ArrayDeque<>();\n    stack.push(new TreeNode[] {p, q});\n\n    while (!stack.isEmpty()) {\n      TreeNode[] pair = stack.pop();\n      TreeNode a = pair[0], b = pair[1];\n      if (a == null && b == null) continue;\n      if (a == null || b == null || a.val != b.val) return false;\n      stack.push(new TreeNode[] {a.left, b.left});\n      stack.push(new TreeNode[] {a.right, b.right});\n    }\n\n    return true;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(h). Recursive DFS compares corresponding subtrees.",
+      "recursiveCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nclass Solution {\n  public boolean isSameTree(TreeNode p, TreeNode q) {\n    if (p == null || q == null) return p == q;\n    return p.val == q.val\n        && isSameTree(p.left, q.left)\n        && isSameTree(p.right, q.right);\n  }\n}",
+      "source": {
+        "label": "Same Tree - LeetCode 100",
+        "url": "https://leetcode.com/problems/same-tree/"
+      }
+    },
+    {
+      "name": "Symmetric Tree",
+      "question": "Given the root of a binary tree, return true if it is symmetric around its center.",
+      "constraints": "1 <= number of nodes <= 1000; -100 <= Node.val <= 100.",
+      "examples": [
+        {
+          "input": "root = [1,2,2,3,4,4,3]",
+          "output": "true",
+          "explanation": "The left and right sides mirror each other."
+        },
+        {
+          "input": "root = [1,2,2,null,3,null,3]",
+          "output": "false",
+          "explanation": "Null positions do not mirror."
+        },
+        {
+          "input": "root = [1]",
+          "output": "true",
+          "explanation": "A single node is symmetric."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(w). Iterative queue compares mirror pairs.",
+      "optimizedCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nimport java.util.*;\n\nclass Solution {\n  public boolean isSymmetric(TreeNode root) {\n    if (root == null) return true;\n    Queue<TreeNode> queue = new LinkedList<>();\n    queue.offer(root.left);\n    queue.offer(root.right);\n\n    while (!queue.isEmpty()) {\n      TreeNode a = queue.poll();\n      TreeNode b = queue.poll();\n      if (a == null && b == null) continue;\n      if (a == null || b == null || a.val != b.val) return false;\n      queue.offer(a.left);\n      queue.offer(b.right);\n      queue.offer(a.right);\n      queue.offer(b.left);\n    }\n\n    return true;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(h). Recursive mirror comparison follows opposite branches.",
+      "recursiveCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nclass Solution {\n  public boolean isSymmetric(TreeNode root) {\n    return root == null || mirror(root.left, root.right);\n  }\n\n  private boolean mirror(TreeNode left, TreeNode right) {\n    if (left == null || right == null) return left == right;\n    return left.val == right.val\n        && mirror(left.left, right.right)\n        && mirror(left.right, right.left);\n  }\n}",
+      "source": {
+        "label": "Symmetric Tree - LeetCode 101",
+        "url": "https://leetcode.com/problems/symmetric-tree/"
+      }
+    },
+    {
+      "name": "Maximum Depth of Binary Tree",
+      "question": "Given the root of a binary tree, return its maximum depth.",
+      "constraints": "0 <= number of nodes <= 10000; -100 <= Node.val <= 100.",
+      "examples": [
+        {
+          "input": "root = [3,9,20,null,null,15,7]",
+          "output": "3",
+          "explanation": "The longest root-to-leaf path has 3 nodes."
+        },
+        {
+          "input": "root = [1,null,2]",
+          "output": "2",
+          "explanation": "The right-skewed path has length 2."
+        },
+        {
+          "input": "root = []",
+          "output": "0",
+          "explanation": "An empty tree has depth 0."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(w). BFS counts levels iteratively.",
+      "optimizedCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nimport java.util.*;\n\nclass Solution {\n  public int maxDepth(TreeNode root) {\n    if (root == null) return 0;\n    Queue<TreeNode> queue = new ArrayDeque<>();\n    queue.offer(root);\n    int depth = 0;\n\n    while (!queue.isEmpty()) {\n      int size = queue.size();\n      depth++;\n      for (int i = 0; i < size; i++) {\n        TreeNode node = queue.poll();\n        if (node.left != null) queue.offer(node.left);\n        if (node.right != null) queue.offer(node.right);\n      }\n    }\n\n    return depth;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(h). Recursive DFS returns height from children.",
+      "recursiveCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nclass Solution {\n  public int maxDepth(TreeNode root) {\n    if (root == null) return 0;\n    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));\n  }\n}",
+      "source": {
+        "label": "Maximum Depth of Binary Tree - LeetCode 104",
+        "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+      }
+    },
+    {
+      "name": "Invert Binary Tree",
+      "question": "Given the root of a binary tree, invert the tree and return its root.",
+      "constraints": "0 <= number of nodes <= 100; -100 <= Node.val <= 100.",
+      "examples": [
+        {
+          "input": "root = [4,2,7,1,3,6,9]",
+          "output": "[4,7,2,9,6,3,1]",
+          "explanation": "Every left and right child pair is swapped."
+        },
+        {
+          "input": "root = [2,1,3]",
+          "output": "[2,3,1]",
+          "explanation": "The two children of the root swap."
+        },
+        {
+          "input": "root = []",
+          "output": "[]",
+          "explanation": "Empty tree remains empty."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(w). Iterative BFS swaps every node once.",
+      "optimizedCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nimport java.util.*;\n\nclass Solution {\n  public TreeNode invertTree(TreeNode root) {\n    if (root == null) return null;\n    Queue<TreeNode> queue = new ArrayDeque<>();\n    queue.offer(root);\n\n    while (!queue.isEmpty()) {\n      TreeNode node = queue.poll();\n      TreeNode temp = node.left;\n      node.left = node.right;\n      node.right = temp;\n      if (node.left != null) queue.offer(node.left);\n      if (node.right != null) queue.offer(node.right);\n    }\n\n    return root;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(h). Recursive DFS swaps current node and subtrees.",
+      "recursiveCode": "class TreeNode {\n  int val;\n  TreeNode left;\n  TreeNode right;\n\n  TreeNode() {}\n  TreeNode(int val) { this.val = val; }\n  TreeNode(int val, TreeNode left, TreeNode right) {\n    this.val = val;\n    this.left = left;\n    this.right = right;\n  }\n}\n\nclass Solution {\n  public TreeNode invertTree(TreeNode root) {\n    if (root == null) return null;\n\n    TreeNode left = invertTree(root.left);\n    TreeNode right = invertTree(root.right);\n    root.left = right;\n    root.right = left;\n    return root;\n  }\n}",
+      "source": {
+        "label": "Invert Binary Tree - LeetCode 226",
+        "url": "https://leetcode.com/problems/invert-binary-tree/"
+      }
+    }
+  ]
+}

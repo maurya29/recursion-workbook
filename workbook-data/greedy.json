@@ -1,0 +1,608 @@
+{
+  "id": "greedy",
+  "name": "Greedy",
+  "sourceUrl": "https://maurya29.github.io/DSA-Pattern-Workbook/pages/greedy.html",
+  "retrievedOn": "2026-09-30",
+  "problems": [
+    {
+      "name": "Assign Cookies",
+      "question": "Given children greed factors and cookie sizes, return the maximum number of children that can receive one cookie with size at least their greed.",
+      "constraints": "1 <= g.length, s.length <= 30000; 1 <= g[i], s[j] <= 2^31 - 1.",
+      "examples": [
+        {
+          "input": "g = [1,2,3], s = [1,1]",
+          "output": "1",
+          "explanation": "Only the child with greed 1 can be satisfied."
+        },
+        {
+          "input": "g = [1,2], s = [1,2,3]",
+          "output": "2",
+          "explanation": "Cookies 1 and 2 satisfy both children."
+        },
+        {
+          "input": "g = [10,9,8,7], s = [5,6,7,8]",
+          "output": "2",
+          "explanation": "Only greed 7 and 8 can be satisfied."
+        }
+      ],
+      "optimizedComplexity": "Time O(g log g + s log s); Space O(log g + log s) for sorting. Two pointers make each local match final.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int findContentChildren(int[] g, int[] s) {\n    Arrays.sort(g);\n    Arrays.sort(s);\n    int child = 0;\n    int cookie = 0;\n\n    while (child < g.length && cookie < s.length) {\n      if (s[cookie] >= g[child]) child++;\n      cookie++;\n    }\n    return child;\n  }\n}",
+      "recursiveComplexity": "Time O(g log g + s log s + g + s); Space O(log g + log s + g + s). Recursive two-pointer scan after sorting.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int findContentChildren(int[] g, int[] s) {\n    Arrays.sort(g);\n    Arrays.sort(s);\n    return match(g, s, 0, 0);\n  }\n\n  private int match(int[] greed, int[] cookies, int child, int cookie) {\n    if (child == greed.length || cookie == cookies.length) return 0;\n    if (cookies[cookie] >= greed[child]) {\n      return 1 + match(greed, cookies, child + 1, cookie + 1);\n    }\n    return match(greed, cookies, child, cookie + 1);\n  }\n}",
+      "source": {
+        "label": "Assign Cookies - LeetCode 455",
+        "url": "https://leetcode.com/problems/assign-cookies/"
+      }
+    },
+    {
+      "name": "Lemonade Change",
+      "question": "Customers pay in order with 5, 10, or 20 dollar bills for 5 dollar lemonade. Return true if exact change can be given to every customer.",
+      "constraints": "1 <= bills.length <= 100000; bills[i] is 5, 10, or 20.",
+      "examples": [
+        {
+          "input": "bills = [5,5,5,10,20]",
+          "output": "true",
+          "explanation": "The 20 can be changed with 10 + 5."
+        },
+        {
+          "input": "bills = [5,5,10,10,20]",
+          "output": "false",
+          "explanation": "The final 20 cannot be changed because no 5 remains."
+        },
+        {
+          "input": "bills = [10]",
+          "output": "false",
+          "explanation": "There is no 5 dollar bill for change."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Keep only counts of 5 and 10 dollar bills.",
+      "optimizedCode": "class Solution {\n  public boolean lemonadeChange(int[] bills) {\n    int five = 0;\n    int ten = 0;\n\n    for (int bill : bills) {\n      if (bill == 5) {\n        five++;\n      } else if (bill == 10) {\n        if (five == 0) return false;\n        five--;\n        ten++;\n      } else {\n        if (ten > 0 && five > 0) {\n          ten--;\n          five--;\n        } else if (five >= 3) {\n          five -= 3;\n        } else {\n          return false;\n        }\n      }\n    }\n    return true;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Recursive scan applies the same safe change preference.",
+      "recursiveCode": "class Solution {\n  public boolean lemonadeChange(int[] bills) {\n    return scan(bills, 0, 0, 0);\n  }\n\n  private boolean scan(int[] bills, int index, int five, int ten) {\n    if (index == bills.length) return true;\n    int bill = bills[index];\n    if (bill == 5) return scan(bills, index + 1, five + 1, ten);\n    if (bill == 10) return five > 0 && scan(bills, index + 1, five - 1, ten + 1);\n    if (ten > 0 && five > 0) return scan(bills, index + 1, five - 1, ten - 1);\n    return five >= 3 && scan(bills, index + 1, five - 3, ten);\n  }\n}",
+      "source": {
+        "label": "Lemonade Change - LeetCode 860",
+        "url": "https://leetcode.com/problems/lemonade-change/"
+      }
+    },
+    {
+      "name": "Jump Game",
+      "question": "Given nums where nums[i] is the maximum jump length from index i, return true if the last index is reachable from index 0.",
+      "constraints": "1 <= nums.length <= 10000; 0 <= nums[i] <= 100000.",
+      "examples": [
+        {
+          "input": "nums = [2,3,1,1,4]",
+          "output": "true",
+          "explanation": "The frontier reaches the final index."
+        },
+        {
+          "input": "nums = [3,2,1,0,4]",
+          "output": "false",
+          "explanation": "The frontier stops at index 3."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "true",
+          "explanation": "The start is already the end."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Maintain the farthest reachable index.",
+      "optimizedCode": "class Solution {\n  public boolean canJump(int[] nums) {\n    int farthest = 0;\n    for (int i = 0; i < nums.length; i++) {\n      if (i > farthest) return false;\n      farthest = Math.max(farthest, i + nums[i]);\n      if (farthest >= nums.length - 1) return true;\n    }\n    return true;\n  }\n}",
+      "recursiveComplexity": "Time O(n^2); Space O(n). Memoized recursion checks each index and possible jump once.",
+      "recursiveCode": "class Solution {\n  public boolean canJump(int[] nums) {\n    Boolean[] memo = new Boolean[nums.length];\n    return canReach(nums, 0, memo);\n  }\n\n  private boolean canReach(int[] nums, int index, Boolean[] memo) {\n    if (index >= nums.length - 1) return true;\n    if (memo[index] != null) return memo[index];\n    int limit = Math.min(nums.length - 1, index + nums[index]);\n    for (int next = index + 1; next <= limit; next++) {\n      if (canReach(nums, next, memo)) return memo[index] = true;\n    }\n    memo[index] = false;\n    return false;\n  }\n}",
+      "source": {
+        "label": "Jump Game - LeetCode 55",
+        "url": "https://leetcode.com/problems/jump-game/"
+      }
+    },
+    {
+      "name": "Jump Game II",
+      "question": "Given nums where nums[i] is the maximum jump length from index i, return the minimum number of jumps needed to reach the last index.",
+      "constraints": "1 <= nums.length <= 10000; 0 <= nums[i] <= 1000; the last index is reachable.",
+      "examples": [
+        {
+          "input": "nums = [2,3,1,1,4]",
+          "output": "2",
+          "explanation": "Jump from index 0 to 1, then to the last index."
+        },
+        {
+          "input": "nums = [2,3,0,1,4]",
+          "output": "2",
+          "explanation": "The same two-jump route works."
+        },
+        {
+          "input": "nums = [0]",
+          "output": "0",
+          "explanation": "No jump is needed."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Greedy range expansion behaves like BFS levels over indexes.",
+      "optimizedCode": "class Solution {\n  public int jump(int[] nums) {\n    int jumps = 0;\n    int currentEnd = 0;\n    int farthest = 0;\n\n    for (int i = 0; i < nums.length - 1; i++) {\n      farthest = Math.max(farthest, i + nums[i]);\n      if (i == currentEnd) {\n        jumps++;\n        currentEnd = farthest;\n      }\n    }\n    return jumps;\n  }\n}",
+      "recursiveComplexity": "Time O(n^2); Space O(n). Memoized recursion computes the minimum jumps from each index.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int jump(int[] nums) {\n    int[] memo = new int[nums.length];\n    Arrays.fill(memo, -1);\n    return dp(nums, 0, memo);\n  }\n\n  private int dp(int[] nums, int index, int[] memo) {\n    if (index >= nums.length - 1) return 0;\n    if (memo[index] != -1) return memo[index];\n    int best = 1_000_000;\n    int limit = Math.min(nums.length - 1, index + nums[index]);\n    for (int next = index + 1; next <= limit; next++) {\n      best = Math.min(best, 1 + dp(nums, next, memo));\n    }\n    memo[index] = best;\n    return best;\n  }\n}",
+      "source": {
+        "label": "Jump Game II - LeetCode 45",
+        "url": "https://leetcode.com/problems/jump-game-ii/"
+      }
+    },
+    {
+      "name": "Gas Station",
+      "question": "Given gas and cost arrays around a circular route, return the starting station index that can complete the circuit, or -1 if impossible.",
+      "constraints": "gas.length == cost.length; 1 <= n <= 100000; 0 <= gas[i], cost[i] <= 10000.",
+      "examples": [
+        {
+          "input": "gas = [1,2,3,4,5], cost = [3,4,5,1,2]",
+          "output": "3",
+          "explanation": "Starting at station 3 completes the circuit."
+        },
+        {
+          "input": "gas = [2,3,4], cost = [3,4,3]",
+          "output": "-1",
+          "explanation": "Total gas is less than total cost."
+        },
+        {
+          "input": "gas = [5], cost = [4]",
+          "output": "0",
+          "explanation": "The single station has enough gas."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). One pass tracks total surplus and the current candidate start.",
+      "optimizedCode": "class Solution {\n  public int canCompleteCircuit(int[] gas, int[] cost) {\n    int total = 0;\n    int tank = 0;\n    int start = 0;\n\n    for (int i = 0; i < gas.length; i++) {\n      int diff = gas[i] - cost[i];\n      total += diff;\n      tank += diff;\n      if (tank < 0) {\n        start = i + 1;\n        tank = 0;\n      }\n    }\n    return total >= 0 ? start : -1;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Recursive scan applies the same reset rule.",
+      "recursiveCode": "class Solution {\n  public int canCompleteCircuit(int[] gas, int[] cost) {\n    int[] result = scan(gas, cost, 0, 0, 0, 0);\n    return result[0] >= 0 ? result[2] : -1;\n  }\n\n  private int[] scan(int[] gas, int[] cost, int index, int total, int tank, int start) {\n    if (index == gas.length) return new int[] {total, tank, start};\n    int diff = gas[index] - cost[index];\n    if (tank + diff < 0) {\n      return scan(gas, cost, index + 1, total + diff, 0, index + 1);\n    }\n    return scan(gas, cost, index + 1, total + diff, tank + diff, start);\n  }\n}",
+      "source": {
+        "label": "Gas Station - LeetCode 134",
+        "url": "https://leetcode.com/problems/gas-station/"
+      }
+    },
+    {
+      "name": "Candy",
+      "question": "Given children ratings in a line, give each child at least one candy and give higher-rated children more candies than adjacent lower-rated children. Return the minimum candies needed.",
+      "constraints": "1 <= ratings.length <= 20000; 0 <= ratings[i] <= 20000.",
+      "examples": [
+        {
+          "input": "ratings = [1,0,2]",
+          "output": "5",
+          "explanation": "Candies [2,1,2] satisfy both sides."
+        },
+        {
+          "input": "ratings = [1,2,2]",
+          "output": "4",
+          "explanation": "Candies [1,2,1] are enough."
+        },
+        {
+          "input": "ratings = [1,3,4,5,2]",
+          "output": "11",
+          "explanation": "The peak must exceed both neighboring slopes."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(n). Two directional passes compute minimum local requirements.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int candy(int[] ratings) {\n    int n = ratings.length;\n    int[] candies = new int[n];\n    Arrays.fill(candies, 1);\n\n    for (int i = 1; i < n; i++) {\n      if (ratings[i] > ratings[i - 1]) candies[i] = candies[i - 1] + 1;\n    }\n    for (int i = n - 2; i >= 0; i--) {\n      if (ratings[i] > ratings[i + 1]) candies[i] = Math.max(candies[i], candies[i + 1] + 1);\n    }\n\n    int total = 0;\n    for (int candy : candies) total += candy;\n    return total;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Memoized recursion computes candy need from lower-rated neighbors.",
+      "recursiveCode": "class Solution {\n  public int candy(int[] ratings) {\n    int[] memo = new int[ratings.length];\n    int total = 0;\n    for (int i = 0; i < ratings.length; i++) total += need(ratings, i, memo);\n    return total;\n  }\n\n  private int need(int[] ratings, int index, int[] memo) {\n    if (memo[index] != 0) return memo[index];\n    int candies = 1;\n    if (index > 0 && ratings[index] > ratings[index - 1]) candies = Math.max(candies, need(ratings, index - 1, memo) + 1);\n    if (index + 1 < ratings.length && ratings[index] > ratings[index + 1]) candies = Math.max(candies, need(ratings, index + 1, memo) + 1);\n    memo[index] = candies;\n    return candies;\n  }\n}",
+      "source": {
+        "label": "Candy - LeetCode 135",
+        "url": "https://leetcode.com/problems/candy/"
+      }
+    },
+    {
+      "name": "Queue Reconstruction by Height",
+      "question": "Given people as [height, k], reconstruct a queue where k is the number of people in front with height greater than or equal to height.",
+      "constraints": "1 <= people.length <= 2000; 0 <= height <= 10^6; 0 <= k < people.length.",
+      "examples": [
+        {
+          "input": "people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]",
+          "output": "[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]",
+          "explanation": "Every person has exactly k taller-or-equal people before them."
+        },
+        {
+          "input": "people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]",
+          "output": "[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]",
+          "explanation": "Taller-first insertion preserves constraints."
+        },
+        {
+          "input": "people = [[1,0]]",
+          "output": "[[1,0]]",
+          "explanation": "A single person is already valid."
+        }
+      ],
+      "optimizedComplexity": "Time O(n^2 + n log n); Space O(n). Sorting is followed by list insertions.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[][] reconstructQueue(int[][] people) {\n    Arrays.sort(people, (a, b) -> a[0] == b[0] ? Integer.compare(a[1], b[1]) : Integer.compare(b[0], a[0]));\n    List<int[]> queue = new ArrayList<>();\n\n    for (int[] person : people) {\n      queue.add(person[1], person);\n    }\n    return queue.toArray(new int[people.length][]);\n  }\n}",
+      "recursiveComplexity": "Time O(n^2 + n log n); Space O(n). Recursively insert sorted people into the queue.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int[][] reconstructQueue(int[][] people) {\n    Arrays.sort(people, (a, b) -> a[0] == b[0] ? Integer.compare(a[1], b[1]) : Integer.compare(b[0], a[0]));\n    List<int[]> queue = new ArrayList<>();\n    insert(people, 0, queue);\n    return queue.toArray(new int[people.length][]);\n  }\n\n  private void insert(int[][] people, int index, List<int[]> queue) {\n    if (index == people.length) return;\n    queue.add(people[index][1], people[index]);\n    insert(people, index + 1, queue);\n  }\n}",
+      "source": {
+        "label": "Queue Reconstruction by Height - LeetCode 406",
+        "url": "https://leetcode.com/problems/queue-reconstruction-by-height/"
+      }
+    },
+    {
+      "name": "Non-overlapping Intervals",
+      "question": "Given intervals, return the minimum number that must be removed so the remaining intervals do not overlap.",
+      "constraints": "1 <= intervals.length <= 100000; -50000 <= start < end <= 50000.",
+      "examples": [
+        {
+          "input": "intervals = [[1,2],[2,3],[3,4],[1,3]]",
+          "output": "1",
+          "explanation": "Remove [1,3]."
+        },
+        {
+          "input": "intervals = [[1,2],[1,2],[1,2]]",
+          "output": "2",
+          "explanation": "Only one identical interval can remain."
+        },
+        {
+          "input": "intervals = [[1,2],[2,3]]",
+          "output": "0",
+          "explanation": "Intervals touching at endpoints do not overlap."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(log n) for sorting. One end-time scan counts removals.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int eraseOverlapIntervals(int[][] intervals) {\n    Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));\n    int removed = 0;\n    int end = Integer.MIN_VALUE;\n\n    for (int[] interval : intervals) {\n      if (interval[0] < end) {\n        removed++;\n      } else {\n        end = interval[1];\n      }\n    }\n    return removed;\n  }\n}",
+      "recursiveComplexity": "Time O(n log n + n); Space O(log n + n). Recursive scan after sorting by end time.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int eraseOverlapIntervals(int[][] intervals) {\n    Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));\n    return scan(intervals, 0, Integer.MIN_VALUE);\n  }\n\n  private int scan(int[][] intervals, int index, int end) {\n    if (index == intervals.length) return 0;\n    if (intervals[index][0] < end) {\n      return 1 + scan(intervals, index + 1, end);\n    }\n    return scan(intervals, index + 1, intervals[index][1]);\n  }\n}",
+      "source": {
+        "label": "Non-overlapping Intervals - LeetCode 435",
+        "url": "https://leetcode.com/problems/non-overlapping-intervals/"
+      }
+    },
+    {
+      "name": "Merge Intervals",
+      "question": "Given intervals, merge all overlapping intervals and return the non-overlapping result.",
+      "constraints": "1 <= intervals.length <= 10000; 0 <= start <= end <= 10000.",
+      "examples": [
+        {
+          "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+          "output": "[[1,6],[8,10],[15,18]]",
+          "explanation": "[1,3] and [2,6] overlap."
+        },
+        {
+          "input": "intervals = [[1,4],[4,5]]",
+          "output": "[[1,5]]",
+          "explanation": "Touching endpoints merge."
+        },
+        {
+          "input": "intervals = [[1,4],[0,2],[3,5]]",
+          "output": "[[0,5]]",
+          "explanation": "All intervals connect after sorting."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(n). Sort by start and scan once.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int[][] merge(int[][] intervals) {\n    Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));\n    List<int[]> merged = new ArrayList<>();\n\n    for (int[] interval : intervals) {\n      if (merged.isEmpty() || merged.get(merged.size() - 1)[1] < interval[0]) {\n        merged.add(interval.clone());\n      } else {\n        int[] last = merged.get(merged.size() - 1);\n        last[1] = Math.max(last[1], interval[1]);\n      }\n    }\n    return merged.toArray(new int[merged.size()][]);\n  }\n}",
+      "recursiveComplexity": "Time O(n log n); Space O(n). Recursive scan appends or extends the last merged interval.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int[][] merge(int[][] intervals) {\n    Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));\n    List<int[]> merged = new ArrayList<>();\n    scan(intervals, 0, merged);\n    return merged.toArray(new int[merged.size()][]);\n  }\n\n  private void scan(int[][] intervals, int index, List<int[]> merged) {\n    if (index == intervals.length) return;\n    if (merged.isEmpty() || merged.get(merged.size() - 1)[1] < intervals[index][0]) {\n      merged.add(intervals[index].clone());\n    } else {\n      int[] last = merged.get(merged.size() - 1);\n      last[1] = Math.max(last[1], intervals[index][1]);\n    }\n    scan(intervals, index + 1, merged);\n  }\n}",
+      "source": {
+        "label": "Merge Intervals - LeetCode 56",
+        "url": "https://leetcode.com/problems/merge-intervals/"
+      }
+    },
+    {
+      "name": "Minimum Number of Arrows to Burst Balloons",
+      "question": "Given balloon intervals on the x-axis, return the minimum arrows needed; one arrow shot at x bursts every balloon containing x.",
+      "constraints": "1 <= points.length <= 100000; -2^31 <= start < end <= 2^31 - 1.",
+      "examples": [
+        {
+          "input": "points = [[10,16],[2,8],[1,6],[7,12]]",
+          "output": "2",
+          "explanation": "Arrows at 6 and 12 can burst all balloons."
+        },
+        {
+          "input": "points = [[1,2],[3,4],[5,6],[7,8]]",
+          "output": "4",
+          "explanation": "No intervals overlap."
+        },
+        {
+          "input": "points = [[1,2],[2,3]]",
+          "output": "1",
+          "explanation": "An arrow at 2 bursts both."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(log n) for sorting. One scan by right endpoint counts arrows.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int findMinArrowShots(int[][] points) {\n    Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));\n    int arrows = 0;\n    long arrow = Long.MIN_VALUE;\n\n    for (int[] point : points) {\n      if (arrows == 0 || point[0] > arrow) {\n        arrows++;\n        arrow = point[1];\n      }\n    }\n    return arrows;\n  }\n}",
+      "recursiveComplexity": "Time O(n log n + n); Space O(log n + n). Recursive scan after sorting by right endpoint.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int findMinArrowShots(int[][] points) {\n    Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));\n    return scan(points, 0, Long.MIN_VALUE, 0);\n  }\n\n  private int scan(int[][] points, int index, long arrow, int arrows) {\n    if (index == points.length) return arrows;\n    if (arrows == 0 || points[index][0] > arrow) {\n      return scan(points, index + 1, points[index][1], arrows + 1);\n    }\n    return scan(points, index + 1, arrow, arrows);\n  }\n}",
+      "source": {
+        "label": "Minimum Number of Arrows to Burst Balloons - LeetCode 452",
+        "url": "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
+      }
+    },
+    {
+      "name": "Partition Labels",
+      "question": "Given a string, split it into as many parts as possible so each letter appears in at most one part. Return the sizes of the parts.",
+      "constraints": "1 <= s.length <= 500; s contains lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"ababcbacadefegdehijhklij\"",
+          "output": "[9,7,8]",
+          "explanation": "Each letter appears in one partition only."
+        },
+        {
+          "input": "s = \"eccbbbbdec\"",
+          "output": "[10]",
+          "explanation": "The characters force one full-string partition."
+        },
+        {
+          "input": "s = \"abc\"",
+          "output": "[1,1,1]",
+          "explanation": "Each character can form its own partition."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Last occurrence array has fixed alphabet size.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public List<Integer> partitionLabels(String s) {\n    int[] last = new int[26];\n    for (int i = 0; i < s.length(); i++) last[s.charAt(i) - 'a'] = i;\n\n    List<Integer> result = new ArrayList<>();\n    int start = 0;\n    int end = 0;\n    for (int i = 0; i < s.length(); i++) {\n      end = Math.max(end, last[s.charAt(i) - 'a']);\n      if (i == end) {\n        result.add(end - start + 1);\n        start = i + 1;\n      }\n    }\n    return result;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Recursive segment builder uses last occurrences.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public List<Integer> partitionLabels(String s) {\n    int[] last = new int[26];\n    for (int i = 0; i < s.length(); i++) last[s.charAt(i) - 'a'] = i;\n    List<Integer> result = new ArrayList<>();\n    build(s, last, 0, result);\n    return result;\n  }\n\n  private void build(String s, int[] last, int start, List<Integer> result) {\n    if (start == s.length()) return;\n    int end = start;\n    for (int i = start; i <= end; i++) {\n      end = Math.max(end, last[s.charAt(i) - 'a']);\n    }\n    result.add(end - start + 1);\n    build(s, last, end + 1, result);\n  }\n}",
+      "source": {
+        "label": "Partition Labels - LeetCode 763",
+        "url": "https://leetcode.com/problems/partition-labels/"
+      }
+    },
+    {
+      "name": "Task Scheduler",
+      "question": "Given CPU tasks represented by letters and a cooldown n, return the least time units needed to execute all tasks with identical tasks separated by at least n intervals.",
+      "constraints": "1 <= tasks.length <= 10000; tasks[i] is uppercase English letter; 0 <= n <= 100.",
+      "examples": [
+        {
+          "input": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 2",
+          "output": "8",
+          "explanation": "One schedule is A B idle A B idle A B."
+        },
+        {
+          "input": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 0",
+          "output": "6",
+          "explanation": "No cooldown means no idles."
+        },
+        {
+          "input": "tasks = [\"A\",\"A\",\"A\",\"A\",\"B\",\"B\",\"C\",\"C\"], n = 2",
+          "output": "10",
+          "explanation": "The four A tasks create the limiting frame."
+        }
+      ],
+      "optimizedComplexity": "Time O(n + 26); Space O(26). Frequency formula computes the minimum frame length.",
+      "optimizedCode": "class Solution {\n  public int leastInterval(char[] tasks, int n) {\n    int[] count = new int[26];\n    int max = 0;\n    for (char task : tasks) {\n      count[task - 'A']++;\n      max = Math.max(max, count[task - 'A']);\n    }\n\n    int maxCount = 0;\n    for (int value : count) if (value == max) maxCount++;\n    int frame = (max - 1) * (n + 1) + maxCount;\n    return Math.max(tasks.length, frame);\n  }\n}",
+      "recursiveComplexity": "Time O(answer * 26); Space O(answer + 26). Recursive simulation chooses the most frequent available task each time.",
+      "recursiveCode": "class Solution {\n  public int leastInterval(char[] tasks, int n) {\n    int[] count = new int[26];\n    for (char task : tasks) count[task - 'A']++;\n    return simulate(count, new int[26], tasks.length, 0, n);\n  }\n\n  private int simulate(int[] count, int[] nextAllowed, int remaining, int time, int cooldown) {\n    if (remaining == 0) return time;\n    int best = -1;\n    for (int i = 0; i < 26; i++) {\n      if (count[i] > 0 && nextAllowed[i] <= time && (best == -1 || count[i] > count[best])) best = i;\n    }\n    if (best != -1) {\n      count[best]--;\n      nextAllowed[best] = time + cooldown + 1;\n      return simulate(count, nextAllowed, remaining - 1, time + 1, cooldown);\n    }\n    return simulate(count, nextAllowed, remaining, time + 1, cooldown);\n  }\n}",
+      "source": {
+        "label": "Task Scheduler - LeetCode 621",
+        "url": "https://leetcode.com/problems/task-scheduler/"
+      }
+    },
+    {
+      "name": "Reorganize String",
+      "question": "Given a string s, rearrange it so no two adjacent characters are equal, or return an empty string if impossible.",
+      "constraints": "1 <= s.length <= 500; s contains lowercase English letters.",
+      "examples": [
+        {
+          "input": "s = \"aab\"",
+          "output": "\"aba\"",
+          "explanation": "The two a characters can be separated."
+        },
+        {
+          "input": "s = \"aaab\"",
+          "output": "\"\"",
+          "explanation": "Three a characters cannot be separated by one b."
+        },
+        {
+          "input": "s = \"vvvlo\"",
+          "output": "\"vlvov\"",
+          "explanation": "A valid arrangement separates repeated v characters."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log 26); Space O(26). A max-heap chooses the highest remaining valid character.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public String reorganizeString(String s) {\n    int[] count = new int[26];\n    for (char c : s.toCharArray()) count[c - 'a']++;\n    PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> b[1] - a[1]);\n    for (int i = 0; i < 26; i++) if (count[i] > 0) heap.offer(new int[] {i, count[i]});\n\n    StringBuilder answer = new StringBuilder();\n    int[] previous = null;\n    while (!heap.isEmpty()) {\n      int[] current = heap.poll();\n      answer.append((char) ('a' + current[0]));\n      current[1]--;\n      if (previous != null && previous[1] > 0) heap.offer(previous);\n      previous = current;\n    }\n    return answer.length() == s.length() ? answer.toString() : \"\";\n  }\n}",
+      "recursiveComplexity": "Time O(n log 26); Space O(n + 26). Recursive heap construction places one character per call.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public String reorganizeString(String s) {\n    int[] count = new int[26];\n    for (char c : s.toCharArray()) count[c - 'a']++;\n    PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> b[1] - a[1]);\n    for (int i = 0; i < 26; i++) if (count[i] > 0) heap.offer(new int[] {i, count[i]});\n    StringBuilder answer = new StringBuilder();\n    build(heap, null, answer, s.length());\n    return answer.length() == s.length() ? answer.toString() : \"\";\n  }\n\n  private void build(PriorityQueue<int[]> heap, int[] previous, StringBuilder answer, int total) {\n    if (answer.length() == total || heap.isEmpty()) return;\n    int[] current = heap.poll();\n    answer.append((char) ('a' + current[0]));\n    current[1]--;\n    if (previous != null && previous[1] > 0) heap.offer(previous);\n    build(heap, current, answer, total);\n  }\n}",
+      "source": {
+        "label": "Reorganize String - LeetCode 767",
+        "url": "https://leetcode.com/problems/reorganize-string/"
+      }
+    },
+    {
+      "name": "Hand of Straights",
+      "question": "Given a hand of cards and groupSize, return true if the cards can be rearranged into groups of groupSize consecutive cards.",
+      "constraints": "1 <= hand.length <= 10000; 0 <= hand[i] <= 10^9; 1 <= groupSize <= hand.length.",
+      "examples": [
+        {
+          "input": "hand = [1,2,3,6,2,3,4,7,8], groupSize = 3",
+          "output": "true",
+          "explanation": "Groups can be [1,2,3], [2,3,4], and [6,7,8]."
+        },
+        {
+          "input": "hand = [1,2,3,4,5], groupSize = 4",
+          "output": "false",
+          "explanation": "The hand size is not divisible by 4."
+        },
+        {
+          "input": "hand = [1,2,3], groupSize = 1",
+          "output": "true",
+          "explanation": "Every card forms its own group."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n + n * groupSize); Space O(n). TreeMap keeps the next smallest card available.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public boolean isNStraightHand(int[] hand, int groupSize) {\n    if (hand.length % groupSize != 0) return false;\n    TreeMap<Integer, Integer> count = new TreeMap<>();\n    for (int card : hand) count.put(card, count.getOrDefault(card, 0) + 1);\n\n    while (!count.isEmpty()) {\n      int start = count.firstKey();\n      for (int card = start; card < start + groupSize; card++) {\n        Integer freq = count.get(card);\n        if (freq == null) return false;\n        if (freq == 1) count.remove(card); else count.put(card, freq - 1);\n      }\n    }\n    return true;\n  }\n}",
+      "recursiveComplexity": "Time O(n log n + n * groupSize); Space O(n). Recursive TreeMap removal builds one group at a time.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public boolean isNStraightHand(int[] hand, int groupSize) {\n    if (hand.length % groupSize != 0) return false;\n    TreeMap<Integer, Integer> count = new TreeMap<>();\n    for (int card : hand) count.put(card, count.getOrDefault(card, 0) + 1);\n    return consume(count, groupSize);\n  }\n\n  private boolean consume(TreeMap<Integer, Integer> count, int groupSize) {\n    if (count.isEmpty()) return true;\n    int start = count.firstKey();\n    for (int card = start; card < start + groupSize; card++) {\n      Integer freq = count.get(card);\n      if (freq == null) return false;\n      if (freq == 1) count.remove(card); else count.put(card, freq - 1);\n    }\n    return consume(count, groupSize);\n  }\n}",
+      "source": {
+        "label": "Hand of Straights - LeetCode 846",
+        "url": "https://leetcode.com/problems/hand-of-straights/"
+      }
+    },
+    {
+      "name": "Boats to Save People",
+      "question": "Given people weights and a boat limit where each boat carries at most two people, return the minimum number of boats needed.",
+      "constraints": "1 <= people.length <= 50000; 1 <= people[i] <= limit <= 30000.",
+      "examples": [
+        {
+          "input": "people = [1,2], limit = 3",
+          "output": "1",
+          "explanation": "Both people fit in one boat."
+        },
+        {
+          "input": "people = [3,2,2,1], limit = 3",
+          "output": "3",
+          "explanation": "The person with weight 3 rides alone."
+        },
+        {
+          "input": "people = [3,5,3,4], limit = 5",
+          "output": "4",
+          "explanation": "No pair can include weight 5 or 4 with another person."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(log n) for sorting. Two pointers pair lightest with heaviest when possible.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int numRescueBoats(int[] people, int limit) {\n    Arrays.sort(people);\n    int left = 0;\n    int right = people.length - 1;\n    int boats = 0;\n\n    while (left <= right) {\n      if (people[left] + people[right] <= limit) left++;\n      right--;\n      boats++;\n    }\n    return boats;\n  }\n}",
+      "recursiveComplexity": "Time O(n log n + n); Space O(log n + n). Recursive two-pointer pairing after sorting.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int numRescueBoats(int[] people, int limit) {\n    Arrays.sort(people);\n    return boats(people, limit, 0, people.length - 1);\n  }\n\n  private int boats(int[] people, int limit, int left, int right) {\n    if (left > right) return 0;\n    if (people[left] + people[right] <= limit) return 1 + boats(people, limit, left + 1, right - 1);\n    return 1 + boats(people, limit, left, right - 1);\n  }\n}",
+      "source": {
+        "label": "Boats to Save People - LeetCode 881",
+        "url": "https://leetcode.com/problems/boats-to-save-people/"
+      }
+    },
+    {
+      "name": "Two City Scheduling",
+      "question": "Given costs for flying each person to city A or B, send exactly n people to each city with minimum total cost.",
+      "constraints": "2 <= costs.length <= 100; costs.length is even; 1 <= costA, costB <= 1000.",
+      "examples": [
+        {
+          "input": "costs = [[10,20],[30,200],[400,50],[30,20]]",
+          "output": "110",
+          "explanation": "Send people 0 and 1 to A, people 2 and 3 to B."
+        },
+        {
+          "input": "costs = [[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]",
+          "output": "1859",
+          "explanation": "Sorting by savings gives the minimum split."
+        },
+        {
+          "input": "costs = [[515,563],[451,713],[537,709],[343,819],[855,779],[457,60],[650,359],[631,42]]",
+          "output": "3086",
+          "explanation": "Exactly half must go to each city."
+        }
+      ],
+      "optimizedComplexity": "Time O(n log n); Space O(log n) for sorting. Difference sorting gives the exchange-optimal split.",
+      "optimizedCode": "import java.util.*;\n\nclass Solution {\n  public int twoCitySchedCost(int[][] costs) {\n    Arrays.sort(costs, (a, b) -> Integer.compare(a[0] - a[1], b[0] - b[1]));\n    int n = costs.length / 2;\n    int total = 0;\n    for (int i = 0; i < costs.length; i++) {\n      total += i < n ? costs[i][0] : costs[i][1];\n    }\n    return total;\n  }\n}",
+      "recursiveComplexity": "Time O(n log n + n); Space O(log n + n). Recursive accumulation after sorting by cost difference.",
+      "recursiveCode": "import java.util.*;\n\nclass Solution {\n  public int twoCitySchedCost(int[][] costs) {\n    Arrays.sort(costs, (a, b) -> Integer.compare(a[0] - a[1], b[0] - b[1]));\n    return sum(costs, 0, costs.length / 2);\n  }\n\n  private int sum(int[][] costs, int index, int half) {\n    if (index == costs.length) return 0;\n    int cost = index < half ? costs[index][0] : costs[index][1];\n    return cost + sum(costs, index + 1, half);\n  }\n}",
+      "source": {
+        "label": "Two City Scheduling - LeetCode 1029",
+        "url": "https://leetcode.com/problems/two-city-scheduling/"
+      }
+    },
+    {
+      "name": "Maximum Subarray",
+      "question": "Given an integer array, return the largest possible sum of a non-empty contiguous subarray.",
+      "constraints": "1 <= nums.length <= 100000; -10000 <= nums[i] <= 10000.",
+      "examples": [
+        {
+          "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+          "output": "6",
+          "explanation": "The best subarray is [4,-1,2,1]."
+        },
+        {
+          "input": "nums = [1]",
+          "output": "1",
+          "explanation": "The single element is the answer."
+        },
+        {
+          "input": "nums = [5,4,-1,7,8]",
+          "output": "23",
+          "explanation": "The entire array has the maximum sum."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Kadane keeps only current ending sum and global best.",
+      "optimizedCode": "class Solution {\n  public int maxSubArray(int[] nums) {\n    int current = nums[0];\n    int best = nums[0];\n\n    for (int i = 1; i < nums.length; i++) {\n      current = Math.max(nums[i], current + nums[i]);\n      best = Math.max(best, current);\n    }\n    return best;\n  }\n}",
+      "recursiveComplexity": "Time O(n log n); Space O(log n). Divide and conquer combines left, right, and crossing sums.",
+      "recursiveCode": "class Solution {\n  public int maxSubArray(int[] nums) {\n    return solve(nums, 0, nums.length - 1);\n  }\n\n  private int solve(int[] nums, int left, int right) {\n    if (left == right) return nums[left];\n    int mid = left + (right - left) / 2;\n    int bestLeft = solve(nums, left, mid);\n    int bestRight = solve(nums, mid + 1, right);\n    int sum = 0;\n    int crossLeft = Integer.MIN_VALUE;\n    for (int i = mid; i >= left; i--) {\n      sum += nums[i];\n      crossLeft = Math.max(crossLeft, sum);\n    }\n    sum = 0;\n    int crossRight = Integer.MIN_VALUE;\n    for (int i = mid + 1; i <= right; i++) {\n      sum += nums[i];\n      crossRight = Math.max(crossRight, sum);\n    }\n    return Math.max(Math.max(bestLeft, bestRight), crossLeft + crossRight);\n  }\n}",
+      "source": {
+        "label": "Maximum Subarray - LeetCode 53",
+        "url": "https://leetcode.com/problems/maximum-subarray/"
+      }
+    },
+    {
+      "name": "Best Time to Buy and Sell Stock II",
+      "question": "Given daily stock prices, return the maximum profit with as many buy-sell transactions as desired, holding at most one share at a time.",
+      "constraints": "1 <= prices.length <= 30000; 0 <= prices[i] <= 10000.",
+      "examples": [
+        {
+          "input": "prices = [7,1,5,3,6,4]",
+          "output": "7",
+          "explanation": "Profit 4 from 1->5 and 3 from 3->6."
+        },
+        {
+          "input": "prices = [1,2,3,4,5]",
+          "output": "4",
+          "explanation": "Capture every adjacent increase."
+        },
+        {
+          "input": "prices = [7,6,4,3,1]",
+          "output": "0",
+          "explanation": "No profitable transaction exists."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Sum every positive adjacent difference.",
+      "optimizedCode": "class Solution {\n  public int maxProfit(int[] prices) {\n    int profit = 0;\n    for (int i = 1; i < prices.length; i++) {\n      if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1];\n    }\n    return profit;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Recursive scan accumulates positive differences.",
+      "recursiveCode": "class Solution {\n  public int maxProfit(int[] prices) {\n    return collect(prices, 1);\n  }\n\n  private int collect(int[] prices, int index) {\n    if (index == prices.length) return 0;\n    int gain = Math.max(0, prices[index] - prices[index - 1]);\n    return gain + collect(prices, index + 1);\n  }\n}",
+      "source": {
+        "label": "Best Time to Buy and Sell Stock II - LeetCode 122",
+        "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+      }
+    },
+    {
+      "name": "Can Place Flowers",
+      "question": "Given a flowerbed of 0s and 1s and an integer n, return true if n new flowers can be planted without adjacent flowers.",
+      "constraints": "1 <= flowerbed.length <= 20000; flowerbed[i] is 0 or 1; 0 <= n <= flowerbed.length.",
+      "examples": [
+        {
+          "input": "flowerbed = [1,0,0,0,1], n = 1",
+          "output": "true",
+          "explanation": "Plant at index 2."
+        },
+        {
+          "input": "flowerbed = [1,0,0,0,1], n = 2",
+          "output": "false",
+          "explanation": "Only one new flower can fit."
+        },
+        {
+          "input": "flowerbed = [0], n = 1",
+          "output": "true",
+          "explanation": "The only plot has no neighbors."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). One scan mutates valid empty plots.",
+      "optimizedCode": "class Solution {\n  public boolean canPlaceFlowers(int[] flowerbed, int n) {\n    for (int i = 0; i < flowerbed.length && n > 0; i++) {\n      boolean leftEmpty = i == 0 || flowerbed[i - 1] == 0;\n      boolean rightEmpty = i + 1 == flowerbed.length || flowerbed[i + 1] == 0;\n      if (flowerbed[i] == 0 && leftEmpty && rightEmpty) {\n        flowerbed[i] = 1;\n        n--;\n      }\n    }\n    return n == 0;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Recursive scan applies the same earliest-placement rule.",
+      "recursiveCode": "class Solution {\n  public boolean canPlaceFlowers(int[] flowerbed, int n) {\n    return plant(flowerbed, 0, n);\n  }\n\n  private boolean plant(int[] bed, int index, int leftToPlant) {\n    if (leftToPlant <= 0) return true;\n    if (index == bed.length) return false;\n    boolean leftEmpty = index == 0 || bed[index - 1] == 0;\n    boolean rightEmpty = index + 1 == bed.length || bed[index + 1] == 0;\n    if (bed[index] == 0 && leftEmpty && rightEmpty) {\n      bed[index] = 1;\n      return plant(bed, index + 1, leftToPlant - 1);\n    }\n    return plant(bed, index + 1, leftToPlant);\n  }\n}",
+      "source": {
+        "label": "Can Place Flowers - LeetCode 605",
+        "url": "https://leetcode.com/problems/can-place-flowers/"
+      }
+    },
+    {
+      "name": "Increasing Triplet Subsequence",
+      "question": "Given an integer array, return true if there exists a strictly increasing subsequence of length three.",
+      "constraints": "1 <= nums.length <= 500000; -2^31 <= nums[i] <= 2^31 - 1.",
+      "examples": [
+        {
+          "input": "nums = [1,2,3,4,5]",
+          "output": "true",
+          "explanation": "1, 2, 3 form a triplet."
+        },
+        {
+          "input": "nums = [5,4,3,2,1]",
+          "output": "false",
+          "explanation": "No increasing subsequence of length three exists."
+        },
+        {
+          "input": "nums = [2,1,5,0,4,6]",
+          "output": "true",
+          "explanation": "0, 4, 6 form a triplet."
+        }
+      ],
+      "optimizedComplexity": "Time O(n); Space O(1). Track the smallest first and second subsequence tails.",
+      "optimizedCode": "class Solution {\n  public boolean increasingTriplet(int[] nums) {\n    int first = Integer.MAX_VALUE;\n    int second = Integer.MAX_VALUE;\n\n    for (int num : nums) {\n      if (num <= first) {\n        first = num;\n      } else if (num <= second) {\n        second = num;\n      } else {\n        return true;\n      }\n    }\n    return false;\n  }\n}",
+      "recursiveComplexity": "Time O(n); Space O(n). Recursive scan carries the two current tail values.",
+      "recursiveCode": "class Solution {\n  public boolean increasingTriplet(int[] nums) {\n    return scan(nums, 0, Integer.MAX_VALUE, Integer.MAX_VALUE);\n  }\n\n  private boolean scan(int[] nums, int index, int first, int second) {\n    if (index == nums.length) return false;\n    int num = nums[index];\n    if (num <= first) return scan(nums, index + 1, num, second);\n    if (num <= second) return scan(nums, index + 1, first, num);\n    return true;\n  }\n}",
+      "source": {
+        "label": "Increasing Triplet Subsequence - LeetCode 334",
+        "url": "https://leetcode.com/problems/increasing-triplet-subsequence/"
+      }
+    }
+  ]
+}

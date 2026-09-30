@@ -1,0 +1,3582 @@
+[
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 1,
+    "title": "Fibonacci Number",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q01FibOptimized",
+        "returnType": "int",
+        "parameters": "int n"
+      },
+      {
+        "name": "q01FibRecursive",
+        "returnType": "int",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "1",
+        "explanation": "F(2) = F(1) + F(0) = 1."
+      },
+      {
+        "input": "n = 3",
+        "output": "2",
+        "explanation": "F(3) = F(2) + F(1) = 2."
+      },
+      {
+        "input": "n = 4",
+        "output": "3",
+        "explanation": "F(4) = 3."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 2,
+    "title": "Climbing Stairs",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q02ClimbStairsOptimized",
+        "returnType": "int",
+        "parameters": "int n"
+      },
+      {
+        "name": "q02ClimbStairsRecursive",
+        "returnType": "int",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "2",
+        "explanation": "The ways are 1+1 and 2."
+      },
+      {
+        "input": "n = 3",
+        "output": "3",
+        "explanation": "The ways are 1+1+1, 1+2, and 2+1."
+      },
+      {
+        "input": "n = 1",
+        "output": "1",
+        "explanation": "Only one move is possible."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 3,
+    "title": "Pow(x, n)",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q03MyPowOptimized",
+        "returnType": "double",
+        "parameters": "double x, int n"
+      },
+      {
+        "name": "q03MyPowRecursive",
+        "returnType": "double",
+        "parameters": "double x, int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "x = 2.00000, n = 10",
+        "output": "1024.00000",
+        "explanation": "2 raised to 10 is 1024."
+      },
+      {
+        "input": "x = 2.10000, n = 3",
+        "output": "9.26100",
+        "explanation": "2.1 * 2.1 * 2.1 = 9.261."
+      },
+      {
+        "input": "x = 2.00000, n = -2",
+        "output": "0.25000",
+        "explanation": "Negative exponent returns reciprocal power."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 4,
+    "title": "Reverse String",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q04ReverseStringOptimized",
+        "returnType": "void",
+        "parameters": "char[] s"
+      },
+      {
+        "name": "q04ReverseStringRecursive",
+        "returnType": "void",
+        "parameters": "char[] s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+        "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]",
+        "explanation": "The array is reversed in-place."
+      },
+      {
+        "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]",
+        "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]",
+        "explanation": "Case is preserved while positions change."
+      },
+      {
+        "input": "s = [\"a\"]",
+        "output": "[\"a\"]",
+        "explanation": "A single character is already reversed."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 5,
+    "title": "Swap Nodes in Pairs",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q05SwapPairsOptimized",
+        "returnType": "ListNode",
+        "parameters": "ListNode head"
+      },
+      {
+        "name": "q05SwapPairsRecursive",
+        "returnType": "ListNode",
+        "parameters": "ListNode head"
+      }
+    ],
+    "examples": [
+      {
+        "input": "head = [1,2,3,4]",
+        "output": "[2,1,4,3]",
+        "explanation": "Each adjacent pair is swapped."
+      },
+      {
+        "input": "head = []",
+        "output": "[]",
+        "explanation": "There are no nodes to swap."
+      },
+      {
+        "input": "head = [1,2,3]",
+        "output": "[2,1,3]",
+        "explanation": "The final unpaired node remains in place."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 6,
+    "title": "Merge Two Sorted Lists",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q06MergeTwoListsOptimized",
+        "returnType": "ListNode",
+        "parameters": "ListNode list1, ListNode list2"
+      },
+      {
+        "name": "q06MergeTwoListsRecursive",
+        "returnType": "ListNode",
+        "parameters": "ListNode list1, ListNode list2"
+      }
+    ],
+    "examples": [
+      {
+        "input": "list1 = [1,2,4], list2 = [1,3,4]",
+        "output": "[1,1,2,3,4,4]",
+        "explanation": "Nodes are merged in sorted order."
+      },
+      {
+        "input": "list1 = [], list2 = []",
+        "output": "[]",
+        "explanation": "Both lists are empty."
+      },
+      {
+        "input": "list1 = [], list2 = [0]",
+        "output": "[0]",
+        "explanation": "The non-empty list is already the answer."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 7,
+    "title": "K-th Symbol in Grammar",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q07KthGrammarOptimized",
+        "returnType": "int",
+        "parameters": "int n, int k"
+      },
+      {
+        "name": "q07KthGrammarRecursive",
+        "returnType": "int",
+        "parameters": "int n, int k"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 1, k = 1",
+        "output": "0",
+        "explanation": "The first row is only 0."
+      },
+      {
+        "input": "n = 2, k = 1",
+        "output": "0",
+        "explanation": "Row 2 is 01."
+      },
+      {
+        "input": "n = 2, k = 2",
+        "output": "1",
+        "explanation": "The second symbol in 01 is 1."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 8,
+    "title": "Generate Parentheses",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q08GenerateParenthesisOptimized",
+        "returnType": "List<String>",
+        "parameters": "int n"
+      },
+      {
+        "name": "q08GenerateParenthesisRecursive",
+        "returnType": "List<String>",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 3",
+        "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+        "explanation": "All valid strings with three pairs are generated."
+      },
+      {
+        "input": "n = 1",
+        "output": "[\"()\"]",
+        "explanation": "Only one valid pair exists."
+      },
+      {
+        "input": "n = 2",
+        "output": "[\"(())\",\"()()\"]",
+        "explanation": "Two valid combinations exist."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 9,
+    "title": "Subsets",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q09SubsetsOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q09SubsetsRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]",
+        "explanation": "All 2^3 subsets are returned."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[[],[0]]",
+        "explanation": "A single element can be excluded or included."
+      },
+      {
+        "input": "nums = [1,2]",
+        "output": "[[],[1],[2],[1,2]]",
+        "explanation": "There are four subsets."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 10,
+    "title": "Permutations",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q10PermuteOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q10PermuteRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]",
+        "explanation": "All 3! orderings are generated."
+      },
+      {
+        "input": "nums = [0,1]",
+        "output": "[[0,1],[1,0]]",
+        "explanation": "Two elements have two permutations."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "[[1]]",
+        "explanation": "One element has one ordering."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 11,
+    "title": "Letter Combinations of a Phone Number",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q11LetterCombinationsOptimized",
+        "returnType": "List<String>",
+        "parameters": "String digits"
+      },
+      {
+        "name": "q11LetterCombinationsRecursive",
+        "returnType": "List<String>",
+        "parameters": "String digits"
+      }
+    ],
+    "examples": [
+      {
+        "input": "digits = \"23\"",
+        "output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+        "explanation": "Every letter from 2 combines with every letter from 3."
+      },
+      {
+        "input": "digits = \"\"",
+        "output": "[]",
+        "explanation": "No digits means no combinations."
+      },
+      {
+        "input": "digits = \"2\"",
+        "output": "[\"a\",\"b\",\"c\"]",
+        "explanation": "Digit 2 maps to a, b, and c."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 12,
+    "title": "Combinations",
+    "className": "RecursionBasic",
+    "methods": [
+      {
+        "name": "q12CombineOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int n, int k"
+      },
+      {
+        "name": "q12CombineRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int n, int k"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 4, k = 2",
+        "output": "[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]",
+        "explanation": "All size-2 choices from 1..4 are returned."
+      },
+      {
+        "input": "n = 1, k = 1",
+        "output": "[[1]]",
+        "explanation": "Only one combination exists."
+      },
+      {
+        "input": "n = 3, k = 3",
+        "output": "[[1,2,3]]",
+        "explanation": "Choosing all numbers gives one combination."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 13,
+    "title": "Combination Sum",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q13CombinationSumOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] candidates, int target"
+      },
+      {
+        "name": "q13CombinationSumRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] candidates, int target"
+      }
+    ],
+    "examples": [
+      {
+        "input": "candidates = [2,3,6,7], target = 7",
+        "output": "[[2,2,3],[7]]",
+        "explanation": "2 can be reused and 7 is an exact match."
+      },
+      {
+        "input": "candidates = [2,3,5], target = 8",
+        "output": "[[2,2,2,2],[2,3,3],[3,5]]",
+        "explanation": "All unique combinations summing to 8 are returned."
+      },
+      {
+        "input": "candidates = [2], target = 1",
+        "output": "[]",
+        "explanation": "No candidate can sum to the target."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 14,
+    "title": "N-Queens",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q14SolveNQueensOptimized",
+        "returnType": "List<List<String>>",
+        "parameters": "int n"
+      },
+      {
+        "name": "q14SolveNQueensRecursive",
+        "returnType": "List<List<String>>",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 4",
+        "output": "[[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],[\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]]",
+        "explanation": "There are two valid 4-queen boards."
+      },
+      {
+        "input": "n = 1",
+        "output": "[[\"Q\"]]",
+        "explanation": "A single queen is valid."
+      },
+      {
+        "input": "n = 2",
+        "output": "[]",
+        "explanation": "No arrangement avoids attacks."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 15,
+    "title": "Sudoku Solver",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q15SolveSudokuOptimized",
+        "returnType": "void",
+        "parameters": "char[][] board"
+      },
+      {
+        "name": "q15SolveSudokuRecursive",
+        "returnType": "void",
+        "parameters": "char[][] board"
+      }
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"5\", \"3\", \".\", \".\", \"7\", \".\", \".\", \".\", \".\"], [\"6\", \".\", \".\", \"1\", \"9\", \"5\", \".\", \".\", \".\"], [\".\", \"9\", \"8\", \".\", \".\", \".\", \".\", \"6\", \".\"], [\"8\", \".\", \".\", \".\", \"6\", \".\", \".\", \".\", \"3\"], [\"4\", \".\", \".\", \"8\", \".\", \"3\", \".\", \".\", \"1\"], [\"7\", \".\", \".\", \".\", \"2\", \".\", \".\", \".\", \"6\"], [\".\", \"6\", \".\", \".\", \".\", \".\", \"2\", \"8\", \".\"], [\".\", \".\", \".\", \"4\", \"1\", \"9\", \".\", \".\", \"5\"], [\".\", \".\", \".\", \".\", \"8\", \".\", \".\", \"7\", \"9\"]]",
+        "output": "[[\"5\", \"3\", \"4\", \"6\", \"7\", \"8\", \"9\", \"1\", \"2\"], [\"6\", \"7\", \"2\", \"1\", \"9\", \"5\", \"3\", \"4\", \"8\"], [\"1\", \"9\", \"8\", \"3\", \"4\", \"2\", \"5\", \"6\", \"7\"], [\"8\", \"5\", \"9\", \"7\", \"6\", \"1\", \"4\", \"2\", \"3\"], [\"4\", \"2\", \"6\", \"8\", \"5\", \"3\", \"7\", \"9\", \"1\"], [\"7\", \"1\", \"3\", \"9\", \"2\", \"4\", \"8\", \"5\", \"6\"], [\"9\", \"6\", \"1\", \"5\", \"3\", \"7\", \"2\", \"8\", \"4\"], [\"2\", \"8\", \"7\", \"4\", \"1\", \"9\", \"6\", \"3\", \"5\"], [\"3\", \"4\", \"5\", \"2\", \"8\", \"6\", \"1\", \"7\", \"9\"]]",
+        "explanation": "Fill all blanks while preserving the given digits."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 16,
+    "title": "Word Search",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q16ExistOptimized",
+        "returnType": "boolean",
+        "parameters": "char[][] board, String word"
+      },
+      {
+        "name": "q16ExistRecursive",
+        "returnType": "boolean",
+        "parameters": "char[][] board, String word"
+      }
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"",
+        "output": "true",
+        "explanation": "A valid adjacent path spells the word."
+      },
+      {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"SEE\"",
+        "output": "true",
+        "explanation": "The word can be formed on the right side."
+      },
+      {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCB\"",
+        "output": "false",
+        "explanation": "The path would need to reuse B."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 17,
+    "title": "Same Tree",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q17IsSameTreeOptimized",
+        "returnType": "boolean",
+        "parameters": "TreeNode p, TreeNode q"
+      },
+      {
+        "name": "q17IsSameTreeRecursive",
+        "returnType": "boolean",
+        "parameters": "TreeNode p, TreeNode q"
+      }
+    ],
+    "examples": [
+      {
+        "input": "p = [1,2,3], q = [1,2,3]",
+        "output": "true",
+        "explanation": "Structure and values match."
+      },
+      {
+        "input": "p = [1,2], q = [1,null,2]",
+        "output": "false",
+        "explanation": "The shapes differ."
+      },
+      {
+        "input": "p = [1,2,1], q = [1,1,2]",
+        "output": "false",
+        "explanation": "The values differ by position."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 18,
+    "title": "Symmetric Tree",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q18IsSymmetricOptimized",
+        "returnType": "boolean",
+        "parameters": "TreeNode root"
+      },
+      {
+        "name": "q18IsSymmetricRecursive",
+        "returnType": "boolean",
+        "parameters": "TreeNode root"
+      }
+    ],
+    "examples": [
+      {
+        "input": "root = [1,2,2,3,4,4,3]",
+        "output": "true",
+        "explanation": "The left and right sides mirror each other."
+      },
+      {
+        "input": "root = [1,2,2,null,3,null,3]",
+        "output": "false",
+        "explanation": "Null positions do not mirror."
+      },
+      {
+        "input": "root = [1]",
+        "output": "true",
+        "explanation": "A single node is symmetric."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 19,
+    "title": "Maximum Depth of Binary Tree",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q19MaxDepthOptimized",
+        "returnType": "int",
+        "parameters": "TreeNode root"
+      },
+      {
+        "name": "q19MaxDepthRecursive",
+        "returnType": "int",
+        "parameters": "TreeNode root"
+      }
+    ],
+    "examples": [
+      {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "3",
+        "explanation": "The longest root-to-leaf path has 3 nodes."
+      },
+      {
+        "input": "root = [1,null,2]",
+        "output": "2",
+        "explanation": "The right-skewed path has length 2."
+      },
+      {
+        "input": "root = []",
+        "output": "0",
+        "explanation": "An empty tree has depth 0."
+      }
+    ]
+  },
+  {
+    "topic": "recursion",
+    "topicNumber": 10,
+    "number": 20,
+    "title": "Invert Binary Tree",
+    "className": "RecursionModerate",
+    "methods": [
+      {
+        "name": "q20InvertTreeOptimized",
+        "returnType": "TreeNode",
+        "parameters": "TreeNode root"
+      },
+      {
+        "name": "q20InvertTreeRecursive",
+        "returnType": "TreeNode",
+        "parameters": "TreeNode root"
+      }
+    ],
+    "examples": [
+      {
+        "input": "root = [4,2,7,1,3,6,9]",
+        "output": "[4,7,2,9,6,3,1]",
+        "explanation": "Every left and right child pair is swapped."
+      },
+      {
+        "input": "root = [2,1,3]",
+        "output": "[2,3,1]",
+        "explanation": "The two children of the root swap."
+      },
+      {
+        "input": "root = []",
+        "output": "[]",
+        "explanation": "Empty tree remains empty."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 1,
+    "title": "Subsets",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q01SubsetsOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q01SubsetsRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[[],[1],[1,2],[1,2,3],[1,3],[2],[2,3],[3]]",
+        "explanation": "Each number is either chosen or skipped."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[[],[0]]",
+        "explanation": "There are two subsets for one element."
+      },
+      {
+        "input": "nums = [1,2]",
+        "output": "[[],[1],[1,2],[2]]",
+        "explanation": "There are four subsets."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 2,
+    "title": "Subsets II",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q02SubsetsWithDupOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q02SubsetsWithDupRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,2]",
+        "output": "[[],[1],[1,2],[1,2,2],[2],[2,2]]",
+        "explanation": "The duplicate subset [2] appears only once."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[[],[0]]",
+        "explanation": "One element still has two subsets."
+      },
+      {
+        "input": "nums = [2,2,2]",
+        "output": "[[],[2],[2,2],[2,2,2]]",
+        "explanation": "Only different counts of value 2 matter."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 3,
+    "title": "Permutations",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q03PermuteOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q03PermuteRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]",
+        "explanation": "All 3! orderings are returned."
+      },
+      {
+        "input": "nums = [0,1]",
+        "output": "[[0,1],[1,0]]",
+        "explanation": "Two values have two orders."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "[[1]]",
+        "explanation": "One value has one permutation."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 4,
+    "title": "Permutations II",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q04PermuteUniqueOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q04PermuteUniqueRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,2]",
+        "output": "[[1,1,2],[1,2,1],[2,1,1]]",
+        "explanation": "Duplicate 1 values do not create duplicate permutations."
+      },
+      {
+        "input": "nums = [1,2,3]",
+        "output": "six permutations",
+        "explanation": "With all unique values, all 3! permutations appear."
+      },
+      {
+        "input": "nums = [2,2]",
+        "output": "[[2,2]]",
+        "explanation": "Only one unique ordering exists."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 5,
+    "title": "Combinations",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q05CombineOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int n, int k"
+      },
+      {
+        "name": "q05CombineRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int n, int k"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 4, k = 2",
+        "output": "[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]",
+        "explanation": "Every size-2 choice is listed."
+      },
+      {
+        "input": "n = 1, k = 1",
+        "output": "[[1]]",
+        "explanation": "Only one number exists."
+      },
+      {
+        "input": "n = 3, k = 3",
+        "output": "[[1,2,3]]",
+        "explanation": "Choosing all numbers gives one combination."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 6,
+    "title": "Combination Sum",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q06CombinationSumOptimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] candidates, int target"
+      },
+      {
+        "name": "q06CombinationSumRecursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] candidates, int target"
+      }
+    ],
+    "examples": [
+      {
+        "input": "candidates = [2,3,6,7], target = 7",
+        "output": "[[2,2,3],[7]]",
+        "explanation": "2 can be reused and 7 is exact."
+      },
+      {
+        "input": "candidates = [2,3,5], target = 8",
+        "output": "[[2,2,2,2],[2,3,3],[3,5]]",
+        "explanation": "All combinations sum to 8."
+      },
+      {
+        "input": "candidates = [2], target = 1",
+        "output": "[]",
+        "explanation": "No combination can reach 1."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 7,
+    "title": "Combination Sum II",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q07CombinationSum2Optimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] candidates, int target"
+      },
+      {
+        "name": "q07CombinationSum2Recursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int[] candidates, int target"
+      }
+    ],
+    "examples": [
+      {
+        "input": "candidates = [10,1,2,7,6,1,5], target = 8",
+        "output": "[[1,1,6],[1,2,5],[1,7],[2,6]]",
+        "explanation": "Each index is used at most once."
+      },
+      {
+        "input": "candidates = [2,5,2,1,2], target = 5",
+        "output": "[[1,2,2],[5]]",
+        "explanation": "Duplicate 2 values are handled without duplicate combinations."
+      },
+      {
+        "input": "candidates = [3], target = 2",
+        "output": "[]",
+        "explanation": "The only candidate is too large."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 8,
+    "title": "Combination Sum III",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q08CombinationSum3Optimized",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int k, int n"
+      },
+      {
+        "name": "q08CombinationSum3Recursive",
+        "returnType": "List<List<Integer>>",
+        "parameters": "int k, int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "k = 3, n = 7",
+        "output": "[[1,2,4]]",
+        "explanation": "Only 1 + 2 + 4 equals 7."
+      },
+      {
+        "input": "k = 3, n = 9",
+        "output": "[[1,2,6],[1,3,5],[2,3,4]]",
+        "explanation": "Three valid size-3 combinations exist."
+      },
+      {
+        "input": "k = 4, n = 1",
+        "output": "[]",
+        "explanation": "The target is too small for four positive numbers."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 9,
+    "title": "Generate Parentheses",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q09GenerateParenthesisOptimized",
+        "returnType": "List<String>",
+        "parameters": "int n"
+      },
+      {
+        "name": "q09GenerateParenthesisRecursive",
+        "returnType": "List<String>",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 3",
+        "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+        "explanation": "All valid strings with three pairs are generated."
+      },
+      {
+        "input": "n = 1",
+        "output": "[\"()\"]",
+        "explanation": "Only one valid string exists."
+      },
+      {
+        "input": "n = 2",
+        "output": "[\"(())\",\"()()\"]",
+        "explanation": "Two valid strings exist."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 10,
+    "title": "Letter Combinations of a Phone Number",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q10LetterCombinationsOptimized",
+        "returnType": "List<String>",
+        "parameters": "String digits"
+      },
+      {
+        "name": "q10LetterCombinationsRecursive",
+        "returnType": "List<String>",
+        "parameters": "String digits"
+      }
+    ],
+    "examples": [
+      {
+        "input": "digits = \"23\"",
+        "output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+        "explanation": "Every 2-letter choice combines with every 3-letter choice."
+      },
+      {
+        "input": "digits = \"\"",
+        "output": "[]",
+        "explanation": "No digits means no combinations."
+      },
+      {
+        "input": "digits = \"2\"",
+        "output": "[\"a\",\"b\",\"c\"]",
+        "explanation": "Digit 2 maps to three letters."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 11,
+    "title": "Palindrome Partitioning",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q11PartitionOptimized",
+        "returnType": "List<List<String>>",
+        "parameters": "String s"
+      },
+      {
+        "name": "q11PartitionRecursive",
+        "returnType": "List<List<String>>",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"aab\"",
+        "output": "[[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]",
+        "explanation": "Both partitions contain only palindromes."
+      },
+      {
+        "input": "s = \"a\"",
+        "output": "[[\"a\"]]",
+        "explanation": "A single character is a palindrome."
+      },
+      {
+        "input": "s = \"efe\"",
+        "output": "[[\"e\",\"f\",\"e\"],[\"efe\"]]",
+        "explanation": "The whole string is also a palindrome."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 12,
+    "title": "Restore IP Addresses",
+    "className": "BacktrackingBasic",
+    "methods": [
+      {
+        "name": "q12RestoreIpAddressesOptimized",
+        "returnType": "List<String>",
+        "parameters": "String s"
+      },
+      {
+        "name": "q12RestoreIpAddressesRecursive",
+        "returnType": "List<String>",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"25525511135\"",
+        "output": "[\"255.255.11.135\",\"255.255.111.35\"]",
+        "explanation": "Both addresses have four valid segments."
+      },
+      {
+        "input": "s = \"0000\"",
+        "output": "[\"0.0.0.0\"]",
+        "explanation": "Each segment is a single zero."
+      },
+      {
+        "input": "s = \"101023\"",
+        "output": "[\"1.0.10.23\",\"1.0.102.3\",\"10.1.0.23\",\"10.10.2.3\",\"101.0.2.3\"]",
+        "explanation": "Multiple segment lengths are valid."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 13,
+    "title": "Word Search",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q13ExistOptimized",
+        "returnType": "boolean",
+        "parameters": "char[][] board, String word"
+      },
+      {
+        "name": "q13ExistRecursive",
+        "returnType": "boolean",
+        "parameters": "char[][] board, String word"
+      }
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"",
+        "output": "true",
+        "explanation": "A valid adjacent path spells the word."
+      },
+      {
+        "input": "board = same, word = \"SEE\"",
+        "output": "true",
+        "explanation": "SEE exists on the board."
+      },
+      {
+        "input": "board = same, word = \"ABCB\"",
+        "output": "false",
+        "explanation": "The path would need to reuse B."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 14,
+    "title": "N-Queens",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q14SolveNQueensOptimized",
+        "returnType": "List<List<String>>",
+        "parameters": "int n"
+      },
+      {
+        "name": "q14SolveNQueensRecursive",
+        "returnType": "List<List<String>>",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 4",
+        "output": "[[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],[\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]]",
+        "explanation": "There are two valid 4-queen boards."
+      },
+      {
+        "input": "n = 1",
+        "output": "[[\"Q\"]]",
+        "explanation": "A single queen is valid."
+      },
+      {
+        "input": "n = 2",
+        "output": "[]",
+        "explanation": "No arrangement avoids attacks."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 15,
+    "title": "Sudoku Solver",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q15SolveSudokuOptimized",
+        "returnType": "void",
+        "parameters": "char[][] board"
+      },
+      {
+        "name": "q15SolveSudokuRecursive",
+        "returnType": "void",
+        "parameters": "char[][] board"
+      }
+    ],
+    "examples": [
+      {
+        "input": "board = [[\"5\", \"3\", \".\", \".\", \"7\", \".\", \".\", \".\", \".\"], [\"6\", \".\", \".\", \"1\", \"9\", \"5\", \".\", \".\", \".\"], [\".\", \"9\", \"8\", \".\", \".\", \".\", \".\", \"6\", \".\"], [\"8\", \".\", \".\", \".\", \"6\", \".\", \".\", \".\", \"3\"], [\"4\", \".\", \".\", \"8\", \".\", \"3\", \".\", \".\", \"1\"], [\"7\", \".\", \".\", \".\", \"2\", \".\", \".\", \".\", \"6\"], [\".\", \"6\", \".\", \".\", \".\", \".\", \"2\", \"8\", \".\"], [\".\", \".\", \".\", \"4\", \"1\", \"9\", \".\", \".\", \"5\"], [\".\", \".\", \".\", \".\", \"8\", \".\", \".\", \"7\", \"9\"]]",
+        "output": "[[\"5\", \"3\", \"4\", \"6\", \"7\", \"8\", \"9\", \"1\", \"2\"], [\"6\", \"7\", \"2\", \"1\", \"9\", \"5\", \"3\", \"4\", \"8\"], [\"1\", \"9\", \"8\", \"3\", \"4\", \"2\", \"5\", \"6\", \"7\"], [\"8\", \"5\", \"9\", \"7\", \"6\", \"1\", \"4\", \"2\", \"3\"], [\"4\", \"2\", \"6\", \"8\", \"5\", \"3\", \"7\", \"9\", \"1\"], [\"7\", \"1\", \"3\", \"9\", \"2\", \"4\", \"8\", \"5\", \"6\"], [\"9\", \"6\", \"1\", \"5\", \"3\", \"7\", \"2\", \"8\", \"4\"], [\"2\", \"8\", \"7\", \"4\", \"1\", \"9\", \"6\", \"3\", \"5\"], [\"3\", \"4\", \"5\", \"2\", \"8\", \"6\", \"1\", \"7\", \"9\"]]",
+        "explanation": "Fill all blanks while preserving the given digits."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 16,
+    "title": "Rat in a Maze",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q16FindPathOptimized",
+        "returnType": "ArrayList<String>",
+        "parameters": "int[][] mat"
+      },
+      {
+        "name": "q16FindPathRecursive",
+        "returnType": "ArrayList<String>",
+        "parameters": "int[][] mat"
+      }
+    ],
+    "examples": [
+      {
+        "input": "mat = [[1,0,0,0],[1,1,0,1],[1,1,0,0],[0,1,1,1]]",
+        "output": "[\"DDRDRR\",\"DRDDRR\"]",
+        "explanation": "Two valid paths reach the bottom-right cell."
+      },
+      {
+        "input": "mat = [[1,0],[0,1]]",
+        "output": "[]",
+        "explanation": "The destination is isolated."
+      },
+      {
+        "input": "mat = [[1]]",
+        "output": "[\"\"]",
+        "explanation": "The rat starts at the destination."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 17,
+    "title": "Unique Paths III",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q17UniquePathsIIIOptimized",
+        "returnType": "int",
+        "parameters": "int[][] grid"
+      },
+      {
+        "name": "q17UniquePathsIIIRecursive",
+        "returnType": "int",
+        "parameters": "int[][] grid"
+      }
+    ],
+    "examples": [
+      {
+        "input": "grid = [[1,0,0,0],[0,0,0,0],[0,0,2,-1]]",
+        "output": "2",
+        "explanation": "Two paths visit all non-obstacle cells."
+      },
+      {
+        "input": "grid = [[1,0,0,0],[0,0,0,0],[0,0,0,2]]",
+        "output": "4",
+        "explanation": "Four Hamiltonian paths exist."
+      },
+      {
+        "input": "grid = [[0,1],[2,0]]",
+        "output": "0",
+        "explanation": "No path can visit every open cell exactly once."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 18,
+    "title": "Matchsticks to Square",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q18MakesquareOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] matchsticks"
+      },
+      {
+        "name": "q18MakesquareRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] matchsticks"
+      }
+    ],
+    "examples": [
+      {
+        "input": "matchsticks = [1,1,2,2,2]",
+        "output": "true",
+        "explanation": "Each side can sum to 2."
+      },
+      {
+        "input": "matchsticks = [3,3,3,3,4]",
+        "output": "false",
+        "explanation": "The total cannot form four equal sides."
+      },
+      {
+        "input": "matchsticks = [5,5,5,5]",
+        "output": "true",
+        "explanation": "Each side gets one stick."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 19,
+    "title": "Partition to K Equal Sum Subsets",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q19CanPartitionKSubsetsOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] nums, int k"
+      },
+      {
+        "name": "q19CanPartitionKSubsetsRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] nums, int k"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [4,3,2,3,5,2,1], k = 4",
+        "output": "true",
+        "explanation": "Each subset can sum to 5."
+      },
+      {
+        "input": "nums = [1,2,3,4], k = 3",
+        "output": "false",
+        "explanation": "Total cannot split into equal integer sums."
+      },
+      {
+        "input": "nums = [2,2,2,2], k = 2",
+        "output": "true",
+        "explanation": "Two subsets can each sum to 4."
+      }
+    ]
+  },
+  {
+    "topic": "backtracking",
+    "topicNumber": 11,
+    "number": 20,
+    "title": "Beautiful Arrangement",
+    "className": "BacktrackingModerate",
+    "methods": [
+      {
+        "name": "q20CountArrangementOptimized",
+        "returnType": "int",
+        "parameters": "int n"
+      },
+      {
+        "name": "q20CountArrangementRecursive",
+        "returnType": "int",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "2",
+        "explanation": "[1,2] and [2,1] are valid."
+      },
+      {
+        "input": "n = 1",
+        "output": "1",
+        "explanation": "Only one arrangement exists."
+      },
+      {
+        "input": "n = 3",
+        "output": "3",
+        "explanation": "Three arrangements satisfy the rule."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 1,
+    "title": "Assign Cookies",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q01FindContentChildrenOptimized",
+        "returnType": "int",
+        "parameters": "int[] g, int[] s"
+      },
+      {
+        "name": "q01FindContentChildrenRecursive",
+        "returnType": "int",
+        "parameters": "int[] g, int[] s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "g = [1,2,3], s = [1,1]",
+        "output": "1",
+        "explanation": "Only the child with greed 1 can be satisfied."
+      },
+      {
+        "input": "g = [1,2], s = [1,2,3]",
+        "output": "2",
+        "explanation": "Cookies 1 and 2 satisfy both children."
+      },
+      {
+        "input": "g = [10,9,8,7], s = [5,6,7,8]",
+        "output": "2",
+        "explanation": "Only greed 7 and 8 can be satisfied."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 2,
+    "title": "Lemonade Change",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q02LemonadeChangeOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] bills"
+      },
+      {
+        "name": "q02LemonadeChangeRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] bills"
+      }
+    ],
+    "examples": [
+      {
+        "input": "bills = [5,5,5,10,20]",
+        "output": "true",
+        "explanation": "The 20 can be changed with 10 + 5."
+      },
+      {
+        "input": "bills = [5,5,10,10,20]",
+        "output": "false",
+        "explanation": "The final 20 cannot be changed because no 5 remains."
+      },
+      {
+        "input": "bills = [10]",
+        "output": "false",
+        "explanation": "There is no 5 dollar bill for change."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 3,
+    "title": "Jump Game",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q03CanJumpOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q03CanJumpRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,3,1,1,4]",
+        "output": "true",
+        "explanation": "The frontier reaches the final index."
+      },
+      {
+        "input": "nums = [3,2,1,0,4]",
+        "output": "false",
+        "explanation": "The frontier stops at index 3."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "true",
+        "explanation": "The start is already the end."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 4,
+    "title": "Jump Game II",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q04JumpOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q04JumpRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,3,1,1,4]",
+        "output": "2",
+        "explanation": "Jump from index 0 to 1, then to the last index."
+      },
+      {
+        "input": "nums = [2,3,0,1,4]",
+        "output": "2",
+        "explanation": "The same two-jump route works."
+      },
+      {
+        "input": "nums = [0]",
+        "output": "0",
+        "explanation": "No jump is needed."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 5,
+    "title": "Gas Station",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q05CanCompleteCircuitOptimized",
+        "returnType": "int",
+        "parameters": "int[] gas, int[] cost"
+      },
+      {
+        "name": "q05CanCompleteCircuitRecursive",
+        "returnType": "int",
+        "parameters": "int[] gas, int[] cost"
+      }
+    ],
+    "examples": [
+      {
+        "input": "gas = [1,2,3,4,5], cost = [3,4,5,1,2]",
+        "output": "3",
+        "explanation": "Starting at station 3 completes the circuit."
+      },
+      {
+        "input": "gas = [2,3,4], cost = [3,4,3]",
+        "output": "-1",
+        "explanation": "Total gas is less than total cost."
+      },
+      {
+        "input": "gas = [5], cost = [4]",
+        "output": "0",
+        "explanation": "The single station has enough gas."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 6,
+    "title": "Candy",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q06CandyOptimized",
+        "returnType": "int",
+        "parameters": "int[] ratings"
+      },
+      {
+        "name": "q06CandyRecursive",
+        "returnType": "int",
+        "parameters": "int[] ratings"
+      }
+    ],
+    "examples": [
+      {
+        "input": "ratings = [1,0,2]",
+        "output": "5",
+        "explanation": "Candies [2,1,2] satisfy both sides."
+      },
+      {
+        "input": "ratings = [1,2,2]",
+        "output": "4",
+        "explanation": "Candies [1,2,1] are enough."
+      },
+      {
+        "input": "ratings = [1,3,4,5,2]",
+        "output": "11",
+        "explanation": "The peak must exceed both neighboring slopes."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 7,
+    "title": "Queue Reconstruction by Height",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q07ReconstructQueueOptimized",
+        "returnType": "int[][]",
+        "parameters": "int[][] people"
+      },
+      {
+        "name": "q07ReconstructQueueRecursive",
+        "returnType": "int[][]",
+        "parameters": "int[][] people"
+      }
+    ],
+    "examples": [
+      {
+        "input": "people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]",
+        "output": "[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]",
+        "explanation": "Every person has exactly k taller-or-equal people before them."
+      },
+      {
+        "input": "people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]",
+        "output": "[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]",
+        "explanation": "Taller-first insertion preserves constraints."
+      },
+      {
+        "input": "people = [[1,0]]",
+        "output": "[[1,0]]",
+        "explanation": "A single person is already valid."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 8,
+    "title": "Non-overlapping Intervals",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q08EraseOverlapIntervalsOptimized",
+        "returnType": "int",
+        "parameters": "int[][] intervals"
+      },
+      {
+        "name": "q08EraseOverlapIntervalsRecursive",
+        "returnType": "int",
+        "parameters": "int[][] intervals"
+      }
+    ],
+    "examples": [
+      {
+        "input": "intervals = [[1,2],[2,3],[3,4],[1,3]]",
+        "output": "1",
+        "explanation": "Remove [1,3]."
+      },
+      {
+        "input": "intervals = [[1,2],[1,2],[1,2]]",
+        "output": "2",
+        "explanation": "Only one identical interval can remain."
+      },
+      {
+        "input": "intervals = [[1,2],[2,3]]",
+        "output": "0",
+        "explanation": "Intervals touching at endpoints do not overlap."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 9,
+    "title": "Merge Intervals",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q09MergeOptimized",
+        "returnType": "int[][]",
+        "parameters": "int[][] intervals"
+      },
+      {
+        "name": "q09MergeRecursive",
+        "returnType": "int[][]",
+        "parameters": "int[][] intervals"
+      }
+    ],
+    "examples": [
+      {
+        "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+        "output": "[[1,6],[8,10],[15,18]]",
+        "explanation": "[1,3] and [2,6] overlap."
+      },
+      {
+        "input": "intervals = [[1,4],[4,5]]",
+        "output": "[[1,5]]",
+        "explanation": "Touching endpoints merge."
+      },
+      {
+        "input": "intervals = [[1,4],[0,2],[3,5]]",
+        "output": "[[0,5]]",
+        "explanation": "All intervals connect after sorting."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 10,
+    "title": "Minimum Number of Arrows to Burst Balloons",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q10FindMinArrowShotsOptimized",
+        "returnType": "int",
+        "parameters": "int[][] points"
+      },
+      {
+        "name": "q10FindMinArrowShotsRecursive",
+        "returnType": "int",
+        "parameters": "int[][] points"
+      }
+    ],
+    "examples": [
+      {
+        "input": "points = [[10,16],[2,8],[1,6],[7,12]]",
+        "output": "2",
+        "explanation": "Arrows at 6 and 12 can burst all balloons."
+      },
+      {
+        "input": "points = [[1,2],[3,4],[5,6],[7,8]]",
+        "output": "4",
+        "explanation": "No intervals overlap."
+      },
+      {
+        "input": "points = [[1,2],[2,3]]",
+        "output": "1",
+        "explanation": "An arrow at 2 bursts both."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 11,
+    "title": "Partition Labels",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q11PartitionLabelsOptimized",
+        "returnType": "List<Integer>",
+        "parameters": "String s"
+      },
+      {
+        "name": "q11PartitionLabelsRecursive",
+        "returnType": "List<Integer>",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"ababcbacadefegdehijhklij\"",
+        "output": "[9,7,8]",
+        "explanation": "Each letter appears in one partition only."
+      },
+      {
+        "input": "s = \"eccbbbbdec\"",
+        "output": "[10]",
+        "explanation": "The characters force one full-string partition."
+      },
+      {
+        "input": "s = \"abc\"",
+        "output": "[1,1,1]",
+        "explanation": "Each character can form its own partition."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 12,
+    "title": "Task Scheduler",
+    "className": "GreedyBasic",
+    "methods": [
+      {
+        "name": "q12LeastIntervalOptimized",
+        "returnType": "int",
+        "parameters": "char[] tasks, int n"
+      },
+      {
+        "name": "q12LeastIntervalRecursive",
+        "returnType": "int",
+        "parameters": "char[] tasks, int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 2",
+        "output": "8",
+        "explanation": "One schedule is A B idle A B idle A B."
+      },
+      {
+        "input": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 0",
+        "output": "6",
+        "explanation": "No cooldown means no idles."
+      },
+      {
+        "input": "tasks = [\"A\",\"A\",\"A\",\"A\",\"B\",\"B\",\"C\",\"C\"], n = 2",
+        "output": "10",
+        "explanation": "The four A tasks create the limiting frame."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 13,
+    "title": "Reorganize String",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q13ReorganizeStringOptimized",
+        "returnType": "String",
+        "parameters": "String s"
+      },
+      {
+        "name": "q13ReorganizeStringRecursive",
+        "returnType": "String",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"aab\"",
+        "output": "\"aba\"",
+        "explanation": "The two a characters can be separated."
+      },
+      {
+        "input": "s = \"aaab\"",
+        "output": "\"\"",
+        "explanation": "Three a characters cannot be separated by one b."
+      },
+      {
+        "input": "s = \"vvvlo\"",
+        "output": "\"vlvov\"",
+        "explanation": "A valid arrangement separates repeated v characters."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 14,
+    "title": "Hand of Straights",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q14IsNStraightHandOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] hand, int groupSize"
+      },
+      {
+        "name": "q14IsNStraightHandRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] hand, int groupSize"
+      }
+    ],
+    "examples": [
+      {
+        "input": "hand = [1,2,3,6,2,3,4,7,8], groupSize = 3",
+        "output": "true",
+        "explanation": "Groups can be [1,2,3], [2,3,4], and [6,7,8]."
+      },
+      {
+        "input": "hand = [1,2,3,4,5], groupSize = 4",
+        "output": "false",
+        "explanation": "The hand size is not divisible by 4."
+      },
+      {
+        "input": "hand = [1,2,3], groupSize = 1",
+        "output": "true",
+        "explanation": "Every card forms its own group."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 15,
+    "title": "Boats to Save People",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q15NumRescueBoatsOptimized",
+        "returnType": "int",
+        "parameters": "int[] people, int limit"
+      },
+      {
+        "name": "q15NumRescueBoatsRecursive",
+        "returnType": "int",
+        "parameters": "int[] people, int limit"
+      }
+    ],
+    "examples": [
+      {
+        "input": "people = [1,2], limit = 3",
+        "output": "1",
+        "explanation": "Both people fit in one boat."
+      },
+      {
+        "input": "people = [3,2,2,1], limit = 3",
+        "output": "3",
+        "explanation": "The person with weight 3 rides alone."
+      },
+      {
+        "input": "people = [3,5,3,4], limit = 5",
+        "output": "4",
+        "explanation": "No pair can include weight 5 or 4 with another person."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 16,
+    "title": "Two City Scheduling",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q16TwoCitySchedCostOptimized",
+        "returnType": "int",
+        "parameters": "int[][] costs"
+      },
+      {
+        "name": "q16TwoCitySchedCostRecursive",
+        "returnType": "int",
+        "parameters": "int[][] costs"
+      }
+    ],
+    "examples": [
+      {
+        "input": "costs = [[10,20],[30,200],[400,50],[30,20]]",
+        "output": "110",
+        "explanation": "Send people 0 and 1 to A, people 2 and 3 to B."
+      },
+      {
+        "input": "costs = [[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]",
+        "output": "1859",
+        "explanation": "Sorting by savings gives the minimum split."
+      },
+      {
+        "input": "costs = [[515,563],[451,713],[537,709],[343,819],[855,779],[457,60],[650,359],[631,42]]",
+        "output": "3086",
+        "explanation": "Exactly half must go to each city."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 17,
+    "title": "Maximum Subarray",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q17MaxSubArrayOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q17MaxSubArrayRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+        "output": "6",
+        "explanation": "The best subarray is [4,-1,2,1]."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "explanation": "The single element is the answer."
+      },
+      {
+        "input": "nums = [5,4,-1,7,8]",
+        "output": "23",
+        "explanation": "The entire array has the maximum sum."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 18,
+    "title": "Best Time to Buy and Sell Stock II",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q18MaxProfitOptimized",
+        "returnType": "int",
+        "parameters": "int[] prices"
+      },
+      {
+        "name": "q18MaxProfitRecursive",
+        "returnType": "int",
+        "parameters": "int[] prices"
+      }
+    ],
+    "examples": [
+      {
+        "input": "prices = [7,1,5,3,6,4]",
+        "output": "7",
+        "explanation": "Profit 4 from 1->5 and 3 from 3->6."
+      },
+      {
+        "input": "prices = [1,2,3,4,5]",
+        "output": "4",
+        "explanation": "Capture every adjacent increase."
+      },
+      {
+        "input": "prices = [7,6,4,3,1]",
+        "output": "0",
+        "explanation": "No profitable transaction exists."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 19,
+    "title": "Can Place Flowers",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q19CanPlaceFlowersOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] flowerbed, int n"
+      },
+      {
+        "name": "q19CanPlaceFlowersRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] flowerbed, int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "flowerbed = [1,0,0,0,1], n = 1",
+        "output": "true",
+        "explanation": "Plant at index 2."
+      },
+      {
+        "input": "flowerbed = [1,0,0,0,1], n = 2",
+        "output": "false",
+        "explanation": "Only one new flower can fit."
+      },
+      {
+        "input": "flowerbed = [0], n = 1",
+        "output": "true",
+        "explanation": "The only plot has no neighbors."
+      }
+    ]
+  },
+  {
+    "topic": "greedy",
+    "topicNumber": 19,
+    "number": 20,
+    "title": "Increasing Triplet Subsequence",
+    "className": "GreedyModerate",
+    "methods": [
+      {
+        "name": "q20IncreasingTripletOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q20IncreasingTripletRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4,5]",
+        "output": "true",
+        "explanation": "1, 2, 3 form a triplet."
+      },
+      {
+        "input": "nums = [5,4,3,2,1]",
+        "output": "false",
+        "explanation": "No increasing subsequence of length three exists."
+      },
+      {
+        "input": "nums = [2,1,5,0,4,6]",
+        "output": "true",
+        "explanation": "0, 4, 6 form a triplet."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 1,
+    "title": "Climbing Stairs",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q01ClimbStairsOptimized",
+        "returnType": "int",
+        "parameters": "int n"
+      },
+      {
+        "name": "q01ClimbStairsRecursive",
+        "returnType": "int",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "2",
+        "explanation": "The ways are 1+1 and 2."
+      },
+      {
+        "input": "n = 3",
+        "output": "3",
+        "explanation": "The ways are 1+1+1, 1+2, and 2+1."
+      },
+      {
+        "input": "n = 1",
+        "output": "1",
+        "explanation": "Only one single-step climb is possible."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 2,
+    "title": "Min Cost Climbing Stairs",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q02MinCostClimbingStairsOptimized",
+        "returnType": "int",
+        "parameters": "int[] cost"
+      },
+      {
+        "name": "q02MinCostClimbingStairsRecursive",
+        "returnType": "int",
+        "parameters": "int[] cost"
+      }
+    ],
+    "examples": [
+      {
+        "input": "cost = [10,15,20]",
+        "output": "15",
+        "explanation": "Start at index 1 and move directly to the top."
+      },
+      {
+        "input": "cost = [1,100,1,1,1,100,1,1,100,1]",
+        "output": "6",
+        "explanation": "The optimal path uses the cheap stairs."
+      },
+      {
+        "input": "cost = [0,0]",
+        "output": "0",
+        "explanation": "Start at either stair and reach the top for free."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 3,
+    "title": "House Robber",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q03RobOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q03RobRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "4",
+        "explanation": "Rob houses with values 1 and 3."
+      },
+      {
+        "input": "nums = [2,7,9,3,1]",
+        "output": "12",
+        "explanation": "Rob 2, 9, and 1."
+      },
+      {
+        "input": "nums = [5]",
+        "output": "5",
+        "explanation": "Only one house is available."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 4,
+    "title": "House Robber II",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q04RobOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q04RobRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,3,2]",
+        "output": "3",
+        "explanation": "Rob only the middle house."
+      },
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "4",
+        "explanation": "Rob houses with values 1 and 3 without touching both ends."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "explanation": "Only one house exists."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 5,
+    "title": "Decode Ways",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q05NumDecodingsOptimized",
+        "returnType": "int",
+        "parameters": "String s"
+      },
+      {
+        "name": "q05NumDecodingsRecursive",
+        "returnType": "int",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"12\"",
+        "output": "2",
+        "explanation": "12 can be AB or L."
+      },
+      {
+        "input": "s = \"226\"",
+        "output": "3",
+        "explanation": "It can be BZ, VF, or BBF."
+      },
+      {
+        "input": "s = \"06\"",
+        "output": "0",
+        "explanation": "A code cannot start with zero."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 6,
+    "title": "Coin Change",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q06CoinChangeOptimized",
+        "returnType": "int",
+        "parameters": "int[] coins, int amount"
+      },
+      {
+        "name": "q06CoinChangeRecursive",
+        "returnType": "int",
+        "parameters": "int[] coins, int amount"
+      }
+    ],
+    "examples": [
+      {
+        "input": "coins = [1,2,5], amount = 11",
+        "output": "3",
+        "explanation": "11 = 5 + 5 + 1."
+      },
+      {
+        "input": "coins = [2], amount = 3",
+        "output": "-1",
+        "explanation": "No combination of 2-value coins makes 3."
+      },
+      {
+        "input": "coins = [1], amount = 0",
+        "output": "0",
+        "explanation": "No coins are needed for amount zero."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 7,
+    "title": "Coin Change II",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q07ChangeOptimized",
+        "returnType": "int",
+        "parameters": "int amount, int[] coins"
+      },
+      {
+        "name": "q07ChangeRecursive",
+        "returnType": "int",
+        "parameters": "int amount, int[] coins"
+      }
+    ],
+    "examples": [
+      {
+        "input": "amount = 5, coins = [1,2,5]",
+        "output": "4",
+        "explanation": "The combinations are 5, 2+2+1, 2+1+1+1, and five ones."
+      },
+      {
+        "input": "amount = 3, coins = [2]",
+        "output": "0",
+        "explanation": "Coin 2 cannot make amount 3."
+      },
+      {
+        "input": "amount = 0, coins = [7]",
+        "output": "1",
+        "explanation": "The empty combination makes amount zero."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 8,
+    "title": "Combination Sum IV",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q08CombinationSum4Optimized",
+        "returnType": "int",
+        "parameters": "int[] nums, int target"
+      },
+      {
+        "name": "q08CombinationSum4Recursive",
+        "returnType": "int",
+        "parameters": "int[] nums, int target"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,2,3], target = 4",
+        "output": "7",
+        "explanation": "Different orders are counted separately."
+      },
+      {
+        "input": "nums = [9], target = 3",
+        "output": "0",
+        "explanation": "9 cannot contribute to target 3."
+      },
+      {
+        "input": "nums = [1], target = 2",
+        "output": "1",
+        "explanation": "The only sequence is 1,1."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 9,
+    "title": "Longest Increasing Subsequence",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q09LengthOfLISOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q09LengthOfLISRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [10,9,2,5,3,7,101,18]",
+        "output": "4",
+        "explanation": "One LIS is 2,3,7,101."
+      },
+      {
+        "input": "nums = [0,1,0,3,2,3]",
+        "output": "4",
+        "explanation": "One LIS is 0,1,2,3."
+      },
+      {
+        "input": "nums = [7,7,7,7]",
+        "output": "1",
+        "explanation": "Strict increase does not allow equal values."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 10,
+    "title": "Longest Arithmetic Subsequence",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q10LongestArithSeqLengthOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q10LongestArithSeqLengthRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,6,9,12]",
+        "output": "4",
+        "explanation": "The whole array has difference 3."
+      },
+      {
+        "input": "nums = [9,4,7,2,10]",
+        "output": "3",
+        "explanation": "One answer is 4,7,10."
+      },
+      {
+        "input": "nums = [20,1,15,3,10,5,8]",
+        "output": "4",
+        "explanation": "One answer is 20,15,10,5."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 11,
+    "title": "Partition Equal Subset Sum",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q11CanPartitionOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q11CanPartitionRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,5,11,5]",
+        "output": "true",
+        "explanation": "Subset [11] equals subset [1,5,5]."
+      },
+      {
+        "input": "nums = [1,2,3,5]",
+        "output": "false",
+        "explanation": "No subset sums to half the total."
+      },
+      {
+        "input": "nums = [2,2,3,5]",
+        "output": "false",
+        "explanation": "Total is 12, but no subset makes 6."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 12,
+    "title": "Word Break",
+    "className": "DynamicProgramming1DBasic",
+    "methods": [
+      {
+        "name": "q12WordBreakOptimized",
+        "returnType": "boolean",
+        "parameters": "String s, List<String> wordDict"
+      },
+      {
+        "name": "q12WordBreakRecursive",
+        "returnType": "boolean",
+        "parameters": "String s, List<String> wordDict"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"leetcode\", wordDict = [\"leet\",\"code\"]",
+        "output": "true",
+        "explanation": "leetcode splits into leet + code."
+      },
+      {
+        "input": "s = \"applepenapple\", wordDict = [\"apple\",\"pen\"]",
+        "output": "true",
+        "explanation": "Words may be reused."
+      },
+      {
+        "input": "s = \"catsandog\", wordDict = [\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]",
+        "output": "false",
+        "explanation": "No split covers the entire string."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 13,
+    "title": "Perfect Squares",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q13NumSquaresOptimized",
+        "returnType": "int",
+        "parameters": "int n"
+      },
+      {
+        "name": "q13NumSquaresRecursive",
+        "returnType": "int",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 12",
+        "output": "3",
+        "explanation": "12 = 4 + 4 + 4."
+      },
+      {
+        "input": "n = 13",
+        "output": "2",
+        "explanation": "13 = 4 + 9."
+      },
+      {
+        "input": "n = 1",
+        "output": "1",
+        "explanation": "1 is a perfect square."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 14,
+    "title": "Integer Break",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q14IntegerBreakOptimized",
+        "returnType": "int",
+        "parameters": "int n"
+      },
+      {
+        "name": "q14IntegerBreakRecursive",
+        "returnType": "int",
+        "parameters": "int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "1",
+        "explanation": "The only split is 1 + 1."
+      },
+      {
+        "input": "n = 10",
+        "output": "36",
+        "explanation": "10 = 3 + 3 + 4 and product is 36."
+      },
+      {
+        "input": "n = 4",
+        "output": "4",
+        "explanation": "2 + 2 gives product 4."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 15,
+    "title": "Maximum Product Subarray",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q15MaxProductOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q15MaxProductRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [2,3,-2,4]",
+        "output": "6",
+        "explanation": "The subarray [2,3] has product 6."
+      },
+      {
+        "input": "nums = [-2,0,-1]",
+        "output": "0",
+        "explanation": "The zero is larger than negative products."
+      },
+      {
+        "input": "nums = [-2,3,-4]",
+        "output": "24",
+        "explanation": "The entire array product is 24."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 16,
+    "title": "Maximum Subarray",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q16MaxSubArrayOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q16MaxSubArrayRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+        "output": "6",
+        "explanation": "The subarray [4,-1,2,1] has sum 6."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "explanation": "The only subarray is the array itself."
+      },
+      {
+        "input": "nums = [5,4,-1,7,8]",
+        "output": "23",
+        "explanation": "The full array has maximum sum."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 17,
+    "title": "Best Time to Buy and Sell Stock",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q17MaxProfitOptimized",
+        "returnType": "int",
+        "parameters": "int[] prices"
+      },
+      {
+        "name": "q17MaxProfitRecursive",
+        "returnType": "int",
+        "parameters": "int[] prices"
+      }
+    ],
+    "examples": [
+      {
+        "input": "prices = [7,1,5,3,6,4]",
+        "output": "5",
+        "explanation": "Buy at 1 and sell at 6."
+      },
+      {
+        "input": "prices = [7,6,4,3,1]",
+        "output": "0",
+        "explanation": "No profitable transaction exists."
+      },
+      {
+        "input": "prices = [2,4,1]",
+        "output": "2",
+        "explanation": "Buy at 2 and sell at 4."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 18,
+    "title": "Best Time to Buy and Sell Stock with Cooldown",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q18MaxProfitOptimized",
+        "returnType": "int",
+        "parameters": "int[] prices"
+      },
+      {
+        "name": "q18MaxProfitRecursive",
+        "returnType": "int",
+        "parameters": "int[] prices"
+      }
+    ],
+    "examples": [
+      {
+        "input": "prices = [1,2,3,0,2]",
+        "output": "3",
+        "explanation": "Buy day 0, sell day 1, cooldown, buy day 3, sell day 4."
+      },
+      {
+        "input": "prices = [1]",
+        "output": "0",
+        "explanation": "No sale is possible."
+      },
+      {
+        "input": "prices = [2,1,4]",
+        "output": "3",
+        "explanation": "Buy at 1 and sell at 4."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 19,
+    "title": "Best Time to Buy and Sell Stock with Transaction Fee",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q19MaxProfitOptimized",
+        "returnType": "int",
+        "parameters": "int[] prices, int fee"
+      },
+      {
+        "name": "q19MaxProfitRecursive",
+        "returnType": "int",
+        "parameters": "int[] prices, int fee"
+      }
+    ],
+    "examples": [
+      {
+        "input": "prices = [1,3,2,8,4,9], fee = 2",
+        "output": "8",
+        "explanation": "Profit is 5 from 1->8 and 3 from 4->9."
+      },
+      {
+        "input": "prices = [1,3,7,5,10,3], fee = 3",
+        "output": "6",
+        "explanation": "One optimal sequence gains 6 after fees."
+      },
+      {
+        "input": "prices = [9,8,7], fee = 1",
+        "output": "0",
+        "explanation": "No profitable trade exists."
+      }
+    ]
+  },
+  {
+    "topic": "dp-1d",
+    "topicNumber": 17,
+    "number": 20,
+    "title": "Delete and Earn",
+    "className": "DynamicProgramming1DModerate",
+    "methods": [
+      {
+        "name": "q20DeleteAndEarnOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q20DeleteAndEarnRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [3,4,2]",
+        "output": "6",
+        "explanation": "Take 4 and 2 for total 6."
+      },
+      {
+        "input": "nums = [2,2,3,3,3,4]",
+        "output": "9",
+        "explanation": "Take all 3s for 9."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1",
+        "explanation": "Only one number can be taken."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 1,
+    "title": "Unique Paths",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q01UniquePathsOptimized",
+        "returnType": "int",
+        "parameters": "int m, int n"
+      },
+      {
+        "name": "q01UniquePathsRecursive",
+        "returnType": "int",
+        "parameters": "int m, int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "m = 3, n = 7",
+        "output": "28",
+        "explanation": "There are 28 right/down paths."
+      },
+      {
+        "input": "m = 3, n = 2",
+        "output": "3",
+        "explanation": "The paths are DDR, DRD, and RDD in move notation."
+      },
+      {
+        "input": "m = 1, n = 5",
+        "output": "1",
+        "explanation": "Only right moves are possible."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 2,
+    "title": "Unique Paths II",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q02UniquePathsWithObstaclesOptimized",
+        "returnType": "int",
+        "parameters": "int[][] obstacleGrid"
+      },
+      {
+        "name": "q02UniquePathsWithObstaclesRecursive",
+        "returnType": "int",
+        "parameters": "int[][] obstacleGrid"
+      }
+    ],
+    "examples": [
+      {
+        "input": "obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]",
+        "output": "2",
+        "explanation": "Two paths go around the obstacle."
+      },
+      {
+        "input": "obstacleGrid = [[0,1],[0,0]]",
+        "output": "1",
+        "explanation": "Only the down-right path is open."
+      },
+      {
+        "input": "obstacleGrid = [[1]]",
+        "output": "0",
+        "explanation": "The start cell is blocked."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 3,
+    "title": "Minimum Path Sum",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q03MinPathSumOptimized",
+        "returnType": "int",
+        "parameters": "int[][] grid"
+      },
+      {
+        "name": "q03MinPathSumRecursive",
+        "returnType": "int",
+        "parameters": "int[][] grid"
+      }
+    ],
+    "examples": [
+      {
+        "input": "grid = [[1,3,1],[1,5,1],[4,2,1]]",
+        "output": "7",
+        "explanation": "The path 1 -> 3 -> 1 -> 1 -> 1 has sum 7."
+      },
+      {
+        "input": "grid = [[1,2,3],[4,5,6]]",
+        "output": "12",
+        "explanation": "The minimum path is 1 -> 2 -> 3 -> 6."
+      },
+      {
+        "input": "grid = [[5]]",
+        "output": "5",
+        "explanation": "Only one cell is used."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 4,
+    "title": "Triangle",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q04MinimumTotalOptimized",
+        "returnType": "int",
+        "parameters": "List<List<Integer>> triangle"
+      },
+      {
+        "name": "q04MinimumTotalRecursive",
+        "returnType": "int",
+        "parameters": "List<List<Integer>> triangle"
+      }
+    ],
+    "examples": [
+      {
+        "input": "triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]",
+        "output": "11",
+        "explanation": "The path 2 -> 3 -> 5 -> 1 has sum 11."
+      },
+      {
+        "input": "triangle = [[-10]]",
+        "output": "-10",
+        "explanation": "Only one value exists."
+      },
+      {
+        "input": "triangle = [[1],[2,3]]",
+        "output": "3",
+        "explanation": "Choose 1 -> 2."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 5,
+    "title": "Longest Common Subsequence",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q05LongestCommonSubsequenceOptimized",
+        "returnType": "int",
+        "parameters": "String text1, String text2"
+      },
+      {
+        "name": "q05LongestCommonSubsequenceRecursive",
+        "returnType": "int",
+        "parameters": "String text1, String text2"
+      }
+    ],
+    "examples": [
+      {
+        "input": "text1 = \"abcde\", text2 = \"ace\"",
+        "output": "3",
+        "explanation": "ace is a common subsequence."
+      },
+      {
+        "input": "text1 = \"abc\", text2 = \"abc\"",
+        "output": "3",
+        "explanation": "The full string is common."
+      },
+      {
+        "input": "text1 = \"abc\", text2 = \"def\"",
+        "output": "0",
+        "explanation": "There are no common characters."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 6,
+    "title": "Edit Distance",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q06MinDistanceOptimized",
+        "returnType": "int",
+        "parameters": "String word1, String word2"
+      },
+      {
+        "name": "q06MinDistanceRecursive",
+        "returnType": "int",
+        "parameters": "String word1, String word2"
+      }
+    ],
+    "examples": [
+      {
+        "input": "word1 = \"horse\", word2 = \"ros\"",
+        "output": "3",
+        "explanation": "horse -> rorse -> rose -> ros."
+      },
+      {
+        "input": "word1 = \"intention\", word2 = \"execution\"",
+        "output": "5",
+        "explanation": "Five edits are required in an optimal sequence."
+      },
+      {
+        "input": "word1 = \"\", word2 = \"abc\"",
+        "output": "3",
+        "explanation": "Insert all three characters."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 7,
+    "title": "Regular Expression Matching",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q07IsMatchOptimized",
+        "returnType": "boolean",
+        "parameters": "String s, String p"
+      },
+      {
+        "name": "q07IsMatchRecursive",
+        "returnType": "boolean",
+        "parameters": "String s, String p"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"aa\", p = \"a\"",
+        "output": "false",
+        "explanation": "The pattern covers only one a."
+      },
+      {
+        "input": "s = \"aa\", p = \"a*\"",
+        "output": "true",
+        "explanation": "a* can repeat a twice."
+      },
+      {
+        "input": "s = \"ab\", p = \".*\"",
+        "output": "true",
+        "explanation": ".* can match any full string."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 8,
+    "title": "Wildcard Matching",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q08IsMatchOptimized",
+        "returnType": "boolean",
+        "parameters": "String s, String p"
+      },
+      {
+        "name": "q08IsMatchRecursive",
+        "returnType": "boolean",
+        "parameters": "String s, String p"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"aa\", p = \"a\"",
+        "output": "false",
+        "explanation": "The pattern does not cover the full string."
+      },
+      {
+        "input": "s = \"aa\", p = \"*\"",
+        "output": "true",
+        "explanation": "* can match both characters."
+      },
+      {
+        "input": "s = \"cb\", p = \"?a\"",
+        "output": "false",
+        "explanation": "? matches c but a does not match b."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 9,
+    "title": "Distinct Subsequences",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q09NumDistinctOptimized",
+        "returnType": "int",
+        "parameters": "String s, String t"
+      },
+      {
+        "name": "q09NumDistinctRecursive",
+        "returnType": "int",
+        "parameters": "String s, String t"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"rabbbit\", t = \"rabbit\"",
+        "output": "3",
+        "explanation": "There are three ways to delete one b."
+      },
+      {
+        "input": "s = \"babgbag\", t = \"bag\"",
+        "output": "5",
+        "explanation": "Five subsequences spell bag."
+      },
+      {
+        "input": "s = \"abc\", t = \"abcd\"",
+        "output": "0",
+        "explanation": "t is longer than s."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 10,
+    "title": "Interleaving String",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q10IsInterleaveOptimized",
+        "returnType": "boolean",
+        "parameters": "String s1, String s2, String s3"
+      },
+      {
+        "name": "q10IsInterleaveRecursive",
+        "returnType": "boolean",
+        "parameters": "String s1, String s2, String s3"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s1 = \"aabcc\", s2 = \"dbbca\", s3 = \"aadbbcbcac\"",
+        "output": "true",
+        "explanation": "s3 can be formed while preserving both orders."
+      },
+      {
+        "input": "s1 = \"aabcc\", s2 = \"dbbca\", s3 = \"aadbbbaccc\"",
+        "output": "false",
+        "explanation": "No valid interleaving matches all characters."
+      },
+      {
+        "input": "s1 = \"\", s2 = \"\", s3 = \"\"",
+        "output": "true",
+        "explanation": "All strings are empty."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 11,
+    "title": "Longest Palindromic Subsequence",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q11LongestPalindromeSubseqOptimized",
+        "returnType": "int",
+        "parameters": "String s"
+      },
+      {
+        "name": "q11LongestPalindromeSubseqRecursive",
+        "returnType": "int",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"bbbab\"",
+        "output": "4",
+        "explanation": "bbbb is a palindromic subsequence."
+      },
+      {
+        "input": "s = \"cbbd\"",
+        "output": "2",
+        "explanation": "bb is the longest palindromic subsequence."
+      },
+      {
+        "input": "s = \"abc\"",
+        "output": "1",
+        "explanation": "Any single character is valid."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 12,
+    "title": "Longest Palindromic Substring",
+    "className": "DynamicProgramming2DBasic",
+    "methods": [
+      {
+        "name": "q12LongestPalindromeOptimized",
+        "returnType": "String",
+        "parameters": "String s"
+      },
+      {
+        "name": "q12LongestPalindromeRecursive",
+        "returnType": "String",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"babad\"",
+        "output": "\"bab\"",
+        "explanation": "aba is also a valid longest answer."
+      },
+      {
+        "input": "s = \"cbbd\"",
+        "output": "\"bb\"",
+        "explanation": "bb is the longest palindromic substring."
+      },
+      {
+        "input": "s = \"a\"",
+        "output": "\"a\"",
+        "explanation": "A single character is a palindrome."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 13,
+    "title": "Palindromic Substrings",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q13CountSubstringsOptimized",
+        "returnType": "int",
+        "parameters": "String s"
+      },
+      {
+        "name": "q13CountSubstringsRecursive",
+        "returnType": "int",
+        "parameters": "String s"
+      }
+    ],
+    "examples": [
+      {
+        "input": "s = \"abc\"",
+        "output": "3",
+        "explanation": "Only a, b, and c are palindromes."
+      },
+      {
+        "input": "s = \"aaa\"",
+        "output": "6",
+        "explanation": "All three singles, two aa substrings, and aaa count."
+      },
+      {
+        "input": "s = \"abccba\"",
+        "output": "9",
+        "explanation": "The full string and inner palindromes are included."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 14,
+    "title": "Coin Change II",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q14ChangeOptimized",
+        "returnType": "int",
+        "parameters": "int amount, int[] coins"
+      },
+      {
+        "name": "q14ChangeRecursive",
+        "returnType": "int",
+        "parameters": "int amount, int[] coins"
+      }
+    ],
+    "examples": [
+      {
+        "input": "amount = 5, coins = [1,2,5]",
+        "output": "4",
+        "explanation": "The combinations are 5, 2+2+1, 2+1+1+1, and five 1s."
+      },
+      {
+        "input": "amount = 3, coins = [2]",
+        "output": "0",
+        "explanation": "No combination reaches 3."
+      },
+      {
+        "input": "amount = 0, coins = [1,2]",
+        "output": "1",
+        "explanation": "The empty combination makes amount zero."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 15,
+    "title": "Target Sum",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q15FindTargetSumWaysOptimized",
+        "returnType": "int",
+        "parameters": "int[] nums, int target"
+      },
+      {
+        "name": "q15FindTargetSumWaysRecursive",
+        "returnType": "int",
+        "parameters": "int[] nums, int target"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,1,1,1,1], target = 3",
+        "output": "5",
+        "explanation": "Five sign assignments produce 3."
+      },
+      {
+        "input": "nums = [1], target = 1",
+        "output": "1",
+        "explanation": "Only +1 works."
+      },
+      {
+        "input": "nums = [0,0,1], target = 1",
+        "output": "4",
+        "explanation": "Each zero can be plus or minus without changing the sum."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 16,
+    "title": "Ones and Zeroes",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q16FindMaxFormOptimized",
+        "returnType": "int",
+        "parameters": "String[] strs, int m, int n"
+      },
+      {
+        "name": "q16FindMaxFormRecursive",
+        "returnType": "int",
+        "parameters": "String[] strs, int m, int n"
+      }
+    ],
+    "examples": [
+      {
+        "input": "strs = [\"10\",\"0001\",\"111001\",\"1\",\"0\"], m = 5, n = 3",
+        "output": "4",
+        "explanation": "Choose 10, 0001, 1, and 0."
+      },
+      {
+        "input": "strs = [\"10\",\"0\",\"1\"], m = 1, n = 1",
+        "output": "2",
+        "explanation": "Choose 0 and 1 or choose 10."
+      },
+      {
+        "input": "strs = [\"111\",\"1000\"], m = 2, n = 2",
+        "output": "0",
+        "explanation": "Neither string fits both capacities."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 17,
+    "title": "Last Stone Weight II",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q17LastStoneWeightIIOptimized",
+        "returnType": "int",
+        "parameters": "int[] stones"
+      },
+      {
+        "name": "q17LastStoneWeightIIRecursive",
+        "returnType": "int",
+        "parameters": "int[] stones"
+      }
+    ],
+    "examples": [
+      {
+        "input": "stones = [2,7,4,1,8,1]",
+        "output": "1",
+        "explanation": "Groups can be split with sums 11 and 12."
+      },
+      {
+        "input": "stones = [31,26,33,21,40]",
+        "output": "5",
+        "explanation": "The closest partition leaves difference 5."
+      },
+      {
+        "input": "stones = [1]",
+        "output": "1",
+        "explanation": "One stone remains unchanged."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 18,
+    "title": "Partition Equal Subset Sum",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q18CanPartitionOptimized",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      },
+      {
+        "name": "q18CanPartitionRecursive",
+        "returnType": "boolean",
+        "parameters": "int[] nums"
+      }
+    ],
+    "examples": [
+      {
+        "input": "nums = [1,5,11,5]",
+        "output": "true",
+        "explanation": "One subset can sum to 11."
+      },
+      {
+        "input": "nums = [1,2,3,5]",
+        "output": "false",
+        "explanation": "No subset reaches half of 11 because the total is odd."
+      },
+      {
+        "input": "nums = [2,2,3,5]",
+        "output": "false",
+        "explanation": "The target is 6, but no subset sums to 6."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 19,
+    "title": "Longest Increasing Path in a Matrix",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q19LongestIncreasingPathOptimized",
+        "returnType": "int",
+        "parameters": "int[][] matrix"
+      },
+      {
+        "name": "q19LongestIncreasingPathRecursive",
+        "returnType": "int",
+        "parameters": "int[][] matrix"
+      }
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[9,9,4],[6,6,8],[2,1,1]]",
+        "output": "4",
+        "explanation": "One longest path is 1 -> 2 -> 6 -> 9."
+      },
+      {
+        "input": "matrix = [[3,4,5],[3,2,6],[2,2,1]]",
+        "output": "4",
+        "explanation": "One longest path is 3 -> 4 -> 5 -> 6."
+      },
+      {
+        "input": "matrix = [[1]]",
+        "output": "1",
+        "explanation": "The single cell is the path."
+      }
+    ]
+  },
+  {
+    "topic": "dp-2d",
+    "topicNumber": 18,
+    "number": 20,
+    "title": "Maximal Square",
+    "className": "DynamicProgramming2DModerate",
+    "methods": [
+      {
+        "name": "q20MaximalSquareOptimized",
+        "returnType": "int",
+        "parameters": "char[][] matrix"
+      },
+      {
+        "name": "q20MaximalSquareRecursive",
+        "returnType": "int",
+        "parameters": "char[][] matrix"
+      }
+    ],
+    "examples": [
+      {
+        "input": "matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]",
+        "output": "4",
+        "explanation": "The largest square has side length 2."
+      },
+      {
+        "input": "matrix = [[\"0\",\"1\"],[\"1\",\"0\"]]",
+        "output": "1",
+        "explanation": "Each single 1 forms a square of area 1."
+      },
+      {
+        "input": "matrix = [[\"0\"]]",
+        "output": "0",
+        "explanation": "There is no square of 1s."
+      }
+    ]
+  }
+]

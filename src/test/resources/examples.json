@@ -1,0 +1,4818 @@
+[
+  {
+    "id": "recursion-1-q01FibOptimized",
+    "className": "RecursionBasic",
+    "method": "q01FibOptimized",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "recursion-1-q01FibRecursive",
+    "className": "RecursionBasic",
+    "method": "q01FibRecursive",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "recursion-2-q02ClimbStairsOptimized",
+    "className": "RecursionBasic",
+    "method": "q02ClimbStairsOptimized",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "recursion-2-q02ClimbStairsRecursive",
+    "className": "RecursionBasic",
+    "method": "q02ClimbStairsRecursive",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "recursion-3-q03MyPowOptimized",
+    "className": "RecursionBasic",
+    "method": "q03MyPowOptimized",
+    "args": [
+      2.0,
+      10
+    ],
+    "mode": "equal",
+    "expected": 1024.0
+  },
+  {
+    "id": "recursion-3-q03MyPowRecursive",
+    "className": "RecursionBasic",
+    "method": "q03MyPowRecursive",
+    "args": [
+      2.0,
+      10
+    ],
+    "mode": "equal",
+    "expected": 1024.0
+  },
+  {
+    "id": "recursion-4-q04ReverseStringOptimized",
+    "className": "RecursionBasic",
+    "method": "q04ReverseStringOptimized",
+    "args": [
+      [
+        "h",
+        "e",
+        "l",
+        "l",
+        "o"
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      "o",
+      "l",
+      "l",
+      "e",
+      "h"
+    ]
+  },
+  {
+    "id": "recursion-4-q04ReverseStringRecursive",
+    "className": "RecursionBasic",
+    "method": "q04ReverseStringRecursive",
+    "args": [
+      [
+        "h",
+        "e",
+        "l",
+        "l",
+        "o"
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      "o",
+      "l",
+      "l",
+      "e",
+      "h"
+    ]
+  },
+  {
+    "id": "recursion-5-q05SwapPairsOptimized",
+    "className": "RecursionBasic",
+    "method": "q05SwapPairsOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      2,
+      1,
+      4,
+      3
+    ]
+  },
+  {
+    "id": "recursion-5-q05SwapPairsRecursive",
+    "className": "RecursionBasic",
+    "method": "q05SwapPairsRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      2,
+      1,
+      4,
+      3
+    ]
+  },
+  {
+    "id": "recursion-6-q06MergeTwoListsOptimized",
+    "className": "RecursionBasic",
+    "method": "q06MergeTwoListsOptimized",
+    "args": [
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        1,
+        3,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      1,
+      2,
+      3,
+      4,
+      4
+    ]
+  },
+  {
+    "id": "recursion-6-q06MergeTwoListsRecursive",
+    "className": "RecursionBasic",
+    "method": "q06MergeTwoListsRecursive",
+    "args": [
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        1,
+        3,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      1,
+      1,
+      2,
+      3,
+      4,
+      4
+    ]
+  },
+  {
+    "id": "recursion-7-q07KthGrammarOptimized",
+    "className": "RecursionBasic",
+    "method": "q07KthGrammarOptimized",
+    "args": [
+      1,
+      1
+    ],
+    "mode": "equal",
+    "expected": 0
+  },
+  {
+    "id": "recursion-7-q07KthGrammarRecursive",
+    "className": "RecursionBasic",
+    "method": "q07KthGrammarRecursive",
+    "args": [
+      1,
+      1
+    ],
+    "mode": "equal",
+    "expected": 0
+  },
+  {
+    "id": "recursion-8-q08GenerateParenthesisOptimized",
+    "className": "RecursionBasic",
+    "method": "q08GenerateParenthesisOptimized",
+    "args": [
+      3
+    ],
+    "mode": "unordered",
+    "expected": [
+      "((()))",
+      "(()())",
+      "(())()",
+      "()(())",
+      "()()()"
+    ]
+  },
+  {
+    "id": "recursion-8-q08GenerateParenthesisRecursive",
+    "className": "RecursionBasic",
+    "method": "q08GenerateParenthesisRecursive",
+    "args": [
+      3
+    ],
+    "mode": "unordered",
+    "expected": [
+      "((()))",
+      "(()())",
+      "(())()",
+      "()(())",
+      "()()()"
+    ]
+  },
+  {
+    "id": "recursion-9-q09SubsetsOptimized",
+    "className": "RecursionBasic",
+    "method": "q09SubsetsOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "id": "recursion-9-q09SubsetsRecursive",
+    "className": "RecursionBasic",
+    "method": "q09SubsetsRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "id": "recursion-10-q10PermuteOptimized",
+    "className": "RecursionBasic",
+    "method": "q10PermuteOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "recursion-10-q10PermuteRecursive",
+    "className": "RecursionBasic",
+    "method": "q10PermuteRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "recursion-11-q11LetterCombinationsOptimized",
+    "className": "RecursionBasic",
+    "method": "q11LetterCombinationsOptimized",
+    "args": [
+      "23"
+    ],
+    "mode": "unordered",
+    "expected": [
+      "ad",
+      "ae",
+      "af",
+      "bd",
+      "be",
+      "bf",
+      "cd",
+      "ce",
+      "cf"
+    ]
+  },
+  {
+    "id": "recursion-11-q11LetterCombinationsRecursive",
+    "className": "RecursionBasic",
+    "method": "q11LetterCombinationsRecursive",
+    "args": [
+      "23"
+    ],
+    "mode": "unordered",
+    "expected": [
+      "ad",
+      "ae",
+      "af",
+      "bd",
+      "be",
+      "bf",
+      "cd",
+      "ce",
+      "cf"
+    ]
+  },
+  {
+    "id": "recursion-12-q12CombineOptimized",
+    "className": "RecursionBasic",
+    "method": "q12CombineOptimized",
+    "args": [
+      4,
+      2
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "id": "recursion-12-q12CombineRecursive",
+    "className": "RecursionBasic",
+    "method": "q12CombineRecursive",
+    "args": [
+      4,
+      2
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "id": "recursion-13-q13CombinationSumOptimized",
+    "className": "RecursionModerate",
+    "method": "q13CombinationSumOptimized",
+    "args": [
+      [
+        2,
+        3,
+        6,
+        7
+      ],
+      7
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        2,
+        2,
+        3
+      ],
+      [
+        7
+      ]
+    ]
+  },
+  {
+    "id": "recursion-13-q13CombinationSumRecursive",
+    "className": "RecursionModerate",
+    "method": "q13CombinationSumRecursive",
+    "args": [
+      [
+        2,
+        3,
+        6,
+        7
+      ],
+      7
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        2,
+        2,
+        3
+      ],
+      [
+        7
+      ]
+    ]
+  },
+  {
+    "id": "recursion-14-q14SolveNQueensOptimized",
+    "className": "RecursionModerate",
+    "method": "q14SolveNQueensOptimized",
+    "args": [
+      4
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        ".Q..",
+        "...Q",
+        "Q...",
+        "..Q."
+      ],
+      [
+        "..Q.",
+        "Q...",
+        "...Q",
+        ".Q.."
+      ]
+    ]
+  },
+  {
+    "id": "recursion-14-q14SolveNQueensRecursive",
+    "className": "RecursionModerate",
+    "method": "q14SolveNQueensRecursive",
+    "args": [
+      4
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        ".Q..",
+        "...Q",
+        "Q...",
+        "..Q."
+      ],
+      [
+        "..Q.",
+        "Q...",
+        "...Q",
+        ".Q.."
+      ]
+    ]
+  },
+  {
+    "id": "recursion-15-q15SolveSudokuOptimized",
+    "className": "RecursionModerate",
+    "method": "q15SolveSudokuOptimized",
+    "args": [
+      [
+        [
+          "5",
+          "3",
+          ".",
+          ".",
+          "7",
+          ".",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          "6",
+          ".",
+          ".",
+          "1",
+          "9",
+          "5",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          ".",
+          "9",
+          "8",
+          ".",
+          ".",
+          ".",
+          ".",
+          "6",
+          "."
+        ],
+        [
+          "8",
+          ".",
+          ".",
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          "3"
+        ],
+        [
+          "4",
+          ".",
+          ".",
+          "8",
+          ".",
+          "3",
+          ".",
+          ".",
+          "1"
+        ],
+        [
+          "7",
+          ".",
+          ".",
+          ".",
+          "2",
+          ".",
+          ".",
+          ".",
+          "6"
+        ],
+        [
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          ".",
+          "2",
+          "8",
+          "."
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          "4",
+          "1",
+          "9",
+          ".",
+          ".",
+          "5"
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          ".",
+          "8",
+          ".",
+          ".",
+          "7",
+          "9"
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        "5",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8",
+        "9",
+        "1",
+        "2"
+      ],
+      [
+        "6",
+        "7",
+        "2",
+        "1",
+        "9",
+        "5",
+        "3",
+        "4",
+        "8"
+      ],
+      [
+        "1",
+        "9",
+        "8",
+        "3",
+        "4",
+        "2",
+        "5",
+        "6",
+        "7"
+      ],
+      [
+        "8",
+        "5",
+        "9",
+        "7",
+        "6",
+        "1",
+        "4",
+        "2",
+        "3"
+      ],
+      [
+        "4",
+        "2",
+        "6",
+        "8",
+        "5",
+        "3",
+        "7",
+        "9",
+        "1"
+      ],
+      [
+        "7",
+        "1",
+        "3",
+        "9",
+        "2",
+        "4",
+        "8",
+        "5",
+        "6"
+      ],
+      [
+        "9",
+        "6",
+        "1",
+        "5",
+        "3",
+        "7",
+        "2",
+        "8",
+        "4"
+      ],
+      [
+        "2",
+        "8",
+        "7",
+        "4",
+        "1",
+        "9",
+        "6",
+        "3",
+        "5"
+      ],
+      [
+        "3",
+        "4",
+        "5",
+        "2",
+        "8",
+        "6",
+        "1",
+        "7",
+        "9"
+      ]
+    ]
+  },
+  {
+    "id": "recursion-15-q15SolveSudokuRecursive",
+    "className": "RecursionModerate",
+    "method": "q15SolveSudokuRecursive",
+    "args": [
+      [
+        [
+          "5",
+          "3",
+          ".",
+          ".",
+          "7",
+          ".",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          "6",
+          ".",
+          ".",
+          "1",
+          "9",
+          "5",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          ".",
+          "9",
+          "8",
+          ".",
+          ".",
+          ".",
+          ".",
+          "6",
+          "."
+        ],
+        [
+          "8",
+          ".",
+          ".",
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          "3"
+        ],
+        [
+          "4",
+          ".",
+          ".",
+          "8",
+          ".",
+          "3",
+          ".",
+          ".",
+          "1"
+        ],
+        [
+          "7",
+          ".",
+          ".",
+          ".",
+          "2",
+          ".",
+          ".",
+          ".",
+          "6"
+        ],
+        [
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          ".",
+          "2",
+          "8",
+          "."
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          "4",
+          "1",
+          "9",
+          ".",
+          ".",
+          "5"
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          ".",
+          "8",
+          ".",
+          ".",
+          "7",
+          "9"
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        "5",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8",
+        "9",
+        "1",
+        "2"
+      ],
+      [
+        "6",
+        "7",
+        "2",
+        "1",
+        "9",
+        "5",
+        "3",
+        "4",
+        "8"
+      ],
+      [
+        "1",
+        "9",
+        "8",
+        "3",
+        "4",
+        "2",
+        "5",
+        "6",
+        "7"
+      ],
+      [
+        "8",
+        "5",
+        "9",
+        "7",
+        "6",
+        "1",
+        "4",
+        "2",
+        "3"
+      ],
+      [
+        "4",
+        "2",
+        "6",
+        "8",
+        "5",
+        "3",
+        "7",
+        "9",
+        "1"
+      ],
+      [
+        "7",
+        "1",
+        "3",
+        "9",
+        "2",
+        "4",
+        "8",
+        "5",
+        "6"
+      ],
+      [
+        "9",
+        "6",
+        "1",
+        "5",
+        "3",
+        "7",
+        "2",
+        "8",
+        "4"
+      ],
+      [
+        "2",
+        "8",
+        "7",
+        "4",
+        "1",
+        "9",
+        "6",
+        "3",
+        "5"
+      ],
+      [
+        "3",
+        "4",
+        "5",
+        "2",
+        "8",
+        "6",
+        "1",
+        "7",
+        "9"
+      ]
+    ]
+  },
+  {
+    "id": "recursion-16-q16ExistOptimized",
+    "className": "RecursionModerate",
+    "method": "q16ExistOptimized",
+    "args": [
+      [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ],
+        [
+          "S",
+          "F",
+          "C",
+          "S"
+        ],
+        [
+          "A",
+          "D",
+          "E",
+          "E"
+        ]
+      ],
+      "ABCCED"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "recursion-16-q16ExistRecursive",
+    "className": "RecursionModerate",
+    "method": "q16ExistRecursive",
+    "args": [
+      [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ],
+        [
+          "S",
+          "F",
+          "C",
+          "S"
+        ],
+        [
+          "A",
+          "D",
+          "E",
+          "E"
+        ]
+      ],
+      "ABCCED"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "recursion-17-q17IsSameTreeOptimized",
+    "className": "RecursionModerate",
+    "method": "q17IsSameTreeOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "recursion-17-q17IsSameTreeRecursive",
+    "className": "RecursionModerate",
+    "method": "q17IsSameTreeRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "recursion-18-q18IsSymmetricOptimized",
+    "className": "RecursionModerate",
+    "method": "q18IsSymmetricOptimized",
+    "args": [
+      [
+        1,
+        2,
+        2,
+        3,
+        4,
+        4,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "recursion-18-q18IsSymmetricRecursive",
+    "className": "RecursionModerate",
+    "method": "q18IsSymmetricRecursive",
+    "args": [
+      [
+        1,
+        2,
+        2,
+        3,
+        4,
+        4,
+        3
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "recursion-19-q19MaxDepthOptimized",
+    "className": "RecursionModerate",
+    "method": "q19MaxDepthOptimized",
+    "args": [
+      [
+        3,
+        9,
+        20,
+        null,
+        null,
+        15,
+        7
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "recursion-19-q19MaxDepthRecursive",
+    "className": "RecursionModerate",
+    "method": "q19MaxDepthRecursive",
+    "args": [
+      [
+        3,
+        9,
+        20,
+        null,
+        null,
+        15,
+        7
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "recursion-20-q20InvertTreeOptimized",
+    "className": "RecursionModerate",
+    "method": "q20InvertTreeOptimized",
+    "args": [
+      [
+        4,
+        2,
+        7,
+        1,
+        3,
+        6,
+        9
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      4,
+      7,
+      2,
+      9,
+      6,
+      3,
+      1
+    ]
+  },
+  {
+    "id": "recursion-20-q20InvertTreeRecursive",
+    "className": "RecursionModerate",
+    "method": "q20InvertTreeRecursive",
+    "args": [
+      [
+        4,
+        2,
+        7,
+        1,
+        3,
+        6,
+        9
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      4,
+      7,
+      2,
+      9,
+      6,
+      3,
+      1
+    ]
+  },
+  {
+    "id": "backtracking-1-q01SubsetsOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q01SubsetsOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-1-q01SubsetsRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q01SubsetsRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-2-q02SubsetsWithDupOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q02SubsetsWithDupOptimized",
+    "args": [
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2
+      ],
+      [
+        2,
+        2
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-2-q02SubsetsWithDupRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q02SubsetsWithDupRecursive",
+    "args": [
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2
+      ],
+      [
+        2,
+        2
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-3-q03PermuteOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q03PermuteOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-3-q03PermuteRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q03PermuteRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-4-q04PermuteUniqueOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q04PermuteUniqueOptimized",
+    "args": [
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-4-q04PermuteUniqueRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q04PermuteUniqueRecursive",
+    "args": [
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-5-q05CombineOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q05CombineOptimized",
+    "args": [
+      4,
+      2
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-5-q05CombineRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q05CombineRecursive",
+    "args": [
+      4,
+      2
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-6-q06CombinationSumOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q06CombinationSumOptimized",
+    "args": [
+      [
+        2,
+        3,
+        6,
+        7
+      ],
+      7
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        2,
+        2,
+        3
+      ],
+      [
+        7
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-6-q06CombinationSumRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q06CombinationSumRecursive",
+    "args": [
+      [
+        2,
+        3,
+        6,
+        7
+      ],
+      7
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        2,
+        2,
+        3
+      ],
+      [
+        7
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-7-q07CombinationSum2Optimized",
+    "className": "BacktrackingBasic",
+    "method": "q07CombinationSum2Optimized",
+    "args": [
+      [
+        10,
+        1,
+        2,
+        7,
+        6,
+        1,
+        5
+      ],
+      8
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        1,
+        6
+      ],
+      [
+        1,
+        2,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        6
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-7-q07CombinationSum2Recursive",
+    "className": "BacktrackingBasic",
+    "method": "q07CombinationSum2Recursive",
+    "args": [
+      [
+        10,
+        1,
+        2,
+        7,
+        6,
+        1,
+        5
+      ],
+      8
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        1,
+        6
+      ],
+      [
+        1,
+        2,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        6
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-8-q08CombinationSum3Optimized",
+    "className": "BacktrackingBasic",
+    "method": "q08CombinationSum3Optimized",
+    "args": [
+      3,
+      7
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-8-q08CombinationSum3Recursive",
+    "className": "BacktrackingBasic",
+    "method": "q08CombinationSum3Recursive",
+    "args": [
+      3,
+      7
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        1,
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-9-q09GenerateParenthesisOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q09GenerateParenthesisOptimized",
+    "args": [
+      3
+    ],
+    "mode": "unordered",
+    "expected": [
+      "((()))",
+      "(()())",
+      "(())()",
+      "()(())",
+      "()()()"
+    ]
+  },
+  {
+    "id": "backtracking-9-q09GenerateParenthesisRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q09GenerateParenthesisRecursive",
+    "args": [
+      3
+    ],
+    "mode": "unordered",
+    "expected": [
+      "((()))",
+      "(()())",
+      "(())()",
+      "()(())",
+      "()()()"
+    ]
+  },
+  {
+    "id": "backtracking-10-q10LetterCombinationsOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q10LetterCombinationsOptimized",
+    "args": [
+      "23"
+    ],
+    "mode": "unordered",
+    "expected": [
+      "ad",
+      "ae",
+      "af",
+      "bd",
+      "be",
+      "bf",
+      "cd",
+      "ce",
+      "cf"
+    ]
+  },
+  {
+    "id": "backtracking-10-q10LetterCombinationsRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q10LetterCombinationsRecursive",
+    "args": [
+      "23"
+    ],
+    "mode": "unordered",
+    "expected": [
+      "ad",
+      "ae",
+      "af",
+      "bd",
+      "be",
+      "bf",
+      "cd",
+      "ce",
+      "cf"
+    ]
+  },
+  {
+    "id": "backtracking-11-q11PartitionOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q11PartitionOptimized",
+    "args": [
+      "aab"
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        "a",
+        "a",
+        "b"
+      ],
+      [
+        "aa",
+        "b"
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-11-q11PartitionRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q11PartitionRecursive",
+    "args": [
+      "aab"
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        "a",
+        "a",
+        "b"
+      ],
+      [
+        "aa",
+        "b"
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-12-q12RestoreIpAddressesOptimized",
+    "className": "BacktrackingBasic",
+    "method": "q12RestoreIpAddressesOptimized",
+    "args": [
+      "25525511135"
+    ],
+    "mode": "unordered",
+    "expected": [
+      "255.255.11.135",
+      "255.255.111.35"
+    ]
+  },
+  {
+    "id": "backtracking-12-q12RestoreIpAddressesRecursive",
+    "className": "BacktrackingBasic",
+    "method": "q12RestoreIpAddressesRecursive",
+    "args": [
+      "25525511135"
+    ],
+    "mode": "unordered",
+    "expected": [
+      "255.255.11.135",
+      "255.255.111.35"
+    ]
+  },
+  {
+    "id": "backtracking-13-q13ExistOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q13ExistOptimized",
+    "args": [
+      [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ],
+        [
+          "S",
+          "F",
+          "C",
+          "S"
+        ],
+        [
+          "A",
+          "D",
+          "E",
+          "E"
+        ]
+      ],
+      "ABCCED"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "backtracking-13-q13ExistRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q13ExistRecursive",
+    "args": [
+      [
+        [
+          "A",
+          "B",
+          "C",
+          "E"
+        ],
+        [
+          "S",
+          "F",
+          "C",
+          "S"
+        ],
+        [
+          "A",
+          "D",
+          "E",
+          "E"
+        ]
+      ],
+      "ABCCED"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "backtracking-14-q14SolveNQueensOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q14SolveNQueensOptimized",
+    "args": [
+      4
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        ".Q..",
+        "...Q",
+        "Q...",
+        "..Q."
+      ],
+      [
+        "..Q.",
+        "Q...",
+        "...Q",
+        ".Q.."
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-14-q14SolveNQueensRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q14SolveNQueensRecursive",
+    "args": [
+      4
+    ],
+    "mode": "unordered",
+    "expected": [
+      [
+        ".Q..",
+        "...Q",
+        "Q...",
+        "..Q."
+      ],
+      [
+        "..Q.",
+        "Q...",
+        "...Q",
+        ".Q.."
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-15-q15SolveSudokuOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q15SolveSudokuOptimized",
+    "args": [
+      [
+        [
+          "5",
+          "3",
+          ".",
+          ".",
+          "7",
+          ".",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          "6",
+          ".",
+          ".",
+          "1",
+          "9",
+          "5",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          ".",
+          "9",
+          "8",
+          ".",
+          ".",
+          ".",
+          ".",
+          "6",
+          "."
+        ],
+        [
+          "8",
+          ".",
+          ".",
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          "3"
+        ],
+        [
+          "4",
+          ".",
+          ".",
+          "8",
+          ".",
+          "3",
+          ".",
+          ".",
+          "1"
+        ],
+        [
+          "7",
+          ".",
+          ".",
+          ".",
+          "2",
+          ".",
+          ".",
+          ".",
+          "6"
+        ],
+        [
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          ".",
+          "2",
+          "8",
+          "."
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          "4",
+          "1",
+          "9",
+          ".",
+          ".",
+          "5"
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          ".",
+          "8",
+          ".",
+          ".",
+          "7",
+          "9"
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        "5",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8",
+        "9",
+        "1",
+        "2"
+      ],
+      [
+        "6",
+        "7",
+        "2",
+        "1",
+        "9",
+        "5",
+        "3",
+        "4",
+        "8"
+      ],
+      [
+        "1",
+        "9",
+        "8",
+        "3",
+        "4",
+        "2",
+        "5",
+        "6",
+        "7"
+      ],
+      [
+        "8",
+        "5",
+        "9",
+        "7",
+        "6",
+        "1",
+        "4",
+        "2",
+        "3"
+      ],
+      [
+        "4",
+        "2",
+        "6",
+        "8",
+        "5",
+        "3",
+        "7",
+        "9",
+        "1"
+      ],
+      [
+        "7",
+        "1",
+        "3",
+        "9",
+        "2",
+        "4",
+        "8",
+        "5",
+        "6"
+      ],
+      [
+        "9",
+        "6",
+        "1",
+        "5",
+        "3",
+        "7",
+        "2",
+        "8",
+        "4"
+      ],
+      [
+        "2",
+        "8",
+        "7",
+        "4",
+        "1",
+        "9",
+        "6",
+        "3",
+        "5"
+      ],
+      [
+        "3",
+        "4",
+        "5",
+        "2",
+        "8",
+        "6",
+        "1",
+        "7",
+        "9"
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-15-q15SolveSudokuRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q15SolveSudokuRecursive",
+    "args": [
+      [
+        [
+          "5",
+          "3",
+          ".",
+          ".",
+          "7",
+          ".",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          "6",
+          ".",
+          ".",
+          "1",
+          "9",
+          "5",
+          ".",
+          ".",
+          "."
+        ],
+        [
+          ".",
+          "9",
+          "8",
+          ".",
+          ".",
+          ".",
+          ".",
+          "6",
+          "."
+        ],
+        [
+          "8",
+          ".",
+          ".",
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          "3"
+        ],
+        [
+          "4",
+          ".",
+          ".",
+          "8",
+          ".",
+          "3",
+          ".",
+          ".",
+          "1"
+        ],
+        [
+          "7",
+          ".",
+          ".",
+          ".",
+          "2",
+          ".",
+          ".",
+          ".",
+          "6"
+        ],
+        [
+          ".",
+          "6",
+          ".",
+          ".",
+          ".",
+          ".",
+          "2",
+          "8",
+          "."
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          "4",
+          "1",
+          "9",
+          ".",
+          ".",
+          "5"
+        ],
+        [
+          ".",
+          ".",
+          ".",
+          ".",
+          "8",
+          ".",
+          ".",
+          "7",
+          "9"
+        ]
+      ]
+    ],
+    "mode": "mutated",
+    "expected": [
+      [
+        "5",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8",
+        "9",
+        "1",
+        "2"
+      ],
+      [
+        "6",
+        "7",
+        "2",
+        "1",
+        "9",
+        "5",
+        "3",
+        "4",
+        "8"
+      ],
+      [
+        "1",
+        "9",
+        "8",
+        "3",
+        "4",
+        "2",
+        "5",
+        "6",
+        "7"
+      ],
+      [
+        "8",
+        "5",
+        "9",
+        "7",
+        "6",
+        "1",
+        "4",
+        "2",
+        "3"
+      ],
+      [
+        "4",
+        "2",
+        "6",
+        "8",
+        "5",
+        "3",
+        "7",
+        "9",
+        "1"
+      ],
+      [
+        "7",
+        "1",
+        "3",
+        "9",
+        "2",
+        "4",
+        "8",
+        "5",
+        "6"
+      ],
+      [
+        "9",
+        "6",
+        "1",
+        "5",
+        "3",
+        "7",
+        "2",
+        "8",
+        "4"
+      ],
+      [
+        "2",
+        "8",
+        "7",
+        "4",
+        "1",
+        "9",
+        "6",
+        "3",
+        "5"
+      ],
+      [
+        "3",
+        "4",
+        "5",
+        "2",
+        "8",
+        "6",
+        "1",
+        "7",
+        "9"
+      ]
+    ]
+  },
+  {
+    "id": "backtracking-16-q16FindPathOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q16FindPathOptimized",
+    "args": [
+      [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      "DDRDRR",
+      "DRDDRR"
+    ]
+  },
+  {
+    "id": "backtracking-16-q16FindPathRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q16FindPathRecursive",
+    "args": [
+      [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ]
+    ],
+    "mode": "unordered",
+    "expected": [
+      "DDRDRR",
+      "DRDDRR"
+    ]
+  },
+  {
+    "id": "backtracking-17-q17UniquePathsIIIOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q17UniquePathsIIIOptimized",
+    "args": [
+      [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          -1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "backtracking-17-q17UniquePathsIIIRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q17UniquePathsIIIRecursive",
+    "args": [
+      [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          -1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "backtracking-18-q18MakesquareOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q18MakesquareOptimized",
+    "args": [
+      [
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "backtracking-18-q18MakesquareRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q18MakesquareRecursive",
+    "args": [
+      [
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "backtracking-19-q19CanPartitionKSubsetsOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q19CanPartitionKSubsetsOptimized",
+    "args": [
+      [
+        4,
+        3,
+        2,
+        3,
+        5,
+        2,
+        1
+      ],
+      4
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "backtracking-19-q19CanPartitionKSubsetsRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q19CanPartitionKSubsetsRecursive",
+    "args": [
+      [
+        4,
+        3,
+        2,
+        3,
+        5,
+        2,
+        1
+      ],
+      4
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "backtracking-20-q20CountArrangementOptimized",
+    "className": "BacktrackingModerate",
+    "method": "q20CountArrangementOptimized",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "backtracking-20-q20CountArrangementRecursive",
+    "className": "BacktrackingModerate",
+    "method": "q20CountArrangementRecursive",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "greedy-1-q01FindContentChildrenOptimized",
+    "className": "GreedyBasic",
+    "method": "q01FindContentChildrenOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "greedy-1-q01FindContentChildrenRecursive",
+    "className": "GreedyBasic",
+    "method": "q01FindContentChildrenRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "greedy-2-q02LemonadeChangeOptimized",
+    "className": "GreedyBasic",
+    "method": "q02LemonadeChangeOptimized",
+    "args": [
+      [
+        5,
+        5,
+        5,
+        10,
+        20
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-2-q02LemonadeChangeRecursive",
+    "className": "GreedyBasic",
+    "method": "q02LemonadeChangeRecursive",
+    "args": [
+      [
+        5,
+        5,
+        5,
+        10,
+        20
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-3-q03CanJumpOptimized",
+    "className": "GreedyBasic",
+    "method": "q03CanJumpOptimized",
+    "args": [
+      [
+        2,
+        3,
+        1,
+        1,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-3-q03CanJumpRecursive",
+    "className": "GreedyBasic",
+    "method": "q03CanJumpRecursive",
+    "args": [
+      [
+        2,
+        3,
+        1,
+        1,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-4-q04JumpOptimized",
+    "className": "GreedyBasic",
+    "method": "q04JumpOptimized",
+    "args": [
+      [
+        2,
+        3,
+        1,
+        1,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "greedy-4-q04JumpRecursive",
+    "className": "GreedyBasic",
+    "method": "q04JumpRecursive",
+    "args": [
+      [
+        2,
+        3,
+        1,
+        1,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "greedy-5-q05CanCompleteCircuitOptimized",
+    "className": "GreedyBasic",
+    "method": "q05CanCompleteCircuitOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        3,
+        4,
+        5,
+        1,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "greedy-5-q05CanCompleteCircuitRecursive",
+    "className": "GreedyBasic",
+    "method": "q05CanCompleteCircuitRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        3,
+        4,
+        5,
+        1,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "greedy-6-q06CandyOptimized",
+    "className": "GreedyBasic",
+    "method": "q06CandyOptimized",
+    "args": [
+      [
+        1,
+        0,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "id": "greedy-6-q06CandyRecursive",
+    "className": "GreedyBasic",
+    "method": "q06CandyRecursive",
+    "args": [
+      [
+        1,
+        0,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "id": "greedy-7-q07ReconstructQueueOptimized",
+    "className": "GreedyBasic",
+    "method": "q07ReconstructQueueOptimized",
+    "args": [
+      [
+        [
+          7,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        5,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        7,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "greedy-7-q07ReconstructQueueRecursive",
+    "className": "GreedyBasic",
+    "method": "q07ReconstructQueueRecursive",
+    "args": [
+      [
+        [
+          7,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        5,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        7,
+        1
+      ]
+    ]
+  },
+  {
+    "id": "greedy-8-q08EraseOverlapIntervalsOptimized",
+    "className": "GreedyBasic",
+    "method": "q08EraseOverlapIntervalsOptimized",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "greedy-8-q08EraseOverlapIntervalsRecursive",
+    "className": "GreedyBasic",
+    "method": "q08EraseOverlapIntervalsRecursive",
+    "args": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "greedy-9-q09MergeOptimized",
+    "className": "GreedyBasic",
+    "method": "q09MergeOptimized",
+    "args": [
+      [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          15,
+          18
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        1,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        15,
+        18
+      ]
+    ]
+  },
+  {
+    "id": "greedy-9-q09MergeRecursive",
+    "className": "GreedyBasic",
+    "method": "q09MergeRecursive",
+    "args": [
+      [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          15,
+          18
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": [
+      [
+        1,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        15,
+        18
+      ]
+    ]
+  },
+  {
+    "id": "greedy-10-q10FindMinArrowShotsOptimized",
+    "className": "GreedyBasic",
+    "method": "q10FindMinArrowShotsOptimized",
+    "args": [
+      [
+        [
+          10,
+          16
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          12
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "greedy-10-q10FindMinArrowShotsRecursive",
+    "className": "GreedyBasic",
+    "method": "q10FindMinArrowShotsRecursive",
+    "args": [
+      [
+        [
+          10,
+          16
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          12
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "greedy-11-q11PartitionLabelsOptimized",
+    "className": "GreedyBasic",
+    "method": "q11PartitionLabelsOptimized",
+    "args": [
+      "ababcbacadefegdehijhklij"
+    ],
+    "mode": "equal",
+    "expected": [
+      9,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "greedy-11-q11PartitionLabelsRecursive",
+    "className": "GreedyBasic",
+    "method": "q11PartitionLabelsRecursive",
+    "args": [
+      "ababcbacadefegdehijhklij"
+    ],
+    "mode": "equal",
+    "expected": [
+      9,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "greedy-12-q12LeastIntervalOptimized",
+    "className": "GreedyBasic",
+    "method": "q12LeastIntervalOptimized",
+    "args": [
+      [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 8
+  },
+  {
+    "id": "greedy-12-q12LeastIntervalRecursive",
+    "className": "GreedyBasic",
+    "method": "q12LeastIntervalRecursive",
+    "args": [
+      [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 8
+  },
+  {
+    "id": "greedy-13-q13ReorganizeStringOptimized",
+    "className": "GreedyModerate",
+    "method": "q13ReorganizeStringOptimized",
+    "args": [
+      "aab"
+    ],
+    "mode": "reorganize",
+    "expected": "aba"
+  },
+  {
+    "id": "greedy-13-q13ReorganizeStringRecursive",
+    "className": "GreedyModerate",
+    "method": "q13ReorganizeStringRecursive",
+    "args": [
+      "aab"
+    ],
+    "mode": "reorganize",
+    "expected": "aba"
+  },
+  {
+    "id": "greedy-14-q14IsNStraightHandOptimized",
+    "className": "GreedyModerate",
+    "method": "q14IsNStraightHandOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        6,
+        2,
+        3,
+        4,
+        7,
+        8
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-14-q14IsNStraightHandRecursive",
+    "className": "GreedyModerate",
+    "method": "q14IsNStraightHandRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        6,
+        2,
+        3,
+        4,
+        7,
+        8
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-15-q15NumRescueBoatsOptimized",
+    "className": "GreedyModerate",
+    "method": "q15NumRescueBoatsOptimized",
+    "args": [
+      [
+        1,
+        2
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "greedy-15-q15NumRescueBoatsRecursive",
+    "className": "GreedyModerate",
+    "method": "q15NumRescueBoatsRecursive",
+    "args": [
+      [
+        1,
+        2
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "greedy-16-q16TwoCitySchedCostOptimized",
+    "className": "GreedyModerate",
+    "method": "q16TwoCitySchedCostOptimized",
+    "args": [
+      [
+        [
+          10,
+          20
+        ],
+        [
+          30,
+          200
+        ],
+        [
+          400,
+          50
+        ],
+        [
+          30,
+          20
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 110
+  },
+  {
+    "id": "greedy-16-q16TwoCitySchedCostRecursive",
+    "className": "GreedyModerate",
+    "method": "q16TwoCitySchedCostRecursive",
+    "args": [
+      [
+        [
+          10,
+          20
+        ],
+        [
+          30,
+          200
+        ],
+        [
+          400,
+          50
+        ],
+        [
+          30,
+          20
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 110
+  },
+  {
+    "id": "greedy-17-q17MaxSubArrayOptimized",
+    "className": "GreedyModerate",
+    "method": "q17MaxSubArrayOptimized",
+    "args": [
+      [
+        -2,
+        1,
+        -3,
+        4,
+        -1,
+        2,
+        1,
+        -5,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "greedy-17-q17MaxSubArrayRecursive",
+    "className": "GreedyModerate",
+    "method": "q17MaxSubArrayRecursive",
+    "args": [
+      [
+        -2,
+        1,
+        -3,
+        4,
+        -1,
+        2,
+        1,
+        -5,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "greedy-18-q18MaxProfitOptimized",
+    "className": "GreedyModerate",
+    "method": "q18MaxProfitOptimized",
+    "args": [
+      [
+        7,
+        1,
+        5,
+        3,
+        6,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "id": "greedy-18-q18MaxProfitRecursive",
+    "className": "GreedyModerate",
+    "method": "q18MaxProfitRecursive",
+    "args": [
+      [
+        7,
+        1,
+        5,
+        3,
+        6,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "id": "greedy-19-q19CanPlaceFlowersOptimized",
+    "className": "GreedyModerate",
+    "method": "q19CanPlaceFlowersOptimized",
+    "args": [
+      [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      1
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-19-q19CanPlaceFlowersRecursive",
+    "className": "GreedyModerate",
+    "method": "q19CanPlaceFlowersRecursive",
+    "args": [
+      [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      1
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-20-q20IncreasingTripletOptimized",
+    "className": "GreedyModerate",
+    "method": "q20IncreasingTripletOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "greedy-20-q20IncreasingTripletRecursive",
+    "className": "GreedyModerate",
+    "method": "q20IncreasingTripletRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-1d-1-q01ClimbStairsOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q01ClimbStairsOptimized",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "dp-1d-1-q01ClimbStairsRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q01ClimbStairsRecursive",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "dp-1d-2-q02MinCostClimbingStairsOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q02MinCostClimbingStairsOptimized",
+    "args": [
+      [
+        10,
+        15,
+        20
+      ]
+    ],
+    "mode": "equal",
+    "expected": 15
+  },
+  {
+    "id": "dp-1d-2-q02MinCostClimbingStairsRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q02MinCostClimbingStairsRecursive",
+    "args": [
+      [
+        10,
+        15,
+        20
+      ]
+    ],
+    "mode": "equal",
+    "expected": 15
+  },
+  {
+    "id": "dp-1d-3-q03RobOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q03RobOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-3-q03RobRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q03RobRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-4-q04RobOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q04RobOptimized",
+    "args": [
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-4-q04RobRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q04RobRecursive",
+    "args": [
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-5-q05NumDecodingsOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q05NumDecodingsOptimized",
+    "args": [
+      "12"
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "dp-1d-5-q05NumDecodingsRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q05NumDecodingsRecursive",
+    "args": [
+      "12"
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "dp-1d-6-q06CoinChangeOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q06CoinChangeOptimized",
+    "args": [
+      [
+        1,
+        2,
+        5
+      ],
+      11
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-6-q06CoinChangeRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q06CoinChangeRecursive",
+    "args": [
+      [
+        1,
+        2,
+        5
+      ],
+      11
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-7-q07ChangeOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q07ChangeOptimized",
+    "args": [
+      5,
+      [
+        1,
+        2,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-7-q07ChangeRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q07ChangeRecursive",
+    "args": [
+      5,
+      [
+        1,
+        2,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-8-q08CombinationSum4Optimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q08CombinationSum4Optimized",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ],
+      4
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "id": "dp-1d-8-q08CombinationSum4Recursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q08CombinationSum4Recursive",
+    "args": [
+      [
+        1,
+        2,
+        3
+      ],
+      4
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "id": "dp-1d-9-q09LengthOfLISOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q09LengthOfLISOptimized",
+    "args": [
+      [
+        10,
+        9,
+        2,
+        5,
+        3,
+        7,
+        101,
+        18
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-9-q09LengthOfLISRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q09LengthOfLISRecursive",
+    "args": [
+      [
+        10,
+        9,
+        2,
+        5,
+        3,
+        7,
+        101,
+        18
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-10-q10LongestArithSeqLengthOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q10LongestArithSeqLengthOptimized",
+    "args": [
+      [
+        3,
+        6,
+        9,
+        12
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-10-q10LongestArithSeqLengthRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q10LongestArithSeqLengthRecursive",
+    "args": [
+      [
+        3,
+        6,
+        9,
+        12
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-1d-11-q11CanPartitionOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q11CanPartitionOptimized",
+    "args": [
+      [
+        1,
+        5,
+        11,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-1d-11-q11CanPartitionRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q11CanPartitionRecursive",
+    "args": [
+      [
+        1,
+        5,
+        11,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-1d-12-q12WordBreakOptimized",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q12WordBreakOptimized",
+    "args": [
+      "leetcode",
+      [
+        "leet",
+        "code"
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-1d-12-q12WordBreakRecursive",
+    "className": "DynamicProgramming1DBasic",
+    "method": "q12WordBreakRecursive",
+    "args": [
+      "leetcode",
+      [
+        "leet",
+        "code"
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-1d-13-q13NumSquaresOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q13NumSquaresOptimized",
+    "args": [
+      12
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-13-q13NumSquaresRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q13NumSquaresRecursive",
+    "args": [
+      12
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-14-q14IntegerBreakOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q14IntegerBreakOptimized",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "dp-1d-14-q14IntegerBreakRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q14IntegerBreakRecursive",
+    "args": [
+      2
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "dp-1d-15-q15MaxProductOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q15MaxProductOptimized",
+    "args": [
+      [
+        2,
+        3,
+        -2,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "dp-1d-15-q15MaxProductRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q15MaxProductRecursive",
+    "args": [
+      [
+        2,
+        3,
+        -2,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "dp-1d-16-q16MaxSubArrayOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q16MaxSubArrayOptimized",
+    "args": [
+      [
+        -2,
+        1,
+        -3,
+        4,
+        -1,
+        2,
+        1,
+        -5,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "dp-1d-16-q16MaxSubArrayRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q16MaxSubArrayRecursive",
+    "args": [
+      [
+        -2,
+        1,
+        -3,
+        4,
+        -1,
+        2,
+        1,
+        -5,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "dp-1d-17-q17MaxProfitOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q17MaxProfitOptimized",
+    "args": [
+      [
+        7,
+        1,
+        5,
+        3,
+        6,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "id": "dp-1d-17-q17MaxProfitRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q17MaxProfitRecursive",
+    "args": [
+      [
+        7,
+        1,
+        5,
+        3,
+        6,
+        4
+      ]
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "id": "dp-1d-18-q18MaxProfitOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q18MaxProfitOptimized",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        0,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-18-q18MaxProfitRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q18MaxProfitRecursive",
+    "args": [
+      [
+        1,
+        2,
+        3,
+        0,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-1d-19-q19MaxProfitOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q19MaxProfitOptimized",
+    "args": [
+      [
+        1,
+        3,
+        2,
+        8,
+        4,
+        9
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 8
+  },
+  {
+    "id": "dp-1d-19-q19MaxProfitRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q19MaxProfitRecursive",
+    "args": [
+      [
+        1,
+        3,
+        2,
+        8,
+        4,
+        9
+      ],
+      2
+    ],
+    "mode": "equal",
+    "expected": 8
+  },
+  {
+    "id": "dp-1d-20-q20DeleteAndEarnOptimized",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q20DeleteAndEarnOptimized",
+    "args": [
+      [
+        3,
+        4,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "dp-1d-20-q20DeleteAndEarnRecursive",
+    "className": "DynamicProgramming1DModerate",
+    "method": "q20DeleteAndEarnRecursive",
+    "args": [
+      [
+        3,
+        4,
+        2
+      ]
+    ],
+    "mode": "equal",
+    "expected": 6
+  },
+  {
+    "id": "dp-2d-1-q01UniquePathsOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q01UniquePathsOptimized",
+    "args": [
+      3,
+      7
+    ],
+    "mode": "equal",
+    "expected": 28
+  },
+  {
+    "id": "dp-2d-1-q01UniquePathsRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q01UniquePathsRecursive",
+    "args": [
+      3,
+      7
+    ],
+    "mode": "equal",
+    "expected": 28
+  },
+  {
+    "id": "dp-2d-2-q02UniquePathsWithObstaclesOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q02UniquePathsWithObstaclesOptimized",
+    "args": [
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "dp-2d-2-q02UniquePathsWithObstaclesRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q02UniquePathsWithObstaclesRecursive",
+    "args": [
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 2
+  },
+  {
+    "id": "dp-2d-3-q03MinPathSumOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q03MinPathSumOptimized",
+    "args": [
+      [
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "id": "dp-2d-3-q03MinPathSumRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q03MinPathSumRecursive",
+    "args": [
+      [
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 7
+  },
+  {
+    "id": "dp-2d-4-q04MinimumTotalOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q04MinimumTotalOptimized",
+    "args": [
+      [
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          5,
+          7
+        ],
+        [
+          4,
+          1,
+          8,
+          3
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 11
+  },
+  {
+    "id": "dp-2d-4-q04MinimumTotalRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q04MinimumTotalRecursive",
+    "args": [
+      [
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          5,
+          7
+        ],
+        [
+          4,
+          1,
+          8,
+          3
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 11
+  },
+  {
+    "id": "dp-2d-5-q05LongestCommonSubsequenceOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q05LongestCommonSubsequenceOptimized",
+    "args": [
+      "abcde",
+      "ace"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-5-q05LongestCommonSubsequenceRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q05LongestCommonSubsequenceRecursive",
+    "args": [
+      "abcde",
+      "ace"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-6-q06MinDistanceOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q06MinDistanceOptimized",
+    "args": [
+      "horse",
+      "ros"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-6-q06MinDistanceRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q06MinDistanceRecursive",
+    "args": [
+      "horse",
+      "ros"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-7-q07IsMatchOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q07IsMatchOptimized",
+    "args": [
+      "aa",
+      "a"
+    ],
+    "mode": "equal",
+    "expected": false
+  },
+  {
+    "id": "dp-2d-7-q07IsMatchRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q07IsMatchRecursive",
+    "args": [
+      "aa",
+      "a"
+    ],
+    "mode": "equal",
+    "expected": false
+  },
+  {
+    "id": "dp-2d-8-q08IsMatchOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q08IsMatchOptimized",
+    "args": [
+      "aa",
+      "a"
+    ],
+    "mode": "equal",
+    "expected": false
+  },
+  {
+    "id": "dp-2d-8-q08IsMatchRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q08IsMatchRecursive",
+    "args": [
+      "aa",
+      "a"
+    ],
+    "mode": "equal",
+    "expected": false
+  },
+  {
+    "id": "dp-2d-9-q09NumDistinctOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q09NumDistinctOptimized",
+    "args": [
+      "rabbbit",
+      "rabbit"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-9-q09NumDistinctRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q09NumDistinctRecursive",
+    "args": [
+      "rabbbit",
+      "rabbit"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-10-q10IsInterleaveOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q10IsInterleaveOptimized",
+    "args": [
+      "aabcc",
+      "dbbca",
+      "aadbbcbcac"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-2d-10-q10IsInterleaveRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q10IsInterleaveRecursive",
+    "args": [
+      "aabcc",
+      "dbbca",
+      "aadbbcbcac"
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-2d-11-q11LongestPalindromeSubseqOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q11LongestPalindromeSubseqOptimized",
+    "args": [
+      "bbbab"
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-11-q11LongestPalindromeSubseqRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q11LongestPalindromeSubseqRecursive",
+    "args": [
+      "bbbab"
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-12-q12LongestPalindromeOptimized",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q12LongestPalindromeOptimized",
+    "args": [
+      "babad"
+    ],
+    "mode": "palindrome",
+    "expected": "bab"
+  },
+  {
+    "id": "dp-2d-12-q12LongestPalindromeRecursive",
+    "className": "DynamicProgramming2DBasic",
+    "method": "q12LongestPalindromeRecursive",
+    "args": [
+      "babad"
+    ],
+    "mode": "palindrome",
+    "expected": "bab"
+  },
+  {
+    "id": "dp-2d-13-q13CountSubstringsOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q13CountSubstringsOptimized",
+    "args": [
+      "abc"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-13-q13CountSubstringsRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q13CountSubstringsRecursive",
+    "args": [
+      "abc"
+    ],
+    "mode": "equal",
+    "expected": 3
+  },
+  {
+    "id": "dp-2d-14-q14ChangeOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q14ChangeOptimized",
+    "args": [
+      5,
+      [
+        1,
+        2,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-14-q14ChangeRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q14ChangeRecursive",
+    "args": [
+      5,
+      [
+        1,
+        2,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-15-q15FindTargetSumWaysOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q15FindTargetSumWaysOptimized",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "id": "dp-2d-15-q15FindTargetSumWaysRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q15FindTargetSumWaysRecursive",
+    "args": [
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      3
+    ],
+    "mode": "equal",
+    "expected": 5
+  },
+  {
+    "id": "dp-2d-16-q16FindMaxFormOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q16FindMaxFormOptimized",
+    "args": [
+      [
+        "10",
+        "0001",
+        "111001",
+        "1",
+        "0"
+      ],
+      5,
+      3
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-16-q16FindMaxFormRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q16FindMaxFormRecursive",
+    "args": [
+      [
+        "10",
+        "0001",
+        "111001",
+        "1",
+        "0"
+      ],
+      5,
+      3
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-17-q17LastStoneWeightIIOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q17LastStoneWeightIIOptimized",
+    "args": [
+      [
+        2,
+        7,
+        4,
+        1,
+        8,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "dp-2d-17-q17LastStoneWeightIIRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q17LastStoneWeightIIRecursive",
+    "args": [
+      [
+        2,
+        7,
+        4,
+        1,
+        8,
+        1
+      ]
+    ],
+    "mode": "equal",
+    "expected": 1
+  },
+  {
+    "id": "dp-2d-18-q18CanPartitionOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q18CanPartitionOptimized",
+    "args": [
+      [
+        1,
+        5,
+        11,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-2d-18-q18CanPartitionRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q18CanPartitionRecursive",
+    "args": [
+      [
+        1,
+        5,
+        11,
+        5
+      ]
+    ],
+    "mode": "equal",
+    "expected": true
+  },
+  {
+    "id": "dp-2d-19-q19LongestIncreasingPathOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q19LongestIncreasingPathOptimized",
+    "args": [
+      [
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          6,
+          6,
+          8
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-19-q19LongestIncreasingPathRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q19LongestIncreasingPathRecursive",
+    "args": [
+      [
+        [
+          9,
+          9,
+          4
+        ],
+        [
+          6,
+          6,
+          8
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-20-q20MaximalSquareOptimized",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q20MaximalSquareOptimized",
+    "args": [
+      [
+        [
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  },
+  {
+    "id": "dp-2d-20-q20MaximalSquareRecursive",
+    "className": "DynamicProgramming2DModerate",
+    "method": "q20MaximalSquareRecursive",
+    "args": [
+      [
+        [
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "1",
+          "0"
+        ]
+      ]
+    ],
+    "mode": "equal",
+    "expected": 4
+  }
+]
